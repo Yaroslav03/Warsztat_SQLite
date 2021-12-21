@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Button_Delete = new System.Windows.Forms.Button();
@@ -96,6 +97,17 @@
             this.Button_Clear = new System.Windows.Forms.Button();
             this.Button_Save = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asdToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.językToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.angielskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ukraińskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
@@ -107,6 +119,8 @@
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -551,7 +565,7 @@
             // 
             this.DataPrzyjecia.CustomFormat = "yyyy-MM-dd";
             this.DataPrzyjecia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DataPrzyjecia.Location = new System.Drawing.Point(95, 10);
+            this.DataPrzyjecia.Location = new System.Drawing.Point(100, 9);
             this.DataPrzyjecia.Name = "DataPrzyjecia";
             this.DataPrzyjecia.Size = new System.Drawing.Size(128, 23);
             this.DataPrzyjecia.TabIndex = 1;
@@ -570,7 +584,7 @@
             // 
             this.lngDateOfAdmission.AutoSize = true;
             this.lngDateOfAdmission.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lngDateOfAdmission.Location = new System.Drawing.Point(8, 13);
+            this.lngDateOfAdmission.Location = new System.Drawing.Point(3, 15);
             this.lngDateOfAdmission.Name = "lngDateOfAdmission";
             this.lngDateOfAdmission.Size = new System.Drawing.Size(80, 15);
             this.lngDateOfAdmission.TabIndex = 0;
@@ -809,13 +823,99 @@
             this.Button_Save.UseVisualStyleBackColor = false;
             this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sadToolStripMenuItem,
+            this.asdToolStripMenuItem,
+            this.asdToolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(93, 70);
+            // 
+            // sadToolStripMenuItem
+            // 
+            this.sadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adsToolStripMenuItem});
+            this.sadToolStripMenuItem.Name = "sadToolStripMenuItem";
+            this.sadToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.sadToolStripMenuItem.Text = "sad";
+            // 
+            // adsToolStripMenuItem
+            // 
+            this.adsToolStripMenuItem.Name = "adsToolStripMenuItem";
+            this.adsToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.adsToolStripMenuItem.Text = "ads";
+            // 
+            // asdToolStripMenuItem
+            // 
+            this.asdToolStripMenuItem.Name = "asdToolStripMenuItem";
+            this.asdToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.asdToolStripMenuItem.Text = "asd";
+            // 
+            // asdToolStripMenuItem1
+            // 
+            this.asdToolStripMenuItem1.Name = "asdToolStripMenuItem1";
+            this.asdToolStripMenuItem1.Size = new System.Drawing.Size(92, 22);
+            this.asdToolStripMenuItem1.Text = "asd";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ustawieniaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // ustawieniaToolStripMenuItem
+            // 
+            this.ustawieniaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.językToolStripMenuItem});
+            this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
+            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
+            this.ustawieniaToolStripMenuItem.Click += new System.EventHandler(this.ustawieniaToolStripMenuItem_Click);
+            // 
+            // językToolStripMenuItem
+            // 
+            this.językToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.angielskiToolStripMenuItem,
+            this.polskiToolStripMenuItem,
+            this.ukraińskiToolStripMenuItem});
+            this.językToolStripMenuItem.Name = "językToolStripMenuItem";
+            this.językToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.językToolStripMenuItem.Text = "Język";
+            // 
+            // angielskiToolStripMenuItem
+            // 
+            this.angielskiToolStripMenuItem.Name = "angielskiToolStripMenuItem";
+            this.angielskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.angielskiToolStripMenuItem.Text = "Angielski";
+            // 
+            // polskiToolStripMenuItem
+            // 
+            this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.polskiToolStripMenuItem.Text = "Polski";
+            this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
+            // 
+            // ukraińskiToolStripMenuItem
+            // 
+            this.ukraińskiToolStripMenuItem.Name = "ukraińskiToolStripMenuItem";
+            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ukraińskiToolStripMenuItem.Text = "Ukraiński";
+            this.ukraińskiToolStripMenuItem.Click += new System.EventHandler(this.ukraińskiToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -838,7 +938,11 @@
             this.panel7.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -912,6 +1016,17 @@
         private System.Windows.Forms.Label lngReleaseDate;
         private System.Windows.Forms.Label lngDateOfAdmission;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem sadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asdToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asdToolStripMenuItem1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem językToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem angielskiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem polskiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ukraińskiToolStripMenuItem;
     }
 }
 

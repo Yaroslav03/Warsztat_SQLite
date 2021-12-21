@@ -30,10 +30,10 @@
     <ROW Property="ARPNOREMOVE" Value="1"/>
     <ROW Property="ARPNOREPAIR" Value="1"/>
     <ROW Property="Manufacturer" Value="YD"/>
-    <ROW Property="ProductCode" Value="1033:{649FBC7C-37F0-47D8-823B-71CB0C18E458} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{76910DA6-91A5-4DC6-9851-227E1D47444C} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Warsztat"/>
-    <ROW Property="ProductVersion" Value="0.9.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="0.9.3" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{EC8E6FB1-2664-4379-898A-CF4D3CDAF552}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -47,7 +47,8 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
-    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="NewFolder_Dir" Directory_Parent="APPDIR" DefaultDir="NEWFOL~1|New Folder"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
     <ROW Directory="Warsztat_Dir" Directory_Parent="APPDIR" DefaultDir="Warsztat"/>
     <ROW Directory="x64_Dir" Directory_Parent="Warsztat_Dir" DefaultDir="x64"/>
@@ -55,8 +56,8 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="APPDIR" ComponentId="{6E596785-DFFB-4400-A77A-CC4BF058B2DE}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="NewFolder" ComponentId="{83C145AC-381A-400F-8996-8917A10B5EFC}" Directory_="NewFolder_Dir" Attributes="0"/>
     <ROW Component="ProductInformation" ComponentId="{20F5ACBA-D7FD-4DF7-A82F-005C50596B17}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="SHORTCUTDIR" ComponentId="{0FB848C5-4993-43DD-9178-A5ECD14FA253}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="SQLite.Interop.dll" ComponentId="{23831399-62DB-4BA4-92E8-BCE8B44E97FF}" Directory_="x64_Dir" Attributes="256" KeyPath="SQLite.Interop.dll"/>
     <ROW Component="SQLite.Interop.dll_1" ComponentId="{DDB5229A-8D3A-4485-A23E-53B99147403A}" Directory_="x86_Dir" Attributes="0" KeyPath="SQLite.Interop.dll_1"/>
     <ROW Component="Warsztat_ContentOutput" ComponentId="{F440D1DC-A29F-4926-8778-4DC31DAC5B3D}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Print_Document.docx" Type="0"/>
@@ -119,6 +120,7 @@
     <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="ShortcutFlags.dll" SourcePath="&lt;AI_CUSTACTS&gt;ShortcutFlags.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
@@ -147,18 +149,26 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
-    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+    <ROW Directory_="NewFolder_Dir" Component_="NewFolder" ManualDelete="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_ApplyShortcutFlags" Type="3073" Source="ShortcutFlags.dll" Target="UpdateShortcutFlags" WithoutSeq="true"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
     <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PinShortcuts" Type="1" Source="ShortcutFlags.dll" Target="PinShortcuts"/>
+    <ROW Action="AI_PinToStartScreen" Type="1025" Source="ShortcutFlags.dll" Target="PinToStartScreen" WithoutSeq="true"/>
+    <ROW Action="AI_PinToTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="PinToTaskbar" WithoutSeq="true"/>
+    <ROW Action="AI_PrepareShortcutFlags" Type="1" Source="ShortcutFlags.dll" Target="PrepareActionData"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_UnpinFromStartScreen" Type="1025" Source="ShortcutFlags.dll" Target="UnpinFromStartScreen" WithoutSeq="true"/>
+    <ROW Action="AI_UnpinFromTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="UnpinFromTaskbar" WithoutSeq="true"/>
+    <ROW Action="AI_UnpinShortcuts" Type="1" Source="ShortcutFlags.dll" Target="UnpinShortcuts"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
@@ -167,12 +177,15 @@
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
     <ROW Feature_="MainFeature" Component_="ProductInformation"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_PrimaryOutput"/>
-    <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_References"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_ContentOutput"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_SymbolsOutput"/>
     <ROW Feature_="MainFeature" Component_="SQLite.Interop.dll"/>
     <ROW Feature_="MainFeature" Component_="SQLite.Interop.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="NewFolder"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="SystemFoldermsiexec.exe" SourcePath="&lt;AI_RES&gt;uninstall.ico" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
@@ -181,6 +194,9 @@
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_PrepareShortcutFlags" Condition="(VersionNT &gt; 501) AND ((NOT Installed) OR (Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;)))" Sequence="4501"/>
+    <ROW Action="AI_PinShortcuts" Condition="(VersionNT &gt; 600) AND ((NOT Installed) OR (Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;)))" Sequence="6499"/>
+    <ROW Action="AI_UnpinShortcuts" Condition="(VersionNT &gt; 600) AND (REMOVE = &quot;ALL&quot;)" Sequence="3199"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
@@ -199,7 +215,8 @@
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="Warsztat" Directory_="SHORTCUTDIR" Name="Warsztat" Component_="Warsztat_PrimaryOutput" Target="[#Warsztat.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="UninstallProductNameProductVersion" Directory_="Warsztat_Dir" Name="UNINST~1.0|Uninstall [|ProductName] [|ProductVersion]" Component_="Warsztat_ContentOutput" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1" WkDir="Warsztat_Dir"/>
+    <ROW Shortcut="Warsztat" Directory_="DesktopFolder" Name="Warsztat" Component_="Warsztat_ContentOutput" Target="[APPDIR]Warsztat\Warsztat.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Warsztat_Dir" CustomFlags="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="classic"/>
@@ -209,7 +226,7 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.VsProjectComponent">
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="PrimaryOutput" OutputFile="Warsztat.exe" OutputFileShortcut="Warsztat"/>
+    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="PrimaryOutput" OutputFile="Warsztat.exe"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="PrimaryOutput" OutputFile="Warsztat.exe.config"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="EntityFramework.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="EntityFramework.SqlServer.dll"/>

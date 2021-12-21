@@ -26,6 +26,7 @@ namespace Warsztat
 
         public Form1()
         {
+            
             InitializeComponent();
             sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
             Load_DB();
@@ -372,6 +373,109 @@ namespace Warsztat
             //Конвертує в число
             ID = Convert.ToInt32(Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
             Read_Data_BD();
+        }
+
+        private void ustawieniaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void polskiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ustawieniaToolStripMenuItem.Text = "Ustawienia";
+            językToolStripMenuItem.Text = "Język";
+            polskiToolStripMenuItem.Text = "Polski";
+            ukraińskiToolStripMenuItem.Text = "Ukraiński";
+            angielskiToolStripMenuItem.Text = "Angielski";
+            //Кнопки
+            Button_Save.Text = "Zapisz";
+            tabPage2.Text = "Dodaj Dane";
+            Button_Clear.Text = "Wyczyść";
+            Button_Update.Text = "Odśwież Dane";
+            Button_Delete.Text = "Usuń";
+            Change_Word.Text = "Drukuj";
+            tabPage1.Text = "Zobacz Baze Danych";
+            Button_Clear_DK.Text = "Wyczyść";
+            Button_Clear_OP.Text = "Wyczyść";
+            Button_Clear_Naprawa.Text = "Wyczyść";
+            Button_Clear_Zlecenie_Klienta.Text = "Wyczyść";
+            Button_Clear_Diagnostyka.Text = "Wyczyść";
+            //Текст
+            lngMarka.Text = "Marka";
+            lngModel.Text = "Model";
+            lngRegistrationNumber.Text = "Numer Rejestracji";
+            lngYearOfProduction.Text = "Rok Produkcji";
+            lngLastName.Text = "Nazwisko";
+            lngSearch.Text = "Szukaj";
+            lngAdress.Text = "Adres";
+            lngVehicleDescription.Text = "Opis Pojazdu";
+            lngCustomerData.Text = "Dane Klienta";
+            lngMileage.Text = "Przebieg";
+            lngEngineCapacity.Text = "Pojemność Silnika";
+            lngBodyNumber.Text = "Numer Nadwozia";
+            lngName.Text = "Imię";
+            lngNIP.Text = "NIP";
+            lngTelephon.Text = "Telefon Komurkowy";
+            lngAdditionalInformation.Text = "Informacja Dodatkowa";
+            lngDateOfAdmission.Text = "Data Przyjęcia";
+            lngReleaseDate.Text = "Data Wydania";
+
+            lngClientsOrder.Text = "Zlecenie Klienta";
+            lngDiagnostics.Text = "Diagnostyka";
+            lngRepair.Text = "Naprawa";
+            LeftDocumets.Text = "Pozostawione dokumenty samochodu";
+            LeftKey.Text = "Pozostawione kluczyki";
+            TestDrive.Text = "Klient wyraża zgodę na jazdę próbną";
+            lngPrice.Text = "Koszt";
+        }
+
+        private void ukraińskiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ustawieniaToolStripMenuItem.Text = "Налаштування";
+            językToolStripMenuItem.Text = "Мова";
+            polskiToolStripMenuItem.Text = "Польська";
+            ukraińskiToolStripMenuItem.Text = "Українська";
+            angielskiToolStripMenuItem.Text = "Англійська";
+            //Кнопки
+            Button_Save.Text = "Зберегти";
+            tabPage2.Text = "Додати дані";
+            Button_Clear.Text = "Стерти";
+            Button_Update.Text = "Оновити Дані";
+            Button_Delete.Text = "Видалити";
+            Change_Word.Text = "Друкувати";
+            tabPage1.Text = "Переглянути базу даних";
+            Button_Clear_DK.Text = "Стерти";
+            Button_Clear_OP.Text = "Стерти";
+            Button_Clear_Naprawa.Text = "Стерти";
+            Button_Clear_Zlecenie_Klienta.Text = "Стерти";
+            Button_Clear_Diagnostyka.Text = "Стерти";
+            //Текст
+            lngMarka.Text = "Марка";
+            lngModel.Text = "Модель";
+            lngRegistrationNumber.Text = "Номер Реєстрації";
+            lngYearOfProduction.Text = "Рок продукції";
+            lngLastName.Text = "Фамілія";
+            lngSearch.Text = "Пошук";
+            lngAdress.Text = "Адрес";
+            lngVehicleDescription.Text = "Опис транспортного засобу";
+            lngCustomerData.Text = "Дані клієнта";
+            lngMileage.Text = "Пробіг";
+            lngEngineCapacity.Text = "Об'єм двигуна";
+            lngBodyNumber.Text = "Номер кузова";
+            lngName.Text = "Ім'я";
+            lngNIP.Text = "ІД";
+            lngTelephon.Text = "Номер Телефону";
+            lngAdditionalInformation.Text = "Інформація Додаткова";
+            lngDateOfAdmission.Text = "Дата прийняття";
+            lngReleaseDate.Text = "Дата випуску";
+
+            lngClientsOrder.Text = "Замовлення клієнта";
+            lngDiagnostics.Text = "Діагностика";
+            lngRepair.Text = "Ремонт";
+            LeftDocumets.Text = "залишені документи транспортного засобу";
+            LeftKey.Text = "Залишені ключі";
+            TestDrive.Text = "Клієнт дає згоду на  пробну їзду";
+            lngPrice.Text = "Ціна";
         }
     }
 }
