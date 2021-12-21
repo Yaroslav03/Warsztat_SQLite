@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4c4761d7-9a32-4275-9ae4-cbb27d1f8087": {
+      "ProjectGuid": "4c4761d7-9a32-4275-9ae4-cbb27d1f8087",
+      "DisplayName": "Warsztat",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "8b2bd41c-9a15-465b-8dc5-18940a680753": {
+      "ProjectGuid": "8b2bd41c-9a15-465b-8dc5-18940a680753",
+      "DisplayName": "Setup",
+      "ColorIndex": 1
+    },
+    "6e5c12f5-3aec-43d6-ab29-f164cdd287b1": {
+      "ProjectGuid": "6e5c12f5-3aec-43d6-ab29-f164cdd287b1",
+      "DisplayName": "Setup",
+      "ColorIndex": 2
+    },
+    "5fc186d2-2467-4022-bc03-7925dcf760ff": {
+      "ProjectGuid": "5fc186d2-2467-4022-bc03-7925dcf760ff",
+      "DisplayName": "Setup",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
