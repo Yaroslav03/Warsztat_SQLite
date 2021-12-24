@@ -40,7 +40,6 @@ C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\bin\Debug\System.Data
 C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\bin\Debug\EntityFramework.xml
 C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\bin\Debug\System.Data.SQLite.xml
-C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\obj\Debug\Warsztat.csproj.AssemblyReference.cache
 C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\obj\Debug\Warsztat.csproj.SuggestedBindingRedirects.cache
 C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\obj\Debug\Warsztat.Form1.resources
 C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\obj\Debug\Warsztat.Properties.Resources.resources
@@ -52,3 +51,4 @@ C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\obj\Debug\Warsztat.ap
 C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\obj\Debug\Warsztat.csproj.CopyComplete
 C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\obj\Debug\Warsztat.exe
 C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\obj\Debug\Warsztat.pdb
+C:\Users\yaros\Documents\Warsztat\Warsztat_SQLite\Warsztat\obj\Debug\Warsztat.csproj.AssemblyReference.cache

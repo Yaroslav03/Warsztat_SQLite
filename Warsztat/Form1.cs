@@ -24,12 +24,18 @@ namespace Warsztat
         int ID = 0;
         string ConnectionString = "Data Source=Warsztat.db;Version=3;New=False;Compress=True;";
 
+        //підключаємося до іншого класу створюючи конструктур
+        private Verify_DB verify_DB = new Verify_DB();
+        private Copy_DB copy = new Copy_DB();
         public Form1()
         {
             
             InitializeComponent();
             sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
             Load_DB();
+            verify_DB.Verify();
+           
+
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -106,6 +112,7 @@ namespace Warsztat
 
             tabControl1.SelectTab(tabPage1);
             Clear();
+            Button_Save.Enabled = true;
         }
 
         private void Button_Clear_Click(object sender, EventArgs e)
@@ -213,8 +220,8 @@ namespace Warsztat
             sql_conn.Open();
             //Створення процедури
             sql_cmd.CommandText =
-                "INSERT INTO Dane(Model, Marka, NumerRejestracji, RokProdukcji, PojemnoscSilnika, Przebieg, NumerNadwozia, IDSilnika, Imie, Nazwisko, NIP, Telefon, Adres, ZlecenieKlienta, Diagnostyka, Naprawa, Koszt, DataPrzyjecia, TestDrive, PozostawioneKluczyki, PozostawioneDokumenty) " +
-                "VALUES(@Model, @Marka, @NumerRejestracji, @RokProdukcji, @PojemnoscSilnika, @Przebieg, @NumerNadwozia, @IDSilnika, @Imie, @Nazwisko, @NIP, @Telefon, @Adres, @ZlecenieKlienta, @Diagnostyka, @Naprawa, @Koszt, @DataPrzyjecia, @TestDrive, @PozostawioneKluczyki, @PozostawioneDokumenty)";
+                "INSERT INTO Dane(Model, Marka, NumerRejestracji, RokProdukcji, PojemnoscSilnika, Przebieg, NumerNadwozia, IDSilnika, Imie, Nazwisko, NIP, Telefon, Adres, ZlecenieKlienta, Diagnostyka, Naprawa, Koszt, DataPrzyjecia, DataWydania, TestDrive, PozostawioneKluczyki, PozostawioneDokumenty) " +
+                "VALUES(@Model, @Marka, @NumerRejestracji, @RokProdukcji, @PojemnoscSilnika, @Przebieg, @NumerNadwozia, @IDSilnika, @Imie, @Nazwisko, @NIP, @Telefon, @Adres, @ZlecenieKlienta, @Diagnostyka, @Naprawa, @Koszt, @DataPrzyjecia, @DataWydania, @TestDrive, @PozostawioneKluczyki, @PozostawioneDokumenty)";
             //Запис Основної Інформації завдяки Parameters
 
             Edit_AND_Save(); //Беремо звідти команди виконнання 
@@ -247,43 +254,44 @@ namespace Warsztat
             sql_cmd.Parameters.AddWithValue("@Naprawa", txtNaprawa.Text);
             sql_cmd.Parameters.AddWithValue("@Koszt", Price.Text);
             sql_cmd.Parameters.AddWithValue("@DataPrzyjecia", DataPrzyjecia.Text);
-            //   sql_cmd.Parameters.AddWithValue("@DataWydania", DataWydania.Text);
+            sql_cmd.Parameters.AddWithValue("@DataWydania", DataWydania.Text);
+
 
             //Інформація додаткова
             //Пробний пробіг
             if (TestDrive.Checked == true)
-            {
-                sql_cmd.Parameters.AddWithValue("@TestDrive", Jazda = "Tak");
-            }
-            else if (TestDrive.Checked == false)
-            {
-                sql_cmd.Parameters.AddWithValue("@TestDrive", Jazda = "Nie");
-            }
-            //Залишені ключі
-            if (LeftKey.Checked == true)
-            {
-                sql_cmd.Parameters.AddWithValue("@PozostawioneKluczyki", Kluczyki = "Tak");
-            }
-            else if (LeftKey.Checked == false)
-            {
-                sql_cmd.Parameters.AddWithValue("@PozostawioneKluczyki", Kluczyki = "Nie");
-            }
-            //Залишені документи
-            if (LeftDocumets.Checked == true)
-            {
-                sql_cmd.Parameters.AddWithValue("@PozostawioneDokumenty", Dokumenty = "Tak");
-            }
-            else if (LeftDocumets.Checked == false)
-            {
-                sql_cmd.Parameters.AddWithValue("@PozostawioneDokumenty", Dokumenty = "Nie");
-            }
-        }
+                {
+                    sql_cmd.Parameters.AddWithValue("@TestDrive", Jazda = "Tak");
+                }
+                else if (TestDrive.Checked == false)
+                {
+                    sql_cmd.Parameters.AddWithValue("@TestDrive", Jazda = "Nie");
+                }
+                //Залишені ключі
+                if (LeftKey.Checked == true)
+                {
+                    sql_cmd.Parameters.AddWithValue("@PozostawioneKluczyki", Kluczyki = "Tak");
+                }
+                else if (LeftKey.Checked == false)
+                {
+                    sql_cmd.Parameters.AddWithValue("@PozostawioneKluczyki", Kluczyki = "Nie");
+                }
+                //Залишені документи
+                if (LeftDocumets.Checked == true)
+                {
+                    sql_cmd.Parameters.AddWithValue("@PozostawioneDokumenty", Dokumenty = "Tak");
+                }
+                else if (LeftDocumets.Checked == false)
+                {
+                    sql_cmd.Parameters.AddWithValue("@PozostawioneDokumenty", Dokumenty = "Nie");
+                }        
+        }    
         void Clear()
         {
             //Opis pojazdu 
             ClearPart(panel1.Controls);
             //Dane klienta
-            ClearPart(panel2.Controls);
+            ClearPart(panel3.Controls);
             //Zlecenie Klienta
             txtZlecenie_Klienta.Text = "";
             //Diagnostyka
@@ -321,43 +329,45 @@ namespace Warsztat
             sql_conn.Open();
 
             ID = Convert.ToInt32(Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
+            DataPrzyjecia.Text = Dane_Warsztat.CurrentRow.Cells[1].Value.ToString();
+            DataWydania.Text = Dane_Warsztat.CurrentRow.Cells[2].Value.ToString();
 
-            Marka.Text = Dane_Warsztat.CurrentRow.Cells[1].Value.ToString();
-            Model.Text = Dane_Warsztat.CurrentRow.Cells[2].Value.ToString();
-            NumerRejestracji.Text = Dane_Warsztat.CurrentRow.Cells[3].Value.ToString();
+             Marka.Text = Dane_Warsztat.CurrentRow.Cells[3].Value.ToString();
+             Model.Text = Dane_Warsztat.CurrentRow.Cells[4].Value.ToString();
+             NumerRejestracji.Text = Dane_Warsztat.CurrentRow.Cells[5].Value.ToString();
 
-            RokProdukcji.Text = Dane_Warsztat.CurrentRow.Cells[4].Value.ToString();
-            PojemnoscSilnika.Text = Dane_Warsztat.CurrentRow.Cells[5].Value.ToString();
-            Przebieg.Text = Dane_Warsztat.CurrentRow.Cells[6].Value.ToString();
+             RokProdukcji.Text = Dane_Warsztat.CurrentRow.Cells[6].Value.ToString();
+             PojemnoscSilnika.Text = Dane_Warsztat.CurrentRow.Cells[7].Value.ToString();
+             Przebieg.Text = Dane_Warsztat.CurrentRow.Cells[8].Value.ToString();
 
-            IDNadwozia.Text = Dane_Warsztat.CurrentRow.Cells[7].Value.ToString();
-            IDSilnika.Text = Dane_Warsztat.CurrentRow.Cells[8].Value.ToString();
-            _Name.Text = Dane_Warsztat.CurrentRow.Cells[9].Value.ToString();
+             IDNadwozia.Text = Dane_Warsztat.CurrentRow.Cells[9].Value.ToString();
+             IDSilnika.Text = Dane_Warsztat.CurrentRow.Cells[10].Value.ToString();
+             _Name.Text = Dane_Warsztat.CurrentRow.Cells[11].Value.ToString();
 
-            LastName.Text = Dane_Warsztat.CurrentRow.Cells[10].Value.ToString();
-            NIP.Text = Dane_Warsztat.CurrentRow.Cells[11].Value.ToString();
-            TelefonKomurkowy.Text = Dane_Warsztat.CurrentRow.Cells[12].Value.ToString();
+             LastName.Text = Dane_Warsztat.CurrentRow.Cells[12].Value.ToString();
+             NIP.Text = Dane_Warsztat.CurrentRow.Cells[13].Value.ToString();
+             TelefonKomurkowy.Text = Dane_Warsztat.CurrentRow.Cells[14].Value.ToString();
 
-            Adress.Text = Dane_Warsztat.CurrentRow.Cells[13].Value.ToString();
-            txtZlecenie_Klienta.Text = Dane_Warsztat.CurrentRow.Cells[14].Value.ToString();
-            txtDiagostyka.Text = Dane_Warsztat.CurrentRow.Cells[15].Value.ToString();
+             Adress.Text = Dane_Warsztat.CurrentRow.Cells[15].Value.ToString();
+             txtZlecenie_Klienta.Text = Dane_Warsztat.CurrentRow.Cells[16].Value.ToString();
+             txtDiagostyka.Text = Dane_Warsztat.CurrentRow.Cells[17].Value.ToString();
 
-            txtNaprawa.Text = Dane_Warsztat.CurrentRow.Cells[16].Value.ToString();
-            Price.Text = Dane_Warsztat.CurrentRow.Cells[17].Value.ToString();
+             txtNaprawa.Text = Dane_Warsztat.CurrentRow.Cells[18].Value.ToString();
+             Price.Text = Dane_Warsztat.CurrentRow.Cells[19].Value.ToString();
 
-            var jazda_ = Dane_Warsztat.CurrentRow.Cells[18].Value.ToString();
-            TestDrive.Checked = jazda_ == "Tak";
-            TestDrive.Checked = !(jazda_ == "Nie");
+             var jazda_ = Dane_Warsztat.CurrentRow.Cells[20].Value.ToString();
+             TestDrive.Checked = jazda_ == "Tak";
+             TestDrive.Checked = !(jazda_ == "Nie");
 
-            var kluczyki_ = Dane_Warsztat.CurrentRow.Cells[19].Value.ToString();
-            LeftKey.Checked = kluczyki_ == "Tak";
-            LeftKey.Checked = !(kluczyki_ == "Nie");
+             var kluczyki_ = Dane_Warsztat.CurrentRow.Cells[21].Value.ToString();
+             LeftKey.Checked = kluczyki_ == "Tak";
+             LeftKey.Checked = !(kluczyki_ == "Nie");
 
-            var dokumenty_ = Dane_Warsztat.CurrentRow.Cells[20].Value.ToString();
-            LeftDocumets.Checked = dokumenty_ == "Tak";
-            LeftDocumets.Checked = !(dokumenty_ == "Nie");
+             var dokumenty_ = Dane_Warsztat.CurrentRow.Cells[22].Value.ToString();
+             LeftDocumets.Checked = dokumenty_ == "Tak";
+             LeftDocumets.Checked = !(dokumenty_ == "Nie");
 
-            DataPrzyjecia.Text = Dane_Warsztat.CurrentRow.Cells[21].Value.ToString();
+           
             sql_conn.Close();
             Button_Delete.Enabled = Enabled;
         }
@@ -374,12 +384,6 @@ namespace Warsztat
             ID = Convert.ToInt32(Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
             Read_Data_BD();
         }
-
-        private void ustawieniaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void polskiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ustawieniaToolStripMenuItem.Text = "Ustawienia";
@@ -426,7 +430,7 @@ namespace Warsztat
             LeftDocumets.Text = "Pozostawione dokumenty samochodu";
             LeftKey.Text = "Pozostawione kluczyki";
             TestDrive.Text = "Klient wyraża zgodę na jazdę próbną";
-            lngPrice.Text = "Koszt";
+            lngPrice.Text = "Koszt Szacunkowy";
         }
 
         private void ukraińskiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -476,6 +480,54 @@ namespace Warsztat
             LeftKey.Text = "Залишені ключі";
             TestDrive.Text = "Клієнт дає згоду на  пробну їзду";
             lngPrice.Text = "Ціна";
+        }
+        private void Verify_Button()
+        {
+            Marka.BackColor = String.IsNullOrEmpty(Marka.Text) ? Color.Red : Color.White;
+            Model.BackColor = String.IsNullOrEmpty(Model.Text)? Color.Red : Color.White;
+            _Name.BackColor = String.IsNullOrEmpty(_Name.Text)? Color.Red : Color.White;
+            NumerRejestracji.BackColor = String.IsNullOrEmpty(NumerRejestracji.Text) ? Color.Red : Color.White;
+            TelefonKomurkowy.BackColor = String.IsNullOrEmpty(TelefonKomurkowy.Text) ? Color.Red : Color.White;
+        }
+
+        private void Marka_TextChanged(object sender, EventArgs e)
+        {
+            Verify_Button();
+        }
+
+        private void Model_TextChanged(object sender, EventArgs e)
+        {
+            Verify_Button();   
+        }
+
+        private void NumerRejestracji_TextChanged(object sender, EventArgs e)
+        {
+            Verify_Button();    
+        }
+
+        private void _Name_TextChanged(object sender, EventArgs e)
+        {
+            Verify_Button();
+        }
+
+        private void TelefonKomurkowy_TextChanged(object sender, EventArgs e)
+        {
+            Verify_Button();    
+        }
+
+        private void zróbKopięDanychToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                copy.Update_DB();
+                
+            }
+            catch
+            {
+                MessageBox.Show("Tabelka już dawno stworzona", "Warsztat");
+            }
+           
+            Application.Restart();
         }
     }
 }

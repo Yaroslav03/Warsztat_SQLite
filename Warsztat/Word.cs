@@ -10,7 +10,7 @@ namespace Warsztat
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
-      internal class Word
+        internal class Word
         {
             private FileInfo _fileInfo;
 
@@ -85,5 +85,6 @@ namespace Warsztat
                 return false;
             }
         }
+
     }
 }

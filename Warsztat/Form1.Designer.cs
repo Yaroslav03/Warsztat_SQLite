@@ -108,6 +108,8 @@
             this.angielskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ukraińskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.więcejToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zróbKopięDanychToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
@@ -181,6 +183,8 @@
             // 
             // Dane_Warsztat
             // 
+            this.Dane_Warsztat.AllowUserToAddRows = false;
+            this.Dane_Warsztat.AllowUserToDeleteRows = false;
             this.Dane_Warsztat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -188,6 +192,7 @@
             this.Dane_Warsztat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dane_Warsztat.Location = new System.Drawing.Point(6, 59);
             this.Dane_Warsztat.Name = "Dane_Warsztat";
+            this.Dane_Warsztat.ReadOnly = true;
             this.Dane_Warsztat.Size = new System.Drawing.Size(1241, 552);
             this.Dane_Warsztat.TabIndex = 0;
             this.Dane_Warsztat.DoubleClick += new System.EventHandler(this.Dane_Warsztat_DoubleClick);
@@ -360,9 +365,9 @@
             this.lngPrice.AutoSize = true;
             this.lngPrice.Location = new System.Drawing.Point(254, 158);
             this.lngPrice.Name = "lngPrice";
-            this.lngPrice.Size = new System.Drawing.Size(35, 15);
+            this.lngPrice.Size = new System.Drawing.Size(103, 15);
             this.lngPrice.TabIndex = 3;
-            this.lngPrice.Text = "Koszt";
+            this.lngPrice.Text = "Koszt Szacunkowy";
             // 
             // TestDrive
             // 
@@ -460,6 +465,7 @@
             this.TelefonKomurkowy.Name = "TelefonKomurkowy";
             this.TelefonKomurkowy.Size = new System.Drawing.Size(164, 23);
             this.TelefonKomurkowy.TabIndex = 1;
+            this.TelefonKomurkowy.TextChanged += new System.EventHandler(this.TelefonKomurkowy_TextChanged);
             // 
             // LastName
             // 
@@ -494,6 +500,7 @@
             this._Name.Name = "_Name";
             this._Name.Size = new System.Drawing.Size(158, 23);
             this._Name.TabIndex = 1;
+            this._Name.TextChanged += new System.EventHandler(this._Name_TextChanged);
             // 
             // lngAdress
             // 
@@ -688,6 +695,7 @@
             this.Model.Name = "Model";
             this.Model.Size = new System.Drawing.Size(158, 23);
             this.Model.TabIndex = 1;
+            this.Model.TextChanged += new System.EventHandler(this.Model_TextChanged);
             // 
             // lngYearOfProduction
             // 
@@ -715,6 +723,7 @@
             this.NumerRejestracji.Name = "NumerRejestracji";
             this.NumerRejestracji.Size = new System.Drawing.Size(158, 23);
             this.NumerRejestracji.TabIndex = 1;
+            this.NumerRejestracji.TextChanged += new System.EventHandler(this.NumerRejestracji_TextChanged);
             // 
             // lngModel
             // 
@@ -742,6 +751,7 @@
             this.Marka.Name = "Marka";
             this.Marka.Size = new System.Drawing.Size(158, 23);
             this.Marka.TabIndex = 1;
+            this.Marka.TextChanged += new System.EventHandler(this.Marka_TextChanged);
             // 
             // lngMarka
             // 
@@ -861,7 +871,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ustawieniaToolStripMenuItem});
+            this.ustawieniaToolStripMenuItem,
+            this.więcejToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
@@ -875,7 +886,6 @@
             this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
             this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
-            this.ustawieniaToolStripMenuItem.Click += new System.EventHandler(this.ustawieniaToolStripMenuItem_Click);
             // 
             // językToolStripMenuItem
             // 
@@ -884,28 +894,43 @@
             this.polskiToolStripMenuItem,
             this.ukraińskiToolStripMenuItem});
             this.językToolStripMenuItem.Name = "językToolStripMenuItem";
-            this.językToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.językToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.językToolStripMenuItem.Text = "Język";
             // 
             // angielskiToolStripMenuItem
             // 
             this.angielskiToolStripMenuItem.Name = "angielskiToolStripMenuItem";
-            this.angielskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.angielskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.angielskiToolStripMenuItem.Text = "Angielski";
             // 
             // polskiToolStripMenuItem
             // 
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.polskiToolStripMenuItem.Text = "Polski";
             this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
             // ukraińskiToolStripMenuItem
             // 
             this.ukraińskiToolStripMenuItem.Name = "ukraińskiToolStripMenuItem";
-            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.ukraińskiToolStripMenuItem.Text = "Ukraiński";
             this.ukraińskiToolStripMenuItem.Click += new System.EventHandler(this.ukraińskiToolStripMenuItem_Click);
+            // 
+            // więcejToolStripMenuItem
+            // 
+            this.więcejToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zróbKopięDanychToolStripMenuItem});
+            this.więcejToolStripMenuItem.Name = "więcejToolStripMenuItem";
+            this.więcejToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.więcejToolStripMenuItem.Text = "Więcej";
+            // 
+            // zróbKopięDanychToolStripMenuItem
+            // 
+            this.zróbKopięDanychToolStripMenuItem.Name = "zróbKopięDanychToolStripMenuItem";
+            this.zróbKopięDanychToolStripMenuItem.Size = new System.Drawing.Size(299, 22);
+            this.zróbKopięDanychToolStripMenuItem.Text = "Zrób kopię danych starych do nowej wersji";
+            this.zróbKopięDanychToolStripMenuItem.Click += new System.EventHandler(this.zróbKopięDanychToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1027,6 +1052,8 @@
         private System.Windows.Forms.ToolStripMenuItem angielskiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem polskiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ukraińskiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem więcejToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zróbKopięDanychToolStripMenuItem;
     }
 }
 
