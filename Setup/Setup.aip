@@ -5,14 +5,14 @@
     <ROW Property="AI_CURRENT_YEAR" Value="2021" ValueLocId="-"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll" Value="..\packages\EntityFramework.6.4.4\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.dll" Value="..\packages\EntityFramework.6.4.4\lib\net45"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Print_Document.docx" Value="..\Warsztat\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Print_Document.docx" Value="..\Warsztat\bin\Release"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.EF6.dll" Value="..\packages\System.Data.SQLite.EF6.1.0.115.5\lib\net46"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.Linq.dll" Value="..\packages\System.Data.SQLite.Linq.1.0.115.5\lib\net46"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.dll" Value="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.db" Value="..\Warsztat\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe" Value="..\Warsztat\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe.config" Value="..\Warsztat\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.pdb" Value="..\Warsztat\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.db" Value="..\Warsztat\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe" Value="..\Warsztat\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe.config" Value="..\Warsztat\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.pdb" Value="..\Warsztat\bin\Release"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll" Value="EntityFramework.SqlServer.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll" Value="EntityFramework.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Print_Document.docx" Value="Print_Document.docx"/>
@@ -30,10 +30,10 @@
     <ROW Property="ARPNOREMOVE" Value="1"/>
     <ROW Property="ARPNOREPAIR" Value="1"/>
     <ROW Property="Manufacturer" Value="YD"/>
-    <ROW Property="ProductCode" Value="1033:{76910DA6-91A5-4DC6-9851-227E1D47444C} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{A875B94F-DDE1-4A3B-91E1-55573D206984} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Warsztat"/>
-    <ROW Property="ProductVersion" Value="0.9.3" Type="32"/>
+    <ROW Property="ProductVersion" Value="0.9.6" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{EC8E6FB1-2664-4379-898A-CF4D3CDAF552}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -99,7 +99,7 @@
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" CabsLocation="1" UseLargeSchema="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>

@@ -102,14 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Warsztat.exe" size="46064">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Warsztat.exe" size="54256">
       <assemblyIdentity name="Warsztat" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Plg4Y7f/wLepWYfkFRADAW5GZ+q3iFDOfiAtaFAqAF8=</dsig:DigestValue>
+        <dsig:DigestValue>iYhGN1ejZX7otv5ww91nZHVPGzQ3SEj+Q3jMFXQJTn0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -128,7 +128,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>/qw1eVzmB2OvgnVPBdPNsJivorp79K04XaU4665KGTI=</dsig:DigestValue>
+      <dsig:DigestValue>T6DJao8ZgQVHvLh0rHNnxafGGbuJlwpFCqRHj1nt050=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Warsztat.exe.config" size="1528">

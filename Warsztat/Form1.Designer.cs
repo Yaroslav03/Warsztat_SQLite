@@ -44,15 +44,21 @@
             this.txtDiagostyka = new System.Windows.Forms.TextBox();
             this.lngDiagnostics = new System.Windows.Forms.Label();
             this.Button_Clear_Diagnostyka = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.Button_PurchasedParts_Clear = new System.Windows.Forms.Button();
+            this.txtZakupione_Czesci = new System.Windows.Forms.TextBox();
+            this.lngPurchasedParts = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtZlecenie_Klienta = new System.Windows.Forms.TextBox();
             this.lngClientsOrder = new System.Windows.Forms.Label();
             this.Button_Clear_Zlecenie_Klienta = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lngPriceFinally = new System.Windows.Forms.Label();
             this.lngPrice = new System.Windows.Forms.Label();
             this.TestDrive = new System.Windows.Forms.CheckBox();
             this.LeftKey = new System.Windows.Forms.CheckBox();
             this.LeftDocumets = new System.Windows.Forms.CheckBox();
+            this.Price_Finally = new System.Windows.Forms.TextBox();
             this.Price = new System.Windows.Forms.TextBox();
             this.lngAdditionalInformation = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -69,9 +75,9 @@
             this.NIP = new System.Windows.Forms.TextBox();
             this.lngLastName = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lngReleaseDate = new System.Windows.Forms.CheckBox();
             this.DataWydania = new System.Windows.Forms.DateTimePicker();
             this.DataPrzyjecia = new System.Windows.Forms.DateTimePicker();
-            this.lngReleaseDate = new System.Windows.Forms.Label();
             this.lngDateOfAdmission = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.IDSilnika = new System.Windows.Forms.TextBox();
@@ -105,17 +111,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.językToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.angielskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ukraińskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.więcejToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zróbKopięDanychToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UpdateBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -203,6 +209,7 @@
             this.tabPage2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.panel4);
+            this.tabPage2.Controls.Add(this.panel8);
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.panel5);
             this.tabPage2.Controls.Add(this.panel3);
@@ -303,6 +310,52 @@
             this.Button_Clear_Diagnostyka.UseVisualStyleBackColor = false;
             this.Button_Clear_Diagnostyka.Click += new System.EventHandler(this.Button_Clear_Diagnostyka_Click);
             // 
+            // panel8
+            // 
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel8.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel8.Controls.Add(this.Button_PurchasedParts_Clear);
+            this.panel8.Controls.Add(this.txtZakupione_Czesci);
+            this.panel8.Controls.Add(this.lngPurchasedParts);
+            this.panel8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.panel8.Location = new System.Drawing.Point(7, 510);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(360, 113);
+            this.panel8.TabIndex = 1;
+            // 
+            // Button_PurchasedParts_Clear
+            // 
+            this.Button_PurchasedParts_Clear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Button_PurchasedParts_Clear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Button_PurchasedParts_Clear.Location = new System.Drawing.Point(278, 3);
+            this.Button_PurchasedParts_Clear.Name = "Button_PurchasedParts_Clear";
+            this.Button_PurchasedParts_Clear.Size = new System.Drawing.Size(75, 23);
+            this.Button_PurchasedParts_Clear.TabIndex = 2;
+            this.Button_PurchasedParts_Clear.Text = "Wyczyść";
+            this.Button_PurchasedParts_Clear.UseVisualStyleBackColor = false;
+            this.Button_PurchasedParts_Clear.Click += new System.EventHandler(this.Button_Clear_Zakupione_Czesci_Click);
+            // 
+            // txtZakupione_Czesci
+            // 
+            this.txtZakupione_Czesci.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtZakupione_Czesci.Location = new System.Drawing.Point(3, 29);
+            this.txtZakupione_Czesci.Multiline = true;
+            this.txtZakupione_Czesci.Name = "txtZakupione_Czesci";
+            this.txtZakupione_Czesci.Size = new System.Drawing.Size(350, 81);
+            this.txtZakupione_Czesci.TabIndex = 1;
+            // 
+            // lngPurchasedParts
+            // 
+            this.lngPurchasedParts.AutoSize = true;
+            this.lngPurchasedParts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lngPurchasedParts.Location = new System.Drawing.Point(7, 10);
+            this.lngPurchasedParts.Name = "lngPurchasedParts";
+            this.lngPurchasedParts.Size = new System.Drawing.Size(130, 16);
+            this.lngPurchasedParts.TabIndex = 0;
+            this.lngPurchasedParts.Text = "Zakupione Części";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -348,10 +401,12 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel5.Controls.Add(this.lngPriceFinally);
             this.panel5.Controls.Add(this.lngPrice);
             this.panel5.Controls.Add(this.TestDrive);
             this.panel5.Controls.Add(this.LeftKey);
             this.panel5.Controls.Add(this.LeftDocumets);
+            this.panel5.Controls.Add(this.Price_Finally);
             this.panel5.Controls.Add(this.Price);
             this.panel5.Controls.Add(this.lngAdditionalInformation);
             this.panel5.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -359,6 +414,15 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(360, 202);
             this.panel5.TabIndex = 1;
+            // 
+            // lngPriceFinally
+            // 
+            this.lngPriceFinally.AutoSize = true;
+            this.lngPriceFinally.Location = new System.Drawing.Point(7, 158);
+            this.lngPriceFinally.Name = "lngPriceFinally";
+            this.lngPriceFinally.Size = new System.Drawing.Size(87, 15);
+            this.lngPriceFinally.TabIndex = 3;
+            this.lngPriceFinally.Text = "Koszt Koncowy";
             // 
             // lngPrice
             // 
@@ -398,6 +462,13 @@
             this.LeftDocumets.TabIndex = 2;
             this.LeftDocumets.Text = "Pozostawione dokumenty samochodu";
             this.LeftDocumets.UseVisualStyleBackColor = true;
+            // 
+            // Price_Finally
+            // 
+            this.Price_Finally.Location = new System.Drawing.Point(10, 176);
+            this.Price_Finally.Name = "Price_Finally";
+            this.Price_Finally.Size = new System.Drawing.Size(100, 23);
+            this.Price_Finally.TabIndex = 1;
             // 
             // Price
             // 
@@ -548,22 +619,33 @@
             // 
             // panel7
             // 
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel7.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel7.Controls.Add(this.lngReleaseDate);
             this.panel7.Controls.Add(this.DataWydania);
             this.panel7.Controls.Add(this.DataPrzyjecia);
-            this.panel7.Controls.Add(this.lngReleaseDate);
             this.panel7.Controls.Add(this.lngDateOfAdmission);
             this.panel7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.panel7.Location = new System.Drawing.Point(416, 0);
+            this.panel7.Location = new System.Drawing.Point(383, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(458, 35);
+            this.panel7.Size = new System.Drawing.Size(491, 35);
             this.panel7.TabIndex = 1;
+            // 
+            // lngReleaseDate
+            // 
+            this.lngReleaseDate.AutoSize = true;
+            this.lngReleaseDate.Location = new System.Drawing.Point(248, 13);
+            this.lngReleaseDate.Name = "lngReleaseDate";
+            this.lngReleaseDate.Size = new System.Drawing.Size(96, 19);
+            this.lngReleaseDate.TabIndex = 2;
+            this.lngReleaseDate.Text = "DataWydania";
+            this.lngReleaseDate.UseVisualStyleBackColor = true;
             // 
             // DataWydania
             // 
             this.DataWydania.CustomFormat = "yyyy-MM-dd";
             this.DataWydania.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DataWydania.Location = new System.Drawing.Point(320, 9);
+            this.DataWydania.Location = new System.Drawing.Point(355, 8);
             this.DataWydania.Name = "DataWydania";
             this.DataWydania.Size = new System.Drawing.Size(128, 23);
             this.DataWydania.TabIndex = 1;
@@ -572,20 +654,10 @@
             // 
             this.DataPrzyjecia.CustomFormat = "yyyy-MM-dd";
             this.DataPrzyjecia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DataPrzyjecia.Location = new System.Drawing.Point(100, 9);
+            this.DataPrzyjecia.Location = new System.Drawing.Point(99, 10);
             this.DataPrzyjecia.Name = "DataPrzyjecia";
             this.DataPrzyjecia.Size = new System.Drawing.Size(128, 23);
             this.DataPrzyjecia.TabIndex = 1;
-            // 
-            // lngReleaseDate
-            // 
-            this.lngReleaseDate.AutoSize = true;
-            this.lngReleaseDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lngReleaseDate.Location = new System.Drawing.Point(234, 16);
-            this.lngReleaseDate.Name = "lngReleaseDate";
-            this.lngReleaseDate.Size = new System.Drawing.Size(80, 15);
-            this.lngReleaseDate.TabIndex = 0;
-            this.lngReleaseDate.Text = "Data Wydania";
             // 
             // lngDateOfAdmission
             // 
@@ -890,47 +962,40 @@
             // językToolStripMenuItem
             // 
             this.językToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.angielskiToolStripMenuItem,
             this.polskiToolStripMenuItem,
             this.ukraińskiToolStripMenuItem});
             this.językToolStripMenuItem.Name = "językToolStripMenuItem";
-            this.językToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.językToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.językToolStripMenuItem.Text = "Język";
-            // 
-            // angielskiToolStripMenuItem
-            // 
-            this.angielskiToolStripMenuItem.Name = "angielskiToolStripMenuItem";
-            this.angielskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.angielskiToolStripMenuItem.Text = "Angielski";
             // 
             // polskiToolStripMenuItem
             // 
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.polskiToolStripMenuItem.Text = "Polski";
             this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
             // ukraińskiToolStripMenuItem
             // 
             this.ukraińskiToolStripMenuItem.Name = "ukraińskiToolStripMenuItem";
-            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ukraińskiToolStripMenuItem.Text = "Ukraiński";
             this.ukraińskiToolStripMenuItem.Click += new System.EventHandler(this.ukraińskiToolStripMenuItem_Click);
             // 
             // więcejToolStripMenuItem
             // 
             this.więcejToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zróbKopięDanychToolStripMenuItem});
+            this.UpdateBDToolStripMenuItem});
             this.więcejToolStripMenuItem.Name = "więcejToolStripMenuItem";
             this.więcejToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.więcejToolStripMenuItem.Text = "Więcej";
             // 
-            // zróbKopięDanychToolStripMenuItem
+            // UpdateBDToolStripMenuItem
             // 
-            this.zróbKopięDanychToolStripMenuItem.Name = "zróbKopięDanychToolStripMenuItem";
-            this.zróbKopięDanychToolStripMenuItem.Size = new System.Drawing.Size(299, 22);
-            this.zróbKopięDanychToolStripMenuItem.Text = "Zrób kopię danych starych do nowej wersji";
-            this.zróbKopięDanychToolStripMenuItem.Click += new System.EventHandler(this.zróbKopięDanychToolStripMenuItem_Click);
+            this.UpdateBDToolStripMenuItem.Name = "UpdateBDToolStripMenuItem";
+            this.UpdateBDToolStripMenuItem.Size = new System.Drawing.Size(295, 22);
+            this.UpdateBDToolStripMenuItem.Text = "Zaktualizuj bazę danych do nowszej wersji";
+            this.UpdateBDToolStripMenuItem.Click += new System.EventHandler(this.zróbKopięDanychToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -941,6 +1006,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -953,6 +1019,8 @@
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1038,7 +1106,6 @@
         private System.Windows.Forms.Label lngPrice;
         private System.Windows.Forms.DateTimePicker DataWydania;
         private System.Windows.Forms.DateTimePicker DataPrzyjecia;
-        private System.Windows.Forms.Label lngReleaseDate;
         private System.Windows.Forms.Label lngDateOfAdmission;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -1049,11 +1116,17 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem językToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem angielskiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem polskiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ukraińskiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem więcejToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zróbKopięDanychToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UpdateBDToolStripMenuItem;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.TextBox txtZakupione_Czesci;
+        private System.Windows.Forms.Label lngPurchasedParts;
+        private System.Windows.Forms.CheckBox lngReleaseDate;
+        private System.Windows.Forms.Label lngPriceFinally;
+        private System.Windows.Forms.TextBox Price_Finally;
+        private System.Windows.Forms.Button Button_PurchasedParts_Clear;
     }
 }
 
