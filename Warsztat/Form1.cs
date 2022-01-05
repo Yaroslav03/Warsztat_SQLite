@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,25 +15,22 @@ namespace Warsztat
     {
         private SQLiteConnection sql_conn;
         private SQLiteCommand sql_cmd = new SQLiteCommand();
-        private SQLiteDataAdapter DB = new SQLiteDataAdapter();
-        private DataSet DS = new DataSet();
-        private DataTable DT = new DataTable();
+        SQLiteDataAdapter DB = new SQLiteDataAdapter();
+        DataSet DS = new DataSet();
+        DataTable DT = new DataTable();
         public string Jazda;
         public string Kluczyki;
         public string Dokumenty;
         public string nothing;
         int ID = 0;
         string ConnectionString = "Data Source=Warsztat.db;Version=3;New=False;Compress=True;";
-
         //підключаємося до іншого класу створюючи конструктур
-        private Verify_DB verify_DB = new Verify_DB();
         private Copy_DB copy = new Copy_DB();
         public Form1()
         {          
             InitializeComponent();
             sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
             Load_DB();
-            verify_DB.Verify();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -99,19 +96,26 @@ namespace Warsztat
 
         private void Button_Update_Click(object sender, EventArgs e)
         {
-            ID.ToString();
-            sql_conn.Open();
-            sql_cmd.CommandText = "UPDATE Dane set Marka=@Marka, Model=@Model, NumerRejestracji=@NumerRejestracji, RokProdukcji=@RokProdukcji, PojemnoscSilnika=@PojemnoscSilnika, Przebieg=@Przebieg, NumerNadwozia=@NumerNadwozia, IDSilnika=@IDSilnika, Imie=@Imie, Nazwisko=@Nazwisko, NIP=@NIP, Telefon=@Telefon, Adres=@Adres, ZlecenieKlienta=@ZlecenieKlienta, Diagnostyka=@Diagnostyka, Naprawa=@Naprawa, Koszt_Koncowy=@Koszt_Koncowy, Koszt_Szacunkowy=@Koszt_Szacunkowy, DataPrzyjecia=@DataPrzyjecia, DataWydania=@DataWydania, TestDrive=@TestDrive, PozostawioneKluczyki=@PozostawioneKluczyki, PozostawioneDokumenty=@PozostawioneDokumenty, Zakupione_Czesci=@Zakupione_Czesci  WHERE ID=@ID";
-            sql_cmd.Parameters.AddWithValue("@ID", ID);
-            Edit_AND_Save();
-            sql_cmd.ExecuteNonQuery();
-            sql_conn.Close();
-            Load_DB();
-            MessageBox.Show("Dane zostałe odświeżone", "Baza danych");
+            try
+            {
+                ID.ToString();
+                sql_conn.Open();
+                sql_cmd.CommandText = "UPDATE Dane set Marka=@Marka, Model=@Model, NumerRejestracji=@NumerRejestracji, RokProdukcji=@RokProdukcji, PojemnoscSilnika=@PojemnoscSilnika, Przebieg=@Przebieg, NumerNadwozia=@NumerNadwozia, IDSilnika=@IDSilnika, Imie=@Imie, Nazwisko=@Nazwisko, NIP=@NIP, Telefon=@Telefon, Adres=@Adres, ZlecenieKlienta=@ZlecenieKlienta, Diagnostyka=@Diagnostyka, Naprawa=@Naprawa, Koszt_Koncowy=@Koszt_Koncowy, Koszt_Szacunkowy=@Koszt_Szacunkowy, DataPrzyjecia=@DataPrzyjecia, DataWydania=@DataWydania, TestDrive=@TestDrive, PozostawioneKluczyki=@PozostawioneKluczyki, PozostawioneDokumenty=@PozostawioneDokumenty, Zakupione_Czesci=@Zakupione_Czesci  WHERE ID=@ID";
+                sql_cmd.Parameters.AddWithValue("@ID", ID);
+                Edit_AND_Save();
+                sql_cmd.ExecuteNonQuery();
+                sql_conn.Close();
+                Load_DB();
+                MessageBox.Show("Dane zostałe odświeżone", "Baza danych");
 
-            tabControl1.SelectTab(tabPage1);
-            Clear();
-            Button_Save.Enabled = true;
+                Work_Place.SelectTab(tabPage1);
+                Clear();
+                Button_Save.Enabled = true;
+            }
+            catch
+            {
+                MessageBox.Show("Nie było wprowadzonego tekstu");
+            }
         }
 
         private void Button_Clear_Click(object sender, EventArgs e)
@@ -120,7 +124,7 @@ namespace Warsztat
             Button_Save.Enabled = true;
         }
 
-        private void Change_Word_Click(object sender, EventArgs e)
+        private async void Change_Word_Click(object sender, EventArgs e)
         {
             DialogResult iPrint;
             iPrint = MessageBox.Show("Czy zapisać dane przed drukowaniem?", "Warsztat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -163,7 +167,8 @@ namespace Warsztat
                 { "<PRICE>", Price.Text},
                 { "<Jazda_TAK/NIE>", Jazda},
                 { "<Pozostawione>", Dokumenty},
-                { "<Kluczyki_TAK/NIE>", Kluczyki }
+                { "<Kluczyki_TAK/NIE>", Kluczyki },
+                { "< ZakupioneCzęści>", txtZakupione_Czesci.Text}
             };
             helper.Process(items);
 
@@ -171,7 +176,7 @@ namespace Warsztat
                 Finish = MessageBox.Show("Prosze oczekiwac na wydruk?", "Warsztat", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (Finish == DialogResult.OK)
             {
-                tabControl1.SelectTab(tabPage1);
+                Work_Place.SelectTab(tabPage1);
             }
         }
 
@@ -206,7 +211,6 @@ namespace Warsztat
 
         private void Load_DB()
         {
-            Console.WriteLine("Load_DB");
             sql_conn.Open();
             sql_cmd = sql_conn.CreateCommand();
             string CommandText = "select * from Dane";
@@ -218,6 +222,7 @@ namespace Warsztat
             Dane_Warsztat.Columns[0].Visible = false;
             sql_conn.Close();
         }
+        
         private void Save_Data()
         {
             sql_conn.Open();
@@ -231,7 +236,7 @@ namespace Warsztat
             MessageBox.Show("Wszystko zostało zapisane");
             sql_conn.Close();
             Console.WriteLine("Sql close");
-            tabControl1.SelectTab(tabPage1);
+            Work_Place.SelectTab(tabPage1);
         }
         private void Edit_AND_Save() // Тут містяться параметри для sql
         {
@@ -386,7 +391,7 @@ namespace Warsztat
         private void Dane_Warsztat_DoubleClick(object sender, EventArgs e)
         {
             Read_Data_BD();
-            tabControl1.SelectTab(tabPage2);
+            Work_Place.SelectTab(tabPage2);
             Button_Save.Enabled = false;
         }       
         private void Dane_Warsztat_MouseClick(object sender, MouseEventArgs e)
@@ -397,8 +402,6 @@ namespace Warsztat
         }
         private void polskiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            więcejToolStripMenuItem.Text = "Więcej";
-            UpdateBDToolStripMenuItem.Text = "Zaktualizuj bazę danych do nowszej wersji";
             ustawieniaToolStripMenuItem.Text = "Ustawienia";
             językToolStripMenuItem.Text = "Język";
             polskiToolStripMenuItem.Text = "Polski";
@@ -452,8 +455,6 @@ namespace Warsztat
 
         private void ukraińskiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            więcejToolStripMenuItem.Text = "Більше";
-            UpdateBDToolStripMenuItem.Text = "Оновити базу даних до новішої версії";
             ustawieniaToolStripMenuItem.Text = "Налаштування";
             językToolStripMenuItem.Text = "Мова";
             polskiToolStripMenuItem.Text = "Польська";
@@ -537,18 +538,179 @@ namespace Warsztat
         {
             Verify_Button();    
         }
-
-        private void zróbKopięDanychToolStripMenuItem_Click(object sender, EventArgs e)
+   
+        private void stwórzNowąTabelkęToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Load_To_Copy_Old_Tabel();
+            copy.Create_New_DB();
+            Load_To_Copy_NEW_Tabel();
+        }
+
+        private void kopjujToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql_conn.Open();
+            Save_data_old();
+            sql_cmd.ExecuteNonQuery();
+            sql_conn.Close();
+            Load_To_Copy_NEW_Tabel();
+            Load_To_Copy_Old_Tabel();
+            using (var sql_con = new SQLiteConnection(ConnectionString))
+            {
+                sql_con.Open();
+                try
+                {
+                    //Дані до опису Транспорту
+                    if (ID != 0)
+                    {
+                        sql_cmd = new SQLiteCommand("DELETE FROM Dane WHERE ID =@ID", sql_con);
+                        sql_cmd.Parameters.AddWithValue("@ID", ID);
+                        sql_cmd.ExecuteNonQuery();
+                        Clear();
+                        Load_To_Copy_Old_Tabel(); 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Select Record to Delete");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Nie udało się usunąć dane", "Warsztat");
+                }
+                sql_con.Close();
+            }
+        }
+        private void Load_To_Copy_Old_Tabel()
+        {
+            sql_conn.Open();
+            sql_cmd = sql_conn.CreateCommand();
+            string CommandText = "select * from Dane";
+            DB = new SQLiteDataAdapter(CommandText, sql_conn);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            OLD_Table.DataSource = DT;
+            OLD_Table.Columns[0].Visible = false;
+            sql_conn.Close();
+        }
+        private void Load_To_Copy_NEW_Tabel()
+        { 
+         SQLiteDataAdapter sqlDB = new SQLiteDataAdapter();
+         DataSet sqlDS = new DataSet();
+         DataTable sqlDT = new DataTable();
+
+        sql_conn.Open();
+            sql_cmd = sql_conn.CreateCommand();
+            string CommandText = "select * from Dane_New";
+            sqlDB = new SQLiteDataAdapter(CommandText, sql_conn);
+            sqlDS.Reset();
+            sqlDB.Fill(sqlDS);
+            sqlDT = sqlDS.Tables[0];
+            NEW_Table.DataSource = sqlDT;
+            NEW_Table.Columns[0].Visible = false;
+            sql_conn.Close();
+        }
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            copy.Delete();
+        }
+        private void Save_data_old()
+        {
+            sql_cmd.CommandText = "INSERT INTO Dane_New(ID, DataPrzyjecia, DataWydania, Marka, Model,  NumerRejestracji, RokProdukcji, PojemnoscSilnika, Przebieg, NumerNadwozia, IDSilnika, Imie, Nazwisko, NIP, Telefon, Adres, ZlecenieKlienta, Diagnostyka, Naprawa, Koszt_Szacunkowy, Koszt_Koncowy, TestDrive, PozostawioneKluczyki, PozostawioneDokumenty, Zakupione_Czesci)" +
+                 "VALUES ((SELECT ID FROM Dane),(SELECT DataPrzyjecia From Dane), (''), (SELECT Marka From Dane),(SELECT Model From Dane),(SELECT NumerRejestracji From Dane),(SELECT RokProdukcji From Dane), (SELECT PojemnoscSilnika From Dane),(SELECT Przebieg From Dane),(SELECT NumerNadwozia From Dane),(SELECT IDSilnika From Dane), (SELECT Imie From Dane),(SELECT Nazwisko From Dane),(SELECT NIP From Dane),(SELECT Telefon From Dane),(SELECT Adres From Dane),(SELECT ZlecenieKlienta From Dane),(SELECT Diagnostyka From Dane),(SELECT Naprawa From Dane),(SELECT Koszt From Dane),('0'),(SELECT TestDrive From Dane),(SELECT PozostawioneKluczyki From Dane),(SELECT PozostawioneDokumenty From Dane), (''))";
+            sql_cmd.Parameters.AddWithValue("@ID", ID);                   
+        }
+
+        private void OLD_Table_MouseClick(object sender, MouseEventArgs e)
+        {
+            ID = Convert.ToInt32(OLD_Table.CurrentRow.Cells[0].Value.ToString());
+        }
+
+        private void zakończToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            copy.Finish();
+            Application.Restart();
+        }
+
+        private void Plan_your_car_Click(object sender, EventArgs e)
+        {
+            
             try
             {
-                copy.Update_DB();
-                Application.Restart();
+                sql_conn.Open();
+                sql_cmd.CommandText =
+                "INSERT INTO Zaplanowane_Samochody(DataPrzyjecia,Model, Marka,  Imie, Nazwisko, Zlecenie_Klienta) " +
+                "VALUES(@DataPrzyjecia, @Model, @Marka, @Imie, @Nazwisko, @Zlecenie_Klienta)";
+                sql_cmd.Parameters.AddWithValue("@Model", Model.Text);
+                sql_cmd.Parameters.AddWithValue("@Marka", Marka.Text);
+                sql_cmd.Parameters.AddWithValue("@Imie", _Name.Text);
+                sql_cmd.Parameters.AddWithValue("@Nazwisko", LastName.Text);
+                sql_cmd.Parameters.AddWithValue("@Zlecenie_Klienta", txtZlecenie_Klienta.Text);
+                sql_cmd.Parameters.AddWithValue("@DataPrzyjecia", DataPrzyjecia.Text);
+                sql_cmd.ExecuteNonQuery();
+                sql_conn.Close();
+                
+                MessageBox.Show("Samochód  "+ Model.Text + " " + Marka.Text + " jest zapłanowany na " + DataPrzyjecia.Text);
+                Clear();
             }
             catch
             {
-                MessageBox.Show("Tabelka już dawno stworzona", "Warsztat");
-            }           
+                MessageBox.Show("Probłem z podłączeniem do bazy danych bądź z zapisem danych", "Baza danych");
+            }
+            
+           Load_Scheduled_Cars();
+        }
+        private void Load_Scheduled_Cars()
+        {
+            SQLiteDataAdapter Scheduled_Cars_DB = new SQLiteDataAdapter();
+            DataSet Scheduled_Cars_DS = new DataSet();
+            DataTable Scheduled_Cars_DT = new DataTable();
+
+            sql_conn.Open();
+            sql_cmd = sql_conn.CreateCommand();
+            string CommandText = "SELECT ID, DataPrzyjecia, Marka, Model, Imie, Nazwisko, Zlecenie_Klienta FROM Zaplanowane_Samochody";
+            Scheduled_Cars_DB = new SQLiteDataAdapter(CommandText, sql_conn);
+            Scheduled_Cars_DS.Reset();
+            Scheduled_Cars_DB.Fill(Scheduled_Cars_DS);
+            Scheduled_Cars_DT = Scheduled_Cars_DS.Tables[0];
+            Scheduled_Cars_View.DataSource = Scheduled_Cars_DT;
+            sql_conn.Close();
+        }
+
+        private void Update_Scheduled_Cars_Click(object sender, EventArgs e)
+        {
+            Load_Scheduled_Cars();
+        }
+
+        private void Delete_Scheduled_Car_Click(object sender, EventArgs e)
+        {
+            copy.Read_ID_Scheduled_Cars(ID);
+            Clear();
+            Load_Scheduled_Cars();
+        }
+
+        private void Scheduled_Cars_View_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                ID = Convert.ToInt32(Scheduled_Cars_View.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch
+            {
+                MessageBox.Show("Wybrana Kolumna jest pusta");
+            }
+        }
+
+        private void stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                copy.Create_Scheduled_Cars();
+            }
+            catch
+            {
+                MessageBox.Show("Tabelka już dawno stworzona");
+            }
         }
     }
 }

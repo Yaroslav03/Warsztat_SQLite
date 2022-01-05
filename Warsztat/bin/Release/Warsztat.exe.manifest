@@ -109,17 +109,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iYhGN1ejZX7otv5ww91nZHVPGzQ3SEj+Q3jMFXQJTn0=</dsig:DigestValue>
+        <dsig:DigestValue>Ar45f3C8mlqpeBlpjCvn8E0jgcGk2/PzHbJwZsIUv0g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Print_Document.docx" size="13822">
+  <file name="Print_Document.docx" size="13517">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>MEWnWuzaql5H2LIpvPyNaVYv2yVX0c8DS1ApGoM9VBM=</dsig:DigestValue>
+      <dsig:DigestValue>JWIOSFgFNOsuI/MeUFhrdKoGglKmzKCKM0ghH7MXyxk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Warsztat.db" size="32768">

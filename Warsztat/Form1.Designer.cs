@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.Work_Place = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Button_Delete = new System.Windows.Forms.Button();
             this.lngSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.Dane_Warsztat = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Plan_your_car = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtNaprawa = new System.Windows.Forms.TextBox();
             this.lngRepair = new System.Windows.Forms.Label();
@@ -102,6 +104,21 @@
             this.Button_Update = new System.Windows.Forms.Button();
             this.Button_Clear = new System.Windows.Forms.Button();
             this.Button_Save = new System.Windows.Forms.Button();
+            this.Update_DB = new System.Windows.Forms.TabPage();
+            this.lngNewBD = new System.Windows.Forms.Label();
+            this.lngOldBD = new System.Windows.Forms.Label();
+            this.NEW_Table = new System.Windows.Forms.DataGridView();
+            this.OLD_Table = new System.Windows.Forms.DataGridView();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.akcjeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.stwórzNowąTabelkęToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kopjujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Scheduled_Cars = new System.Windows.Forms.TabPage();
+            this.Update_Scheduled_Cars = new System.Windows.Forms.Button();
+            this.Delete_Scheduled_Car = new System.Windows.Forms.Button();
+            this.Scheduled_Cars_View = new System.Windows.Forms.DataGridView();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,9 +130,15 @@
             this.językToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ukraińskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.więcejToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UpdateBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1.SuspendLayout();
+            this.ID_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataPrzyjecia_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marka_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imie_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nazwisko_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zlecenie_Klienta_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Work_Place.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -127,22 +150,30 @@
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.Update_DB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NEW_Table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OLD_Table)).BeginInit();
+            this.menuStrip2.SuspendLayout();
+            this.Scheduled_Cars.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Scheduled_Cars_View)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // Work_Place
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Work_Place.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(1, 36);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1264, 666);
-            this.tabControl1.TabIndex = 0;
+            this.Work_Place.Controls.Add(this.tabPage1);
+            this.Work_Place.Controls.Add(this.tabPage2);
+            this.Work_Place.Controls.Add(this.Update_DB);
+            this.Work_Place.Controls.Add(this.Scheduled_Cars);
+            this.Work_Place.Location = new System.Drawing.Point(1, 36);
+            this.Work_Place.Name = "Work_Place";
+            this.Work_Place.SelectedIndex = 0;
+            this.Work_Place.Size = new System.Drawing.Size(1264, 666);
+            this.Work_Place.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -207,6 +238,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tabPage2.Controls.Add(this.Plan_your_car);
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.panel8);
@@ -225,6 +257,18 @@
             this.tabPage2.Size = new System.Drawing.Size(1256, 640);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Dodaj Dane";
+            // 
+            // Plan_your_car
+            // 
+            this.Plan_your_car.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Plan_your_car.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Plan_your_car.Location = new System.Drawing.Point(880, 8);
+            this.Plan_your_car.Name = "Plan_your_car";
+            this.Plan_your_car.Size = new System.Drawing.Size(141, 23);
+            this.Plan_your_car.TabIndex = 2;
+            this.Plan_your_car.Text = "Zaplanuj samochód";
+            this.Plan_your_car.UseVisualStyleBackColor = false;
+            this.Plan_your_car.Click += new System.EventHandler(this.Plan_your_car_Click);
             // 
             // panel6
             // 
@@ -905,6 +949,175 @@
             this.Button_Save.UseVisualStyleBackColor = false;
             this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
             // 
+            // Update_DB
+            // 
+            this.Update_DB.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Update_DB.Controls.Add(this.lngNewBD);
+            this.Update_DB.Controls.Add(this.lngOldBD);
+            this.Update_DB.Controls.Add(this.NEW_Table);
+            this.Update_DB.Controls.Add(this.OLD_Table);
+            this.Update_DB.Controls.Add(this.menuStrip2);
+            this.Update_DB.Location = new System.Drawing.Point(4, 22);
+            this.Update_DB.Name = "Update_DB";
+            this.Update_DB.Padding = new System.Windows.Forms.Padding(3);
+            this.Update_DB.Size = new System.Drawing.Size(1256, 640);
+            this.Update_DB.TabIndex = 2;
+            this.Update_DB.Text = "Odśwież do nowszej wersji Bazy Danych";
+            // 
+            // lngNewBD
+            // 
+            this.lngNewBD.AutoSize = true;
+            this.lngNewBD.Location = new System.Drawing.Point(796, 42);
+            this.lngNewBD.Name = "lngNewBD";
+            this.lngNewBD.Size = new System.Drawing.Size(102, 13);
+            this.lngNewBD.TabIndex = 2;
+            this.lngNewBD.Text = "Nowa Baza Danych";
+            // 
+            // lngOldBD
+            // 
+            this.lngOldBD.AutoSize = true;
+            this.lngOldBD.Location = new System.Drawing.Point(72, 42);
+            this.lngOldBD.Name = "lngOldBD";
+            this.lngOldBD.Size = new System.Drawing.Size(99, 13);
+            this.lngOldBD.TabIndex = 2;
+            this.lngOldBD.Text = "Stara Baza Danych";
+            // 
+            // NEW_Table
+            // 
+            this.NEW_Table.AllowUserToAddRows = false;
+            this.NEW_Table.AllowUserToResizeColumns = false;
+            this.NEW_Table.AllowUserToResizeRows = false;
+            this.NEW_Table.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NEW_Table.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.NEW_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NEW_Table.Location = new System.Drawing.Point(653, 58);
+            this.NEW_Table.Name = "NEW_Table";
+            this.NEW_Table.Size = new System.Drawing.Size(597, 553);
+            this.NEW_Table.TabIndex = 0;
+            // 
+            // OLD_Table
+            // 
+            this.OLD_Table.AllowUserToAddRows = false;
+            this.OLD_Table.AllowUserToDeleteRows = false;
+            this.OLD_Table.AllowUserToResizeColumns = false;
+            this.OLD_Table.AllowUserToResizeRows = false;
+            this.OLD_Table.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.OLD_Table.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.OLD_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OLD_Table.Location = new System.Drawing.Point(7, 58);
+            this.OLD_Table.Name = "OLD_Table";
+            this.OLD_Table.Size = new System.Drawing.Size(640, 553);
+            this.OLD_Table.TabIndex = 0;
+            this.OLD_Table.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OLD_Table_MouseClick);
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.akcjeToolStripMenuItem1,
+            this.kopjujToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1250, 24);
+            this.menuStrip2.TabIndex = 1;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // akcjeToolStripMenuItem1
+            // 
+            this.akcjeToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stwórzNowąTabelkęToolStripMenuItem1,
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem,
+            this.zakończToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.akcjeToolStripMenuItem1.Name = "akcjeToolStripMenuItem1";
+            this.akcjeToolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
+            this.akcjeToolStripMenuItem1.Text = "Akcje";
+            // 
+            // stwórzNowąTabelkęToolStripMenuItem1
+            // 
+            this.stwórzNowąTabelkęToolStripMenuItem1.Name = "stwórzNowąTabelkęToolStripMenuItem1";
+            this.stwórzNowąTabelkęToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
+            this.stwórzNowąTabelkęToolStripMenuItem1.Text = "Stwórz nową tabelkę";
+            this.stwórzNowąTabelkęToolStripMenuItem1.Click += new System.EventHandler(this.stwórzNowąTabelkęToolStripMenuItem1_Click);
+            // 
+            // zakończToolStripMenuItem
+            // 
+            this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.zakończToolStripMenuItem.Text = "Zakończ";
+            this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click_1);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // kopjujToolStripMenuItem
+            // 
+            this.kopjujToolStripMenuItem.Name = "kopjujToolStripMenuItem";
+            this.kopjujToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.kopjujToolStripMenuItem.Text = "Kopjuj";
+            this.kopjujToolStripMenuItem.Click += new System.EventHandler(this.kopjujToolStripMenuItem_Click);
+            // 
+            // Scheduled_Cars
+            // 
+            this.Scheduled_Cars.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Scheduled_Cars.Controls.Add(this.Update_Scheduled_Cars);
+            this.Scheduled_Cars.Controls.Add(this.Delete_Scheduled_Car);
+            this.Scheduled_Cars.Controls.Add(this.Scheduled_Cars_View);
+            this.Scheduled_Cars.Location = new System.Drawing.Point(4, 22);
+            this.Scheduled_Cars.Name = "Scheduled_Cars";
+            this.Scheduled_Cars.Padding = new System.Windows.Forms.Padding(3);
+            this.Scheduled_Cars.Size = new System.Drawing.Size(1256, 640);
+            this.Scheduled_Cars.TabIndex = 3;
+            this.Scheduled_Cars.Text = "Zaplanowane Samochody";
+            // 
+            // Update_Scheduled_Cars
+            // 
+            this.Update_Scheduled_Cars.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Update_Scheduled_Cars.Location = new System.Drawing.Point(88, 32);
+            this.Update_Scheduled_Cars.Name = "Update_Scheduled_Cars";
+            this.Update_Scheduled_Cars.Size = new System.Drawing.Size(75, 23);
+            this.Update_Scheduled_Cars.TabIndex = 5;
+            this.Update_Scheduled_Cars.Text = "Odśwież";
+            this.Update_Scheduled_Cars.UseVisualStyleBackColor = false;
+            this.Update_Scheduled_Cars.Click += new System.EventHandler(this.Update_Scheduled_Cars_Click);
+            // 
+            // Delete_Scheduled_Car
+            // 
+            this.Delete_Scheduled_Car.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Delete_Scheduled_Car.Location = new System.Drawing.Point(7, 32);
+            this.Delete_Scheduled_Car.Name = "Delete_Scheduled_Car";
+            this.Delete_Scheduled_Car.Size = new System.Drawing.Size(75, 23);
+            this.Delete_Scheduled_Car.TabIndex = 4;
+            this.Delete_Scheduled_Car.Text = "Usuń";
+            this.Delete_Scheduled_Car.UseVisualStyleBackColor = false;
+            this.Delete_Scheduled_Car.Click += new System.EventHandler(this.Delete_Scheduled_Car_Click);
+            // 
+            // Scheduled_Cars_View
+            // 
+            this.Scheduled_Cars_View.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Scheduled_Cars_View.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Scheduled_Cars_View.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_Column,
+            this.DataPrzyjecia_Column,
+            this.Marka_Column,
+            this.Model_Column,
+            this.Imie_Column,
+            this.Nazwisko_Column,
+            this.Zlecenie_Klienta_Column});
+            this.Scheduled_Cars_View.Location = new System.Drawing.Point(6, 61);
+            this.Scheduled_Cars_View.Name = "Scheduled_Cars_View";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.NullValue = null;
+            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.Scheduled_Cars_View.Size = new System.Drawing.Size(1042, 550);
+            this.Scheduled_Cars_View.TabIndex = 0;
+            this.Scheduled_Cars_View.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Scheduled_Cars_View_MouseClick);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -943,8 +1156,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ustawieniaToolStripMenuItem,
-            this.więcejToolStripMenuItem});
+            this.ustawieniaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
@@ -965,37 +1177,73 @@
             this.polskiToolStripMenuItem,
             this.ukraińskiToolStripMenuItem});
             this.językToolStripMenuItem.Name = "językToolStripMenuItem";
-            this.językToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.językToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.językToolStripMenuItem.Text = "Język";
             // 
             // polskiToolStripMenuItem
             // 
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.polskiToolStripMenuItem.Text = "Polski";
             this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
             // ukraińskiToolStripMenuItem
             // 
             this.ukraińskiToolStripMenuItem.Name = "ukraińskiToolStripMenuItem";
-            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.ukraińskiToolStripMenuItem.Text = "Ukraiński";
             this.ukraińskiToolStripMenuItem.Click += new System.EventHandler(this.ukraińskiToolStripMenuItem_Click);
             // 
-            // więcejToolStripMenuItem
+            // ID_Column
             // 
-            this.więcejToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.UpdateBDToolStripMenuItem});
-            this.więcejToolStripMenuItem.Name = "więcejToolStripMenuItem";
-            this.więcejToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.więcejToolStripMenuItem.Text = "Więcej";
+            this.ID_Column.DataPropertyName = "ID";
+            this.ID_Column.HeaderText = "ID";
+            this.ID_Column.Name = "ID_Column";
             // 
-            // UpdateBDToolStripMenuItem
+            // DataPrzyjecia_Column
             // 
-            this.UpdateBDToolStripMenuItem.Name = "UpdateBDToolStripMenuItem";
-            this.UpdateBDToolStripMenuItem.Size = new System.Drawing.Size(295, 22);
-            this.UpdateBDToolStripMenuItem.Text = "Zaktualizuj bazę danych do nowszej wersji";
-            this.UpdateBDToolStripMenuItem.Click += new System.EventHandler(this.zróbKopięDanychToolStripMenuItem_Click);
+            this.DataPrzyjecia_Column.DataPropertyName = "DataPrzyjecia";
+            this.DataPrzyjecia_Column.HeaderText = "Data Przyjęcia";
+            this.DataPrzyjecia_Column.Name = "DataPrzyjecia_Column";
+            this.DataPrzyjecia_Column.ReadOnly = true;
+            // 
+            // Marka_Column
+            // 
+            this.Marka_Column.DataPropertyName = "Marka";
+            this.Marka_Column.HeaderText = "Marka";
+            this.Marka_Column.Name = "Marka_Column";
+            // 
+            // Model_Column
+            // 
+            this.Model_Column.DataPropertyName = "Model";
+            this.Model_Column.HeaderText = "Model";
+            this.Model_Column.Name = "Model_Column";
+            // 
+            // Imie_Column
+            // 
+            this.Imie_Column.DataPropertyName = "Imie";
+            this.Imie_Column.HeaderText = "Imię";
+            this.Imie_Column.Name = "Imie_Column";
+            // 
+            // Nazwisko_Column
+            // 
+            this.Nazwisko_Column.DataPropertyName = "Nazwisko";
+            this.Nazwisko_Column.HeaderText = "Nazwisko";
+            this.Nazwisko_Column.Name = "Nazwisko_Column";
+            // 
+            // Zlecenie_Klienta_Column
+            // 
+            this.Zlecenie_Klienta_Column.DataPropertyName = "Zlecenie_Klienta";
+            this.Zlecenie_Klienta_Column.HeaderText = "Zlecenie Klienta";
+            this.Zlecenie_Klienta_Column.Name = "Zlecenie_Klienta_Column";
+            this.Zlecenie_Klienta_Column.Width = 400;
+            // 
+            // stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem
+            // 
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Name = "stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem";
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Text = "Stwórz tabelkę Zaplanowane Samochody";
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Click += new System.EventHandler(this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1004,13 +1252,13 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.Work_Place);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.tabControl1.ResumeLayout(false);
+            this.Work_Place.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).EndInit();
@@ -1031,6 +1279,14 @@
             this.panel7.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.Update_DB.ResumeLayout(false);
+            this.Update_DB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NEW_Table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OLD_Table)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
+            this.Scheduled_Cars.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Scheduled_Cars_View)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1041,10 +1297,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl Work_Place;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button Button_Delete;
-        private System.Windows.Forms.Label lngSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView Dane_Warsztat;
         private System.Windows.Forms.TabPage tabPage2;
@@ -1118,8 +1372,6 @@
         private System.Windows.Forms.ToolStripMenuItem językToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem polskiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ukraińskiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem więcejToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem UpdateBDToolStripMenuItem;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox txtZakupione_Czesci;
         private System.Windows.Forms.Label lngPurchasedParts;
@@ -1127,6 +1379,32 @@
         private System.Windows.Forms.Label lngPriceFinally;
         private System.Windows.Forms.TextBox Price_Finally;
         private System.Windows.Forms.Button Button_PurchasedParts_Clear;
+        private System.Windows.Forms.TabPage Update_DB;
+        private System.Windows.Forms.DataGridView OLD_Table;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem akcjeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem stwórzNowąTabelkęToolStripMenuItem1;
+        private System.Windows.Forms.DataGridView NEW_Table;
+        private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kopjujToolStripMenuItem;
+        private System.Windows.Forms.Label lngNewBD;
+        private System.Windows.Forms.Label lngOldBD;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        public System.Windows.Forms.Button Button_Delete;
+        public System.Windows.Forms.Label lngSearch;
+        private System.Windows.Forms.TabPage Scheduled_Cars;
+        private System.Windows.Forms.Button Plan_your_car;
+        private System.Windows.Forms.DataGridView Scheduled_Cars_View;
+        public System.Windows.Forms.Button Delete_Scheduled_Car;
+        public System.Windows.Forms.Button Update_Scheduled_Cars;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataPrzyjecia_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marka_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Imie_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nazwisko_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Zlecenie_Klienta_Column;
+        private System.Windows.Forms.ToolStripMenuItem stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem;
     }
 }
 

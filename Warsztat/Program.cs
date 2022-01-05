@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Warsztat
 {
-    internal static class Program
+    internal static class Program 
     {
         /// <summary>
         /// The main entry point for the application.
@@ -17,6 +17,7 @@ namespace Warsztat
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+        
         }
     }
 }
