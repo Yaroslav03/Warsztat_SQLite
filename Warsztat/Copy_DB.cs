@@ -16,12 +16,45 @@ namespace Warsztat
 
         public void Create_New_DB()
         {
-            conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
-            conn.Open();
-            //Create a new table
-            cmd = new SQLiteCommand("CREATE TABLE Dane_New (ID	INTEGER NOT NULL UNIQUE, DataPrzyjecia	TEXT NOT NULL, DataWydania TEXT NOT NULL, Marka	TEXT NOT NULL, Model TEXT NOT NULL, NumerRejestracji	TEXT NOT NULL, RokProdukcji	TEXT NOT NULL, PojemnoscSilnika	TEXT NOT NULL, Przebieg	INTEGER NOT NULL, NumerNadwozia	TEXT NOT NULL, IDSilnika TEXT NOT NULL, Imie TEXT NOT NULL, Nazwisko TEXT NOT NULL, NIP TEXT NOT NULL, Telefon	TEXT NOT NULL, Adres	TEXT NOT NULL,	ZlecenieKlienta TEXT NOT NULL, Diagnostyka	TEXT NOT NULL, Naprawa	TEXT NOT NULL, Koszt_Szacunkowy INTEGER NOT NULL, Koszt_Koncowy INTEGER NOT NULL, TestDrive	TEXT NOT NULL, PozostawioneKluczyki	TEXT NOT NULL, PozostawioneDokumenty TEXT NOT NULL, Zakupione_Czesci TEXT NOT NULL,  PRIMARY KEY(ID AUTOINCREMENT))", conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
+                conn.Open();
+                //Create a new table
+                cmd = new SQLiteCommand("CREATE TABLE Dane_New " +
+                    "(ID INTEGER NOT NULL UNIQUE," +
+                    " DataPrzyjecia	TEXT NOT NULL," +
+                    " DataWydania TEXT NOT NULL, " +
+                    "Marka	TEXT NOT NULL, " +
+                    "Model TEXT NOT NULL," +
+                    " NumerRejestracji TEXT NOT NULL," +
+                    " RokProdukcji TEXT NOT NULL," +
+                    " PojemnoscSilnika TEXT NOT NULL, " +
+                    "Przebieg INTEGER NOT NULL, " +
+                    "NumerNadwozia TEXT NOT NULL, " +
+                    "IDSilnika TEXT NOT NULL, " +
+                    "Imie TEXT NOT NULL," +
+                    " Nazwisko TEXT NOT NULL, " +
+                    "NIP TEXT NOT NULL, " +
+                    "Telefon TEXT NOT NULL, " +
+                    "Adres	TEXT NOT NULL,	" +
+                    "ZlecenieKlienta TEXT NOT NULL, " +
+                    "Diagnostyka TEXT NOT NULL, " +
+                    "Naprawa TEXT NOT NULL, " +
+                    "Koszt_Szacunkowy INTEGER NOT NULL, " +
+                    "Koszt_Koncowy INTEGER NOT NULL, " +
+                    "TestDrive TEXT NOT NULL, " +
+                    "PozostawioneKluczyki TEXT NOT NULL, " +
+                    "PozostawioneDokumenty TEXT NOT NULL, " +
+                    "Zakupione_Czesci TEXT NOT NULL,  " +
+                    "PRIMARY KEY(ID AUTOINCREMENT))", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Tabelka już dawno stworzona");
+            }
         }
         
         public void Finish()
@@ -41,13 +74,22 @@ namespace Warsztat
             conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
             conn.Open();
             //Create a new table
-            cmd = new SQLiteCommand("CREATE TABLE Zaplanowane_Samochody (ID INTEGER NOT NULL UNIQUE, DataPrzyjecia TEXT NOT NULL, Model TEXT NOT NULL, Marka TEXT NOT NULL, Imie  TEXT NOT NULL, Nazwisko  TEXT NOT NULL, Zlecenie_Klienta  TEXT NOT NULL, PRIMARY KEY(ID AUTOINCREMENT))", conn);
+            cmd = new SQLiteCommand("CREATE TABLE Zaplanowane_Samochody " +
+                "(ID INTEGER NOT NULL UNIQUE," +
+                " DataPrzyjecia TEXT NOT NULL," +
+                " Model TEXT NOT NULL, " +
+                "Marka TEXT NOT NULL, Imie  " +
+                "TEXT NOT NULL, " +
+                "Nazwisko  TEXT NOT NULL," +
+                " Zlecenie_Klienta TEXT NOT NULL, " +
+                "PRIMARY KEY(ID AUTOINCREMENT))", conn);
             cmd.ExecuteNonQuery();
             conn.Close ();
         }
         public void Read_ID_Scheduled_Cars(int ID)
-        {        
-                conn.Open();
+        {
+            conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
+            conn.Open();
                 try
                 {
                     //Дані до опису Транспорту
@@ -65,13 +107,20 @@ namespace Warsztat
                 conn.Close();
             }
         public void Delete()
-        {            
-            conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
-            conn.Open();
-            //Delete tabele old
-            cmd = new SQLiteCommand("DROP TABLE Dane_New;", conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+        {
+            try
+            {
+                conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
+                conn.Open();
+                //Delete tabele old
+                cmd = new SQLiteCommand("DROP TABLE Dane_New;", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Tabelki nie istnieje", "Warsztat");
+            }
         }
     }
 }

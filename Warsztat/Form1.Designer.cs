@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Work_Place = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Button_Delete = new System.Windows.Forms.Button();
@@ -112,6 +112,7 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.akcjeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stwórzNowąTabelkęToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kopjujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,6 +120,13 @@
             this.Update_Scheduled_Cars = new System.Windows.Forms.Button();
             this.Delete_Scheduled_Car = new System.Windows.Forms.Button();
             this.Scheduled_Cars_View = new System.Windows.Forms.DataGridView();
+            this.ID_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataPrzyjecia_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marka_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imie_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nazwisko_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zlecenie_Klienta_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -130,14 +138,6 @@
             this.językToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ukraińskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ID_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataPrzyjecia_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marka_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imie_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nazwisko_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Zlecenie_Klienta_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Work_Place.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
@@ -1037,21 +1037,28 @@
             // stwórzNowąTabelkęToolStripMenuItem1
             // 
             this.stwórzNowąTabelkęToolStripMenuItem1.Name = "stwórzNowąTabelkęToolStripMenuItem1";
-            this.stwórzNowąTabelkęToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
+            this.stwórzNowąTabelkęToolStripMenuItem1.Size = new System.Drawing.Size(290, 22);
             this.stwórzNowąTabelkęToolStripMenuItem1.Text = "Stwórz nową tabelkę";
             this.stwórzNowąTabelkęToolStripMenuItem1.Click += new System.EventHandler(this.stwórzNowąTabelkęToolStripMenuItem1_Click);
+            // 
+            // stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem
+            // 
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Name = "stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem";
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Text = "Stwórz tabelkę Zaplanowane Samochody";
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Click += new System.EventHandler(this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem_Click);
             // 
             // zakończToolStripMenuItem
             // 
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click_1);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -1111,12 +1118,56 @@
             this.Zlecenie_Klienta_Column});
             this.Scheduled_Cars_View.Location = new System.Drawing.Point(6, 61);
             this.Scheduled_Cars_View.Name = "Scheduled_Cars_View";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.NullValue = null;
-            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.NullValue = null;
+            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Scheduled_Cars_View.Size = new System.Drawing.Size(1042, 550);
             this.Scheduled_Cars_View.TabIndex = 0;
             this.Scheduled_Cars_View.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Scheduled_Cars_View_MouseClick);
+            // 
+            // ID_Column
+            // 
+            this.ID_Column.DataPropertyName = "ID";
+            this.ID_Column.HeaderText = "ID";
+            this.ID_Column.Name = "ID_Column";
+            // 
+            // DataPrzyjecia_Column
+            // 
+            this.DataPrzyjecia_Column.DataPropertyName = "DataPrzyjecia";
+            this.DataPrzyjecia_Column.HeaderText = "Data Przyjęcia";
+            this.DataPrzyjecia_Column.Name = "DataPrzyjecia_Column";
+            this.DataPrzyjecia_Column.ReadOnly = true;
+            // 
+            // Marka_Column
+            // 
+            this.Marka_Column.DataPropertyName = "Marka";
+            this.Marka_Column.HeaderText = "Marka";
+            this.Marka_Column.Name = "Marka_Column";
+            // 
+            // Model_Column
+            // 
+            this.Model_Column.DataPropertyName = "Model";
+            this.Model_Column.HeaderText = "Model";
+            this.Model_Column.Name = "Model_Column";
+            // 
+            // Imie_Column
+            // 
+            this.Imie_Column.DataPropertyName = "Imie";
+            this.Imie_Column.HeaderText = "Imię";
+            this.Imie_Column.Name = "Imie_Column";
+            // 
+            // Nazwisko_Column
+            // 
+            this.Nazwisko_Column.DataPropertyName = "Nazwisko";
+            this.Nazwisko_Column.HeaderText = "Nazwisko";
+            this.Nazwisko_Column.Name = "Nazwisko_Column";
+            // 
+            // Zlecenie_Klienta_Column
+            // 
+            this.Zlecenie_Klienta_Column.DataPropertyName = "Zlecenie_Klienta";
+            this.Zlecenie_Klienta_Column.HeaderText = "Zlecenie Klienta";
+            this.Zlecenie_Klienta_Column.Name = "Zlecenie_Klienta_Column";
+            this.Zlecenie_Klienta_Column.Width = 400;
             // 
             // contextMenuStrip1
             // 
@@ -1177,73 +1228,22 @@
             this.polskiToolStripMenuItem,
             this.ukraińskiToolStripMenuItem});
             this.językToolStripMenuItem.Name = "językToolStripMenuItem";
-            this.językToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.językToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.językToolStripMenuItem.Text = "Język";
             // 
             // polskiToolStripMenuItem
             // 
             this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.polskiToolStripMenuItem.Text = "Polski";
             this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
             // 
             // ukraińskiToolStripMenuItem
             // 
             this.ukraińskiToolStripMenuItem.Name = "ukraińskiToolStripMenuItem";
-            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ukraińskiToolStripMenuItem.Text = "Ukraiński";
             this.ukraińskiToolStripMenuItem.Click += new System.EventHandler(this.ukraińskiToolStripMenuItem_Click);
-            // 
-            // ID_Column
-            // 
-            this.ID_Column.DataPropertyName = "ID";
-            this.ID_Column.HeaderText = "ID";
-            this.ID_Column.Name = "ID_Column";
-            // 
-            // DataPrzyjecia_Column
-            // 
-            this.DataPrzyjecia_Column.DataPropertyName = "DataPrzyjecia";
-            this.DataPrzyjecia_Column.HeaderText = "Data Przyjęcia";
-            this.DataPrzyjecia_Column.Name = "DataPrzyjecia_Column";
-            this.DataPrzyjecia_Column.ReadOnly = true;
-            // 
-            // Marka_Column
-            // 
-            this.Marka_Column.DataPropertyName = "Marka";
-            this.Marka_Column.HeaderText = "Marka";
-            this.Marka_Column.Name = "Marka_Column";
-            // 
-            // Model_Column
-            // 
-            this.Model_Column.DataPropertyName = "Model";
-            this.Model_Column.HeaderText = "Model";
-            this.Model_Column.Name = "Model_Column";
-            // 
-            // Imie_Column
-            // 
-            this.Imie_Column.DataPropertyName = "Imie";
-            this.Imie_Column.HeaderText = "Imię";
-            this.Imie_Column.Name = "Imie_Column";
-            // 
-            // Nazwisko_Column
-            // 
-            this.Nazwisko_Column.DataPropertyName = "Nazwisko";
-            this.Nazwisko_Column.HeaderText = "Nazwisko";
-            this.Nazwisko_Column.Name = "Nazwisko_Column";
-            // 
-            // Zlecenie_Klienta_Column
-            // 
-            this.Zlecenie_Klienta_Column.DataPropertyName = "Zlecenie_Klienta";
-            this.Zlecenie_Klienta_Column.HeaderText = "Zlecenie Klienta";
-            this.Zlecenie_Klienta_Column.Name = "Zlecenie_Klienta_Column";
-            this.Zlecenie_Klienta_Column.Width = 400;
-            // 
-            // stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem
-            // 
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Name = "stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem";
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Text = "Stwórz tabelkę Zaplanowane Samochody";
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Click += new System.EventHandler(this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1296,71 +1296,34 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl Work_Place;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView Dane_Warsztat;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label lngRepair;
-        private System.Windows.Forms.Button Button_Clear_Naprawa;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lngDiagnostics;
-        private System.Windows.Forms.Button Button_Clear_Diagnostyka;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lngClientsOrder;
-        private System.Windows.Forms.Button Button_Clear_Zlecenie_Klienta;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label lngAdditionalInformation;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lngCustomerData;
-        private System.Windows.Forms.Button Button_Clear_DK;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lngVehicleDescription;
-        private System.Windows.Forms.Button Button_Clear_OP;
-        private System.Windows.Forms.Button Change_Word;
-        private System.Windows.Forms.Button Button_Update;
-        private System.Windows.Forms.Button Button_Clear;
-        private System.Windows.Forms.Button Button_Save;
         private System.Windows.Forms.TextBox IDSilnika;
-        private System.Windows.Forms.Label lngIDEngine;
         private System.Windows.Forms.TextBox Przebieg;
         private System.Windows.Forms.TextBox IDNadwozia;
-        private System.Windows.Forms.Label lngMileage;
         private System.Windows.Forms.TextBox RokProdukcji;
         private System.Windows.Forms.TextBox PojemnoscSilnika;
-        private System.Windows.Forms.Label lngBodyNumber;
         private System.Windows.Forms.TextBox Model;
-        private System.Windows.Forms.Label lngYearOfProduction;
-        private System.Windows.Forms.Label lngEngineCapacity;
         private System.Windows.Forms.TextBox NumerRejestracji;
-        private System.Windows.Forms.Label lngModel;
-        private System.Windows.Forms.Label lngRegistrationNumber;
         private System.Windows.Forms.TextBox Marka;
-        private System.Windows.Forms.Label lngMarka;
         private System.Windows.Forms.TextBox txtZlecenie_Klienta;
         private System.Windows.Forms.TextBox txtDiagostyka;
         private System.Windows.Forms.TextBox txtNaprawa;
-        private System.Windows.Forms.CheckBox TestDrive;
-        private System.Windows.Forms.CheckBox LeftKey;
-        private System.Windows.Forms.CheckBox LeftDocumets;
         private System.Windows.Forms.TextBox Price;
         private System.Windows.Forms.TextBox TelefonKomurkowy;
         private System.Windows.Forms.TextBox LastName;
-        private System.Windows.Forms.Label lngName;
-        private System.Windows.Forms.Label lngTelephon;
         private System.Windows.Forms.TextBox _Name;
-        private System.Windows.Forms.Label lngAdress;
-        private System.Windows.Forms.Label lngNIP;
         private System.Windows.Forms.TextBox Adress;
         private System.Windows.Forms.TextBox NIP;
-        private System.Windows.Forms.Label lngLastName;
-        private System.Windows.Forms.Label lngPrice;
         private System.Windows.Forms.DateTimePicker DataWydania;
         private System.Windows.Forms.DateTimePicker DataPrzyjecia;
-        private System.Windows.Forms.Label lngDateOfAdmission;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sadToolStripMenuItem;
@@ -1368,32 +1331,19 @@
         private System.Windows.Forms.ToolStripMenuItem asdToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asdToolStripMenuItem1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem językToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem polskiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ukraińskiToolStripMenuItem;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox txtZakupione_Czesci;
-        private System.Windows.Forms.Label lngPurchasedParts;
-        private System.Windows.Forms.CheckBox lngReleaseDate;
-        private System.Windows.Forms.Label lngPriceFinally;
         private System.Windows.Forms.TextBox Price_Finally;
-        private System.Windows.Forms.Button Button_PurchasedParts_Clear;
-        private System.Windows.Forms.TabPage Update_DB;
         private System.Windows.Forms.DataGridView OLD_Table;
         private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem akcjeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem stwórzNowąTabelkęToolStripMenuItem1;
         private System.Windows.Forms.DataGridView NEW_Table;
         private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kopjujToolStripMenuItem;
         private System.Windows.Forms.Label lngNewBD;
         private System.Windows.Forms.Label lngOldBD;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         public System.Windows.Forms.Button Button_Delete;
         public System.Windows.Forms.Label lngSearch;
-        private System.Windows.Forms.TabPage Scheduled_Cars;
-        private System.Windows.Forms.Button Plan_your_car;
         private System.Windows.Forms.DataGridView Scheduled_Cars_View;
         public System.Windows.Forms.Button Delete_Scheduled_Car;
         public System.Windows.Forms.Button Update_Scheduled_Cars;
@@ -1405,6 +1355,55 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nazwisko_Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Zlecenie_Klienta_Column;
         private System.Windows.Forms.ToolStripMenuItem stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem;
+        public System.Windows.Forms.TabControl Work_Place;
+        public System.Windows.Forms.Label lngRepair;
+        public System.Windows.Forms.Label lngDiagnostics;
+        public System.Windows.Forms.Label lngClientsOrder;
+        public System.Windows.Forms.Label lngVehicleDescription;
+        public System.Windows.Forms.Label lngIDEngine;
+        public System.Windows.Forms.Label lngMileage;
+        public System.Windows.Forms.Label lngBodyNumber;
+        public System.Windows.Forms.Label lngYearOfProduction;
+        public System.Windows.Forms.Label lngEngineCapacity;
+        public System.Windows.Forms.Label lngModel;
+        public System.Windows.Forms.Label lngRegistrationNumber;
+        public System.Windows.Forms.Label lngMarka;
+        public System.Windows.Forms.Label lngName;
+        public System.Windows.Forms.Label lngTelephon;
+        public System.Windows.Forms.Label lngAdress;
+        public System.Windows.Forms.Label lngNIP;
+        public System.Windows.Forms.Label lngLastName;
+        public System.Windows.Forms.Label lngPrice;
+        public System.Windows.Forms.Label lngDateOfAdmission;
+        public System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem językToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem polskiToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem ukraińskiToolStripMenuItem;
+        public System.Windows.Forms.Label lngPurchasedParts;
+        public System.Windows.Forms.Label lngPriceFinally;
+        public System.Windows.Forms.Button Button_Clear_Naprawa;
+        public System.Windows.Forms.Button Button_Clear_Diagnostyka;
+        public System.Windows.Forms.Button Button_Clear_Zlecenie_Klienta;
+        public System.Windows.Forms.Button Button_Clear_DK;
+        public System.Windows.Forms.Button Button_Clear_OP;
+        public System.Windows.Forms.Button Change_Word;
+        public System.Windows.Forms.Button Button_Update;
+        public System.Windows.Forms.Button Button_Clear;
+        public System.Windows.Forms.Button Button_Save;
+        public System.Windows.Forms.CheckBox TestDrive;
+        public System.Windows.Forms.CheckBox LeftKey;
+        public System.Windows.Forms.CheckBox LeftDocumets;
+        public System.Windows.Forms.Button Button_PurchasedParts_Clear;
+        public System.Windows.Forms.Button Plan_your_car;
+        public System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabPage Update_DB;
+        public System.Windows.Forms.ToolStripMenuItem akcjeToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem kopjujToolStripMenuItem;
+        public System.Windows.Forms.TabPage Scheduled_Cars;
+        public System.Windows.Forms.Label lngAdditionalInformation;
+        public System.Windows.Forms.CheckBox lngReleaseDate;
+        public System.Windows.Forms.Label lngCustomerData;
     }
 }
 

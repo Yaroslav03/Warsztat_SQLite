@@ -26,6 +26,9 @@ namespace Warsztat
         string ConnectionString = "Data Source=Warsztat.db;Version=3;New=False;Compress=True;";
         //підключаємося до іншого класу створюючи конструктур
         private Copy_DB copy = new Copy_DB();
+        //private Interface Interface = new Interface();
+       Interface Interface ;
+
         public Form1()
         {          
             InitializeComponent();
@@ -83,7 +86,6 @@ namespace Warsztat
         {
             try
             {
-                Console.WriteLine("Save_Data");
                 Save_Data();
                 Clear();
             }
@@ -396,114 +398,25 @@ namespace Warsztat
         }       
         private void Dane_Warsztat_MouseClick(object sender, MouseEventArgs e)
         {
-            //Конвертує в число
-            ID = Convert.ToInt32(Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
-            Read_Data_BD();
+            try
+            {
+                //Конвертує в число
+                ID = Convert.ToInt32(Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
+                Read_Data_BD();
+            }
+            catch 
+            {
+                MessageBox.Show("Wybrana Kolumna jest pusta");
+            }
         }
         private void polskiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ustawieniaToolStripMenuItem.Text = "Ustawienia";
-            językToolStripMenuItem.Text = "Język";
-            polskiToolStripMenuItem.Text = "Polski";
-            ukraińskiToolStripMenuItem.Text = "Ukraiński";
-
-            //Кнопки
-            Button_Save.Text = "Zapisz";
-            tabPage2.Text = "Dodaj Dane";
-            Button_Clear.Text = "Wyczyść";
-            Button_Update.Text = "Odśwież Dane";
-            Button_Delete.Text = "Usuń";
-            Change_Word.Text = "Drukuj";
-            tabPage1.Text = "Zobacz Baze Danych";
-            Button_Clear_DK.Text = "Wyczyść";
-            Button_Clear_OP.Text = "Wyczyść";
-            Button_Clear_Naprawa.Text = "Wyczyść";
-            Button_Clear_Zlecenie_Klienta.Text = "Wyczyść";
-            Button_Clear_Diagnostyka.Text = "Wyczyść";
-            Button_PurchasedParts_Clear.Text = "Wyczyść";
-            //Текст
-            lngMarka.Text = "Marka";
-            lngModel.Text = "Model";
-            lngRegistrationNumber.Text = "Numer Rejestracji";
-            lngYearOfProduction.Text = "Rok Produkcji";
-            lngLastName.Text = "Nazwisko";
-            lngSearch.Text = "Szukaj";
-            lngAdress.Text = "Adres";
-            lngVehicleDescription.Text = "Opis Pojazdu";
-            lngCustomerData.Text = "Dane Klienta";
-            lngMileage.Text = "Przebieg";
-            lngEngineCapacity.Text = "Pojemność Silnika";
-            lngBodyNumber.Text = "Numer Nadwozia";
-            lngName.Text = "Imię";
-            lngNIP.Text = "NIP";
-            lngTelephon.Text = "Telefon Komurkowy";
-            lngAdditionalInformation.Text = "Informacja Dodatkowa";
-            lngDateOfAdmission.Text = "Data Przyjęcia";
-            lngReleaseDate.Text = "Data Wydania";
-
-            lngClientsOrder.Text = "Zlecenie Klienta";
-            lngDiagnostics.Text = "Diagnostyka";
-            lngRepair.Text = "Naprawa";
-            LeftDocumets.Text = "Pozostawione dokumenty samochodu";
-            LeftKey.Text = "Pozostawione kluczyki";
-            TestDrive.Text = "Klient wyraża zgodę na jazdę próbną";
-            lngPrice.Text = "Koszt Szacunkowy";
-            lngPriceFinally.Text = "Koszt Koncowy";
-            lngPurchasedParts.Text = "Zakupione Części";
-            lngIDEngine.Text = "Numer/kod Silnika";
+            Interface.Localize_PL();
         }
 
         private void ukraińskiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ustawieniaToolStripMenuItem.Text = "Налаштування";
-            językToolStripMenuItem.Text = "Мова";
-            polskiToolStripMenuItem.Text = "Польська";
-            ukraińskiToolStripMenuItem.Text = "Українська";
-
-            //Кнопки
-            Button_Save.Text = "Зберегти";
-            tabPage2.Text = "Додати дані";
-            Button_Clear.Text = "Стерти";
-            Button_Update.Text = "Оновити Дані";
-            Button_Delete.Text = "Видалити";
-            Change_Word.Text = "Друкувати";
-            tabPage1.Text = "Переглянути базу даних";
-            Button_Clear_DK.Text = "Стерти";
-            Button_Clear_OP.Text = "Стерти";
-            Button_Clear_Naprawa.Text = "Стерти";
-            Button_Clear_Zlecenie_Klienta.Text = "Стерти";
-            Button_Clear_Diagnostyka.Text = "Стерти";
-            Button_PurchasedParts_Clear.Text = "Стерти";
-            //Текст
-            lngMarka.Text = "Марка";
-            lngModel.Text = "Модель";
-            lngRegistrationNumber.Text = "Номер Реєстрації";
-            lngYearOfProduction.Text = "Рок продукції";
-            lngLastName.Text = "Фамілія";
-            lngSearch.Text = "Пошук";
-            lngAdress.Text = "Адрес";
-            lngVehicleDescription.Text = "Опис транспортного засобу";
-            lngCustomerData.Text = "Дані клієнта";
-            lngMileage.Text = "Пробіг";
-            lngEngineCapacity.Text = "Об'єм двигуна";
-            lngBodyNumber.Text = "Номер кузова";
-            lngName.Text = "Ім'я";
-            lngNIP.Text = "ІД";
-            lngTelephon.Text = "Номер Телефону";
-            lngAdditionalInformation.Text = "Інформація Додаткова";
-            lngDateOfAdmission.Text = "Дата прийняття";
-            lngReleaseDate.Text = "Дата випуску";
-
-            lngClientsOrder.Text = "Замовлення клієнта";
-            lngDiagnostics.Text = "Діагностика";
-            lngRepair.Text = "Ремонт";
-            LeftDocumets.Text = "залишені документи транспортного засобу";
-            LeftKey.Text = "Залишені ключі";
-            TestDrive.Text = "Клієнт дає згоду на  пробну їзду";
-            lngPrice.Text = "Ціна приблизна";
-            lngPriceFinally.Text = "Ціна кінцева";
-            lngPurchasedParts.Text = "Закуплені запчастини";
-            lngIDEngine.Text = "Номер/Код двигуна";
+            Interface.Localize_UA();
         }
         private void Verify_Button()
         {
@@ -616,9 +529,18 @@ namespace Warsztat
         }
         private void Save_data_old()
         {
-            sql_cmd.CommandText = "INSERT INTO Dane_New(ID, DataPrzyjecia, DataWydania, Marka, Model,  NumerRejestracji, RokProdukcji, PojemnoscSilnika, Przebieg, NumerNadwozia, IDSilnika, Imie, Nazwisko, NIP, Telefon, Adres, ZlecenieKlienta, Diagnostyka, Naprawa, Koszt_Szacunkowy, Koszt_Koncowy, TestDrive, PozostawioneKluczyki, PozostawioneDokumenty, Zakupione_Czesci)" +
-                 "VALUES ((SELECT ID FROM Dane),(SELECT DataPrzyjecia From Dane), (''), (SELECT Marka From Dane),(SELECT Model From Dane),(SELECT NumerRejestracji From Dane),(SELECT RokProdukcji From Dane), (SELECT PojemnoscSilnika From Dane),(SELECT Przebieg From Dane),(SELECT NumerNadwozia From Dane),(SELECT IDSilnika From Dane), (SELECT Imie From Dane),(SELECT Nazwisko From Dane),(SELECT NIP From Dane),(SELECT Telefon From Dane),(SELECT Adres From Dane),(SELECT ZlecenieKlienta From Dane),(SELECT Diagnostyka From Dane),(SELECT Naprawa From Dane),(SELECT Koszt From Dane),('0'),(SELECT TestDrive From Dane),(SELECT PozostawioneKluczyki From Dane),(SELECT PozostawioneDokumenty From Dane), (''))";
-            sql_cmd.Parameters.AddWithValue("@ID", ID);                   
+            try
+            {
+                sql_cmd.CommandText = "INSERT INTO Dane_New(ID, DataPrzyjecia, DataWydania, Marka, Model,  NumerRejestracji, RokProdukcji, PojemnoscSilnika, Przebieg, NumerNadwozia, IDSilnika, Imie, Nazwisko, NIP, Telefon, Adres, ZlecenieKlienta, Diagnostyka, Naprawa, Koszt_Szacunkowy, Koszt_Koncowy, TestDrive, PozostawioneKluczyki, PozostawioneDokumenty, Zakupione_Czesci)" +
+                     "VALUES ((SELECT ID FROM Dane),(SELECT DataPrzyjecia From Dane), (''), (SELECT Marka From Dane),(SELECT Model From Dane),(SELECT NumerRejestracji From Dane),(SELECT RokProdukcji From Dane), (SELECT PojemnoscSilnika From Dane),(SELECT Przebieg From Dane),(SELECT NumerNadwozia From Dane),(SELECT IDSilnika From Dane), (SELECT Imie From Dane),(SELECT Nazwisko From Dane),(SELECT NIP From Dane),(SELECT Telefon From Dane),(SELECT Adres From Dane),(SELECT ZlecenieKlienta From Dane),(SELECT Diagnostyka From Dane),(SELECT Naprawa From Dane),(SELECT Koszt_Szacunkowy From Dane),('0'),(SELECT TestDrive From Dane),(SELECT PozostawioneKluczyki From Dane),(SELECT PozostawioneDokumenty From Dane), (''))";
+                sql_cmd.Parameters.AddWithValue("@ID", ID);
+            }
+            catch
+            {
+                sql_cmd.CommandText = "INSERT INTO Dane_New(ID, DataPrzyjecia, DataWydania, Marka, Model,  NumerRejestracji, RokProdukcji, PojemnoscSilnika, Przebieg, NumerNadwozia, IDSilnika, Imie, Nazwisko, NIP, Telefon, Adres, ZlecenieKlienta, Diagnostyka, Naprawa, Koszt_Szacunkowy, Koszt_Koncowy, TestDrive, PozostawioneKluczyki, PozostawioneDokumenty, Zakupione_Czesci)" +
+                        "VALUES ((SELECT ID FROM Dane),(SELECT DataPrzyjecia From Dane), (''), (SELECT Marka From Dane),(SELECT Model From Dane),(SELECT NumerRejestracji From Dane),(SELECT RokProdukcji From Dane), (SELECT PojemnoscSilnika From Dane),(SELECT Przebieg From Dane),(SELECT NumerNadwozia From Dane),(SELECT IDSilnika From Dane), (SELECT Imie From Dane),(SELECT Nazwisko From Dane),(SELECT NIP From Dane),(SELECT Telefon From Dane),(SELECT Adres From Dane),(SELECT ZlecenieKlienta From Dane),(SELECT Diagnostyka From Dane),(SELECT Naprawa From Dane),(SELECT Koszt From Dane),('0'),(SELECT TestDrive From Dane),(SELECT PozostawioneKluczyki From Dane),(SELECT PozostawioneDokumenty From Dane), (''))";
+                sql_cmd.Parameters.AddWithValue("@ID", ID);
+            }
         }
 
         private void OLD_Table_MouseClick(object sender, MouseEventArgs e)
