@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 
 namespace Warsztat
 {
-    internal class Interface : Form1
+    internal class Interface
     {
-        public Form1 _form = new Form1();
-       // Form1 _form = default;
-        public void Localize_UA()
+
+        public void Localize_UA(Form1 _form)
         {
             _form.ustawieniaToolStripMenuItem.Text = "Налаштування";
             _form.językToolStripMenuItem.Text = "Мова";
@@ -25,7 +25,6 @@ namespace Warsztat
             _form.Button_Clear.Text = "Стерти";
             _form.Button_Update.Text = "Оновити Дані";
             _form.Button_Delete.Text = "Видалити";
-            _form.Change_Word.Text = "Друкувати";
             _form.tabPage1.Text = "Переглянути базу даних";
             _form.Button_Clear_DK.Text = "Стерти";
             _form.Button_Clear_OP.Text = "Стерти";
@@ -63,7 +62,7 @@ namespace Warsztat
             _form.lngPurchasedParts.Text = "Закуплені запчастини";
             _form.lngIDEngine.Text = "Номер/Код двигуна";
         }
-        public void Localize_PL()
+        public void Localize_PL(Form1 _form)
         {
             _form.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             _form.językToolStripMenuItem.Text = "Język";
@@ -76,7 +75,6 @@ namespace Warsztat
             _form.Button_Clear.Text = "Wyczyść";
             _form.Button_Update.Text = "Odśwież Dane";
             _form.Button_Delete.Text = "Usuń";
-            _form.Change_Word.Text = "Drukuj";
             _form.tabPage1.Text = "Zobacz Baze Danych";
             _form.Button_Clear_DK.Text = "Wyczyść";
             _form.Button_Clear_OP.Text = "Wyczyść";
@@ -113,6 +111,41 @@ namespace Warsztat
             _form.lngPriceFinally.Text = "Koszt Koncowy";
             _form.lngPurchasedParts.Text = "Zakupione Części";
             _form.lngIDEngine.Text = "Numer/kod Silnika";
+        }
+        public void Verify_Button(Form1 form)
+        {
+            form.Marka.BackColor = String.IsNullOrEmpty(form.Marka.Text) ? Color.Red : Color.White;
+            form.Model.BackColor = String.IsNullOrEmpty(form.Model.Text) ? Color.Red : Color.White;
+            form.NumerRejestracji.BackColor = String.IsNullOrEmpty(form.NumerRejestracji.Text) ? Color.Red : Color.White;
+        }
+        public void BodyNumberVerify(Form1 form)
+        {
+            form.IDNadwozia.MaxLength = 17;
+            form.IDNadwozia.Text = String.Concat(form.IDNadwozia.Text.Where(char.IsLetterOrDigit));
+
+            form.BodyNumberLenght.Text = form.IDNadwozia.Text.Length.ToString();
+            if (form.IDNadwozia.Text.Length == 17)
+            {
+
+                form.Button_Save.Enabled = true;
+            }
+            else if (form.IDNadwozia.Text.Length < 17)
+            {
+                form.Button_Save.Enabled = false;
+            }
+        }
+        public void Zlecenie(Form1 form)
+        {
+            if (form.txtZlecenie_Klienta.Text.Length > 330)
+            {
+                form.GeneretePDF_.Enabled = false;
+                form.Zlecenie_Message.Text = " Dałej nie ma miejsca na druk";
+            }
+            else
+            {
+                form.GeneretePDF_.Enabled = true;
+                form.Zlecenie_Message.Text = " ";
+            }
         }
     }
 }
