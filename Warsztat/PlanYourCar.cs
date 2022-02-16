@@ -51,15 +51,15 @@ namespace Warsztat
             {
                 sql_cmd =new SQLiteCommand("INSERT INTO Zaplanowane_Samochody(DataPrzyjecia,Model, Marka,  Imie, Nazwisko, Zlecenie_Klienta) " +
                 "VALUES(@DataPrzyjecia, @Model, @Marka, @Imie, @Nazwisko, @Zlecenie_Klienta)",sql_conn);
-                sql_cmd.Parameters.AddWithValue("@Model", form.Model.Text);
-                sql_cmd.Parameters.AddWithValue("@Marka", form.Marka.Text);
-                sql_cmd.Parameters.AddWithValue("@Imie", form._Name.Text);
-                sql_cmd.Parameters.AddWithValue("@Nazwisko", form.LastName.Text);
-                sql_cmd.Parameters.AddWithValue("@Zlecenie_Klienta", form.txtZlecenie_Klienta.Text);
-                sql_cmd.Parameters.AddWithValue("@DataPrzyjecia", form.DataPrzyjecia.Text);
+                sql_cmd.Parameters.AddWithValue("@Model", form.Model.Text.Trim());
+                sql_cmd.Parameters.AddWithValue("@Marka", form.Marka.Text.Trim());
+                sql_cmd.Parameters.AddWithValue("@Imie", form._Name.Text.Trim());
+                sql_cmd.Parameters.AddWithValue("@Nazwisko", form.LastName.Text.Trim());
+                sql_cmd.Parameters.AddWithValue("@Zlecenie_Klienta", form.txtZlecenie_Klienta.Text.Trim());
+                sql_cmd.Parameters.AddWithValue("@DataPrzyjecia", form.DataPrzyjecia.Text.Trim());
                 sql_cmd.ExecuteNonQuery();              
 
-                MessageBox.Show("Samochód  " + form.Model.Text + " " + form.Marka.Text + " jest zapłanowany na " + form.DataPrzyjecia.Text);
+                MessageBox.Show("Samochód  " +form.Marka.Text.Trim()  + " " + form.Model.Text.Trim() + " jest zapłanowany na " + form.DataPrzyjecia.Text.Trim());
                 Warsztat.Clear(form, ID);
             }
             catch(Exception ex)
@@ -87,6 +87,18 @@ namespace Warsztat
             }
             sql_conn.Close();
         }
-
+        public void ReadData(Form1 form, int ID)
+        {
+            sql_conn.Open();
+            ID = Convert.ToInt32(form.Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
+            form.DataPrzyjecia.Text = form.Scheduled_Cars_View.CurrentRow.Cells["DataPrzyjecia_Column"].Value.ToString();
+            form.Marka.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Marka_Column"].Value.ToString();
+            form.Model.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Model_Column"].Value.ToString();
+            form._Name.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Imie_Column"].Value.ToString();
+            form.LastName.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Nazwisko_Column"].Value.ToString();
+            form.txtZlecenie_Klienta.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Zlecenie_Klienta_Column"].Value.ToString();
+            
+            sql_conn.Close();
+        }
     }
 }

@@ -74,63 +74,69 @@ namespace Warsztat
             conn.Open();
 
             ID = Convert.ToInt32(form.Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
-            form.DataPrzyjecia.Text = form.Dane_Warsztat.CurrentRow.Cells[1].Value.ToString();
-            form.DataWydania.Text = form.Dane_Warsztat.CurrentRow.Cells[2].Value.ToString();
+            form.DataPrzyjecia.Text = form.Dane_Warsztat.CurrentRow.Cells["DataPrzyjecia_Column_Main"].Value.ToString();
+            form.DataWydania.Text = form.Dane_Warsztat.CurrentRow.Cells["DataWydania_Column_Main"].Value.ToString();
 
-            form.Marka.Text = form.Dane_Warsztat.CurrentRow.Cells[3].Value.ToString();
-            form.Model.Text = form.Dane_Warsztat.CurrentRow.Cells[4].Value.ToString();
-            form.NumerRejestracji.Text = form.Dane_Warsztat.CurrentRow.Cells[5].Value.ToString();
+            form.Marka.Text = form.Dane_Warsztat.CurrentRow.Cells["Marka_Column_Main"].Value.ToString();
+            form.Model.Text = form.Dane_Warsztat.CurrentRow.Cells["Model_Column_Main"].Value.ToString();
+            form.NumerRejestracji.Text = form.Dane_Warsztat.CurrentRow.Cells["NumerRejestracji_Column_Main"].Value.ToString();
 
-            form.YearOfProduction.Text = form.Dane_Warsztat.CurrentRow.Cells[6].Value.ToString();
-            form.PojemnoscSilnika.Text = form.Dane_Warsztat.CurrentRow.Cells[7].Value.ToString();
-            form.Przebieg.Text = form.Dane_Warsztat.CurrentRow.Cells[8].Value.ToString();
+            form.YearOfProduction.Text = form.Dane_Warsztat.CurrentRow.Cells["YearOfProduction_Column_Main"].Value.ToString();
+            form.PojemnoscSilnika.Text = form.Dane_Warsztat.CurrentRow.Cells["PojemnoscSilnika_Column_Main"].Value.ToString();
+            form.Przebieg.Text = form.Dane_Warsztat.CurrentRow.Cells["Przebieg_Column_Main"].Value.ToString();
 
-            form.IDNadwozia.Text = form.Dane_Warsztat.CurrentRow.Cells[9].Value.ToString();
-            form.IDSilnika.Text = form.Dane_Warsztat.CurrentRow.Cells[10].Value.ToString();
-            form._Name.Text = form.Dane_Warsztat.CurrentRow.Cells[11].Value.ToString();
+            form.IDNadwozia.Text = form.Dane_Warsztat.CurrentRow.Cells["IDNadwozia_Column_Main"].Value.ToString();
+            form.IDSilnika.Text = form.Dane_Warsztat.CurrentRow.Cells["IDSilnika_Column_Main"].Value.ToString();
+            form._Name.Text = form.Dane_Warsztat.CurrentRow.Cells["Name_Column_Main"].Value.ToString();
 
-            form.LastName.Text = form.Dane_Warsztat.CurrentRow.Cells[12].Value.ToString();
-            form.NIP.Text = form.Dane_Warsztat.CurrentRow.Cells[13].Value.ToString();
-            form.TelefonKomurkowy.Text = form.Dane_Warsztat.CurrentRow.Cells[14].Value.ToString();
+            form.LastName.Text = form.Dane_Warsztat.CurrentRow.Cells["LastName_Column_Main"].Value.ToString();
+            form.NIP.Text = form.Dane_Warsztat.CurrentRow.Cells["NIP_Column_Main"].Value.ToString();
+            form.TelefonKomurkowy.Text = form.Dane_Warsztat.CurrentRow.Cells["Telephon_Column_Main"].Value.ToString();
 
-            form.Adress.Text = form.Dane_Warsztat.CurrentRow.Cells[15].Value.ToString();
-            form.txtZlecenie_Klienta.Text = form.Dane_Warsztat.CurrentRow.Cells[16].Value.ToString();
-            form.txtDiagostyka.Text = form.Dane_Warsztat.CurrentRow.Cells[17].Value.ToString();
+            form.Adress.Text = form.Dane_Warsztat.CurrentRow.Cells["Adress_Column_Main"].Value.ToString();
+            form.txtZlecenie_Klienta.Text = form.Dane_Warsztat.CurrentRow.Cells["Zlecenie_Klienta_Column_Main"].Value.ToString();
+            form.txtDiagostyka.Text = form.Dane_Warsztat.CurrentRow.Cells["Diagnostyka_Column_Main"].Value.ToString();
 
-            form.txtNaprawa.Text = form.Dane_Warsztat.CurrentRow.Cells[18].Value.ToString();
-            form.Price.Text = form.Dane_Warsztat.CurrentRow.Cells[19].Value.ToString();
-            form.Price_Finally.Text = form.Dane_Warsztat.CurrentRow.Cells[20].Value.ToString();
+            form.txtNaprawa.Text = form.Dane_Warsztat.CurrentRow.Cells["Naprawa_Column_Main"].Value.ToString();
+            form.Price.Text = form.Dane_Warsztat.CurrentRow.Cells["Price_Column_Main"].Value.ToString();
+            form.Price_Finally.Text = form.Dane_Warsztat.CurrentRow.Cells["Price_Finally_Column_Main"].Value.ToString();
 
-            var jazda_ = form.Dane_Warsztat.CurrentRow.Cells[21].Value.ToString();
+            var jazda_ = form.Dane_Warsztat.CurrentRow.Cells["TestDrive_Column_Main"].Value.ToString();
             form.TestDrive.Checked = jazda_ == "Tak";
             form.TestDrive.Checked = !(jazda_ == "Nie");
 
-            var kluczyki_ = form.Dane_Warsztat.CurrentRow.Cells[22].Value.ToString();
+            var kluczyki_ = form.Dane_Warsztat.CurrentRow.Cells["Left_Key_Column_Main"].Value.ToString();
             form.LeftKey.Checked = kluczyki_ == "Tak";
             form.LeftKey.Checked = !(kluczyki_ == "Nie");
 
-            var dokumenty_ = form.Dane_Warsztat.CurrentRow.Cells[23].Value.ToString();
+            var dokumenty_ = form.Dane_Warsztat.CurrentRow.Cells["LeftDocuments_Column_Main"].Value.ToString();
             form.LeftDocumets.Checked = dokumenty_ == "Tak";
             form.LeftDocumets.Checked = !(dokumenty_ == "Nie");
 
-            form.txtZakupione_Czesci.Text = form.Dane_Warsztat.CurrentRow.Cells[24].Value.ToString();
+            form.txtZakupione_Czesci.Text = form.Dane_Warsztat.CurrentRow.Cells["Zakupione_Czesci_Column_Main"].Value.ToString();
 
             conn.Close();
             form.Button_Delete.Enabled = form.Enabled;
         }
 
         public void Load_DB(Form1 form)
-        {
-            conn.Open();
-            cmd = conn.CreateCommand();
-            string CommandText = "select * from Dane";
-            DB = new SQLiteDataAdapter(CommandText, conn);
-            DS.Reset();
-            DB.Fill(DS);
-            DT = DS.Tables[0];
-            form.Dane_Warsztat.DataSource = DT;
-            form.Dane_Warsztat.Columns[0].Visible = false;
-            conn.Close();
+        {try
+            {
+                conn.Open();
+                cmd = conn.CreateCommand();
+                string CommandText = "select * from Dane";
+                DB = new SQLiteDataAdapter(CommandText, conn);
+                DS.Reset();
+                DB.Fill(DS);
+                DT = DS.Tables[0];
+                form.Dane_Warsztat.DataSource = DT;
+                form.Dane_Warsztat.Columns[0].Visible = false;
+                conn.Close();
+            }
+            catch (Exception ex)//it`s a fix
+            {
+                
+            }
         }
         public void Delete(Form1 form, int ID)
         {
@@ -153,7 +159,7 @@ namespace Warsztat
             }
             catch (Exception)
             {
-                MessageBox.Show("Nie udało się usunąć dane", "Warsztat");
+                MessageBox.Show("Nie udało się usunąć dane ", "Warsztat");
             }
             conn.Close();
         }
@@ -174,40 +180,39 @@ namespace Warsztat
         }
         private void Edit_AND_Save(Form1 form) // Тут містяться параметри для sql
         {
-            cmd.Parameters.AddWithValue("@Model", form.Model.Text);
-            cmd.Parameters.AddWithValue("@Marka", form.Marka.Text);
-            cmd.Parameters.AddWithValue("@NumerRejestracji", form.NumerRejestracji.Text);
-            cmd.Parameters.AddWithValue("@RokProdukcji", form.YearOfProduction.Text);
+            cmd.Parameters.AddWithValue("@Model", form.Model.Text.Trim());
+            cmd.Parameters.AddWithValue("@Marka", form.Marka.Text.Trim());
+            cmd.Parameters.AddWithValue("@NumerRejestracji", form.NumerRejestracji.Text.Trim());
+            cmd.Parameters.AddWithValue("@RokProdukcji", form.YearOfProduction.Text.Trim());
 
-            cmd.Parameters.AddWithValue("@PojemnoscSilnika", form.PojemnoscSilnika.Text);
-            cmd.Parameters.AddWithValue("@Przebieg", form.Przebieg.Text);
-            cmd.Parameters.AddWithValue("@NumerNadwozia", form.IDNadwozia.Text);
-            cmd.Parameters.AddWithValue("@IDSilnika", form.IDSilnika.Text);
+            cmd.Parameters.AddWithValue("@PojemnoscSilnika", form.PojemnoscSilnika.Text.Trim());
+            cmd.Parameters.AddWithValue("@Przebieg", form.Przebieg.Text.Trim());
+            cmd.Parameters.AddWithValue("@NumerNadwozia", form.IDNadwozia.Text.Trim());
+            cmd.Parameters.AddWithValue("@IDSilnika", form.IDSilnika.Text.Trim());
 
-            cmd.Parameters.AddWithValue("@Imie", form._Name.Text);
-            cmd.Parameters.AddWithValue("@Nazwisko", form.LastName.Text);
-            cmd.Parameters.AddWithValue("@NIP", form.NIP.Text);
+            cmd.Parameters.AddWithValue("@Imie", form._Name.Text.Trim());
+            cmd.Parameters.AddWithValue("@Nazwisko", form.LastName.Text.Trim());
+            cmd.Parameters.AddWithValue("@NIP", form.NIP.Text.Trim());
             cmd.Parameters.AddWithValue("@Telefon", form.TelefonKomurkowy.Text);
 
-            cmd.Parameters.AddWithValue("@Adres", form.Adress.Text);
-            cmd.Parameters.AddWithValue("@ZlecenieKlienta", form.txtZlecenie_Klienta.Text);
-            cmd.Parameters.AddWithValue("@Diagnostyka", form.txtDiagostyka.Text);
+            cmd.Parameters.AddWithValue("@Adres", form.Adress.Text.Trim());
+            cmd.Parameters.AddWithValue("@ZlecenieKlienta", form.txtZlecenie_Klienta.Text.Trim());
+            cmd.Parameters.AddWithValue("@Diagnostyka", form.txtDiagostyka.Text.Trim());
 
-            cmd.Parameters.AddWithValue("@Naprawa", form.txtNaprawa.Text);
-            cmd.Parameters.AddWithValue("@Koszt_Szacunkowy", form.Price.Text);
-            cmd.Parameters.AddWithValue("@DataPrzyjecia", form.DataPrzyjecia.Text);
+            cmd.Parameters.AddWithValue("@Naprawa", form.txtNaprawa.Text.Trim());
+            cmd.Parameters.AddWithValue("@Koszt_Szacunkowy", form.Price.Text.Trim());
+            cmd.Parameters.AddWithValue("@DataPrzyjecia", form.DataPrzyjecia.Text.Trim());
             if (form.lngReleaseDate.Checked == true)
             {
                 Console.WriteLine("Data Wyadania Text");
-                cmd.Parameters.AddWithValue("@DataWydania", form.DataWydania.Text);
+                cmd.Parameters.AddWithValue("@DataWydania", form.DataWydania.Text.Trim());
             }
             else if (form.lngReleaseDate.Checked == false)
             {
-                Console.WriteLine("Data wydania !text");
                 cmd.Parameters.AddWithValue("@DataWydania", form.nothing = "");
             }
-            cmd.Parameters.AddWithValue("@Koszt_Koncowy", form.Price_Finally.Text);
-            cmd.Parameters.AddWithValue("@Zakupione_Czesci", form.txtZakupione_Czesci.Text);
+            cmd.Parameters.AddWithValue("@Koszt_Koncowy", form.Price_Finally.Text.Trim());
+            cmd.Parameters.AddWithValue("@Zakupione_Czesci", form.txtZakupione_Czesci.Text.Trim());
 
             //Інформація додаткова
             //Пробний пробіг

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Work_Place = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Button_Delete = new System.Windows.Forms.Button();
@@ -139,6 +139,31 @@
             this.językToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ukraińskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ID_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataPrzyjecia_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataWydania_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marka_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumerRejestracji_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearOfProduction_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PojemnoscSilnika_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Przebieg_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDNadwozia_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDSilnika_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NIP_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telephon_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adress_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zlecenie_Klienta_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diagnostyka_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naprawa_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price_Finally_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TestDrive_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Left_Key_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeftDocuments_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zakupione_Czesci_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Work_Place.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
@@ -228,6 +253,32 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dane_Warsztat.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Dane_Warsztat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dane_Warsztat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_Column_Main,
+            this.DataPrzyjecia_Column_Main,
+            this.DataWydania_Column_Main,
+            this.Marka_Column_Main,
+            this.Model_Column_Main,
+            this.NumerRejestracji_Column_Main,
+            this.YearOfProduction_Column_Main,
+            this.PojemnoscSilnika_Column_Main,
+            this.Przebieg_Column_Main,
+            this.IDNadwozia_Column_Main,
+            this.IDSilnika_Column_Main,
+            this.Name_Column_Main,
+            this.LastName_Column_Main,
+            this.NIP_Column_Main,
+            this.Telephon_Column_Main,
+            this.Adress_Column_Main,
+            this.Zlecenie_Klienta_Column_Main,
+            this.Diagnostyka_Column_Main,
+            this.Naprawa_Column_Main,
+            this.Price_Column_Main,
+            this.Price_Finally_Column_Main,
+            this.TestDrive_Column_Main,
+            this.Left_Key_Column_Main,
+            this.LeftDocuments_Column_Main,
+            this.Zakupione_Czesci_Column_Main});
             this.Dane_Warsztat.Location = new System.Drawing.Point(6, 59);
             this.Dane_Warsztat.Name = "Dane_Warsztat";
             this.Dane_Warsztat.ReadOnly = true;
@@ -263,7 +314,7 @@
             // 
             this.GeneretePDF_.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.GeneretePDF_.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.GeneretePDF_.Location = new System.Drawing.Point(246, 12);
+            this.GeneretePDF_.Location = new System.Drawing.Point(96, 12);
             this.GeneretePDF_.Name = "GeneretePDF_";
             this.GeneretePDF_.Size = new System.Drawing.Size(75, 23);
             this.GeneretePDF_.TabIndex = 3;
@@ -275,9 +326,10 @@
             // 
             this.Plan_your_car.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Plan_your_car.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Plan_your_car.Location = new System.Drawing.Point(880, 8);
+            this.Plan_your_car.Location = new System.Drawing.Point(187, 13);
             this.Plan_your_car.Name = "Plan_your_car";
-            this.Plan_your_car.Size = new System.Drawing.Size(141, 23);
+            this.Plan_your_car.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Plan_your_car.Size = new System.Drawing.Size(141, 22);
             this.Plan_your_car.TabIndex = 2;
             this.Plan_your_car.Text = "Zaplanuj samochód";
             this.Plan_your_car.UseVisualStyleBackColor = false;
@@ -946,7 +998,7 @@
             // 
             this.Button_Update.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Button_Update.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Button_Update.Location = new System.Drawing.Point(84, 12);
+            this.Button_Update.Location = new System.Drawing.Point(3, 41);
             this.Button_Update.Name = "Button_Update";
             this.Button_Update.Size = new System.Drawing.Size(75, 23);
             this.Button_Update.TabIndex = 0;
@@ -958,7 +1010,7 @@
             // 
             this.Button_Clear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Button_Clear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Button_Clear.Location = new System.Drawing.Point(165, 12);
+            this.Button_Clear.Location = new System.Drawing.Point(3, 70);
             this.Button_Clear.Name = "Button_Clear";
             this.Button_Clear.Size = new System.Drawing.Size(75, 23);
             this.Button_Clear.TabIndex = 0;
@@ -995,6 +1047,7 @@
             // 
             // lngNewBD
             // 
+            this.lngNewBD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lngNewBD.AutoSize = true;
             this.lngNewBD.Location = new System.Drawing.Point(796, 42);
             this.lngNewBD.Name = "lngNewBD";
@@ -1135,6 +1188,9 @@
             // 
             // Scheduled_Cars_View
             // 
+            this.Scheduled_Cars_View.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Scheduled_Cars_View.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Scheduled_Cars_View.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Scheduled_Cars_View.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1147,11 +1203,12 @@
             this.Zlecenie_Klienta_Column});
             this.Scheduled_Cars_View.Location = new System.Drawing.Point(6, 61);
             this.Scheduled_Cars_View.Name = "Scheduled_Cars_View";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.NullValue = null;
-            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.NullValue = null;
+            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Scheduled_Cars_View.Size = new System.Drawing.Size(1042, 550);
             this.Scheduled_Cars_View.TabIndex = 0;
+            this.Scheduled_Cars_View.DoubleClick += new System.EventHandler(this.Scheduled_Cars_View_DoubleClick);
             this.Scheduled_Cars_View.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Scheduled_Cars_View_MouseClick);
             // 
             // ID_Column
@@ -1273,6 +1330,181 @@
             this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.ukraińskiToolStripMenuItem.Text = "Ukraiński";
             this.ukraińskiToolStripMenuItem.Click += new System.EventHandler(this.ukraińskiToolStripMenuItem_Click);
+            // 
+            // ID_Column_Main
+            // 
+            this.ID_Column_Main.DataPropertyName = "ID";
+            this.ID_Column_Main.HeaderText = "ID";
+            this.ID_Column_Main.Name = "ID_Column_Main";
+            this.ID_Column_Main.ReadOnly = true;
+            // 
+            // DataPrzyjecia_Column_Main
+            // 
+            this.DataPrzyjecia_Column_Main.DataPropertyName = "DataPrzyjecia";
+            this.DataPrzyjecia_Column_Main.HeaderText = "Data Przyjęcia";
+            this.DataPrzyjecia_Column_Main.Name = "DataPrzyjecia_Column_Main";
+            this.DataPrzyjecia_Column_Main.ReadOnly = true;
+            // 
+            // DataWydania_Column_Main
+            // 
+            this.DataWydania_Column_Main.DataPropertyName = "DataWydania";
+            this.DataWydania_Column_Main.HeaderText = "Data wydania";
+            this.DataWydania_Column_Main.Name = "DataWydania_Column_Main";
+            this.DataWydania_Column_Main.ReadOnly = true;
+            // 
+            // Marka_Column_Main
+            // 
+            this.Marka_Column_Main.DataPropertyName = "Marka";
+            this.Marka_Column_Main.HeaderText = "Marka";
+            this.Marka_Column_Main.Name = "Marka_Column_Main";
+            this.Marka_Column_Main.ReadOnly = true;
+            // 
+            // Model_Column_Main
+            // 
+            this.Model_Column_Main.DataPropertyName = "Model";
+            this.Model_Column_Main.HeaderText = "Model";
+            this.Model_Column_Main.Name = "Model_Column_Main";
+            this.Model_Column_Main.ReadOnly = true;
+            // 
+            // NumerRejestracji_Column_Main
+            // 
+            this.NumerRejestracji_Column_Main.DataPropertyName = "NumerRejestracji";
+            this.NumerRejestracji_Column_Main.HeaderText = "Numer rejestracji";
+            this.NumerRejestracji_Column_Main.Name = "NumerRejestracji_Column_Main";
+            this.NumerRejestracji_Column_Main.ReadOnly = true;
+            // 
+            // YearOfProduction_Column_Main
+            // 
+            this.YearOfProduction_Column_Main.DataPropertyName = "RokProdukcji";
+            this.YearOfProduction_Column_Main.HeaderText = "Rok produkcji";
+            this.YearOfProduction_Column_Main.Name = "YearOfProduction_Column_Main";
+            this.YearOfProduction_Column_Main.ReadOnly = true;
+            // 
+            // PojemnoscSilnika_Column_Main
+            // 
+            this.PojemnoscSilnika_Column_Main.DataPropertyName = "PojemnoscSilnika";
+            this.PojemnoscSilnika_Column_Main.HeaderText = "Pojemność silnika";
+            this.PojemnoscSilnika_Column_Main.Name = "PojemnoscSilnika_Column_Main";
+            this.PojemnoscSilnika_Column_Main.ReadOnly = true;
+            // 
+            // Przebieg_Column_Main
+            // 
+            this.Przebieg_Column_Main.DataPropertyName = "Przebieg";
+            this.Przebieg_Column_Main.HeaderText = "Przebieg";
+            this.Przebieg_Column_Main.Name = "Przebieg_Column_Main";
+            this.Przebieg_Column_Main.ReadOnly = true;
+            // 
+            // IDNadwozia_Column_Main
+            // 
+            this.IDNadwozia_Column_Main.DataPropertyName = "NumerNadwozia";
+            this.IDNadwozia_Column_Main.HeaderText = "ID Nadwozia";
+            this.IDNadwozia_Column_Main.Name = "IDNadwozia_Column_Main";
+            this.IDNadwozia_Column_Main.ReadOnly = true;
+            // 
+            // IDSilnika_Column_Main
+            // 
+            this.IDSilnika_Column_Main.DataPropertyName = "IDSilnika";
+            this.IDSilnika_Column_Main.HeaderText = "ID Silnika";
+            this.IDSilnika_Column_Main.Name = "IDSilnika_Column_Main";
+            this.IDSilnika_Column_Main.ReadOnly = true;
+            // 
+            // Name_Column_Main
+            // 
+            this.Name_Column_Main.DataPropertyName = "Imie";
+            this.Name_Column_Main.HeaderText = "Imię";
+            this.Name_Column_Main.Name = "Name_Column_Main";
+            this.Name_Column_Main.ReadOnly = true;
+            // 
+            // LastName_Column_Main
+            // 
+            this.LastName_Column_Main.DataPropertyName = "Nazwisko";
+            this.LastName_Column_Main.HeaderText = "Nazwisko";
+            this.LastName_Column_Main.Name = "LastName_Column_Main";
+            this.LastName_Column_Main.ReadOnly = true;
+            // 
+            // NIP_Column_Main
+            // 
+            this.NIP_Column_Main.DataPropertyName = "NIP";
+            this.NIP_Column_Main.HeaderText = "NIP";
+            this.NIP_Column_Main.Name = "NIP_Column_Main";
+            this.NIP_Column_Main.ReadOnly = true;
+            // 
+            // Telephon_Column_Main
+            // 
+            this.Telephon_Column_Main.DataPropertyName = "Telefon";
+            this.Telephon_Column_Main.HeaderText = "Telefon";
+            this.Telephon_Column_Main.Name = "Telephon_Column_Main";
+            this.Telephon_Column_Main.ReadOnly = true;
+            // 
+            // Adress_Column_Main
+            // 
+            this.Adress_Column_Main.DataPropertyName = "Adres";
+            this.Adress_Column_Main.HeaderText = "Adres";
+            this.Adress_Column_Main.Name = "Adress_Column_Main";
+            this.Adress_Column_Main.ReadOnly = true;
+            // 
+            // Zlecenie_Klienta_Column_Main
+            // 
+            this.Zlecenie_Klienta_Column_Main.DataPropertyName = "ZlecenieKlienta";
+            this.Zlecenie_Klienta_Column_Main.HeaderText = "Zlecenie klienta";
+            this.Zlecenie_Klienta_Column_Main.Name = "Zlecenie_Klienta_Column_Main";
+            this.Zlecenie_Klienta_Column_Main.ReadOnly = true;
+            // 
+            // Diagnostyka_Column_Main
+            // 
+            this.Diagnostyka_Column_Main.DataPropertyName = "Diagnostyka";
+            this.Diagnostyka_Column_Main.HeaderText = "Diagnostyka";
+            this.Diagnostyka_Column_Main.Name = "Diagnostyka_Column_Main";
+            this.Diagnostyka_Column_Main.ReadOnly = true;
+            // 
+            // Naprawa_Column_Main
+            // 
+            this.Naprawa_Column_Main.DataPropertyName = "Naprawa";
+            this.Naprawa_Column_Main.HeaderText = "Naprawa";
+            this.Naprawa_Column_Main.Name = "Naprawa_Column_Main";
+            this.Naprawa_Column_Main.ReadOnly = true;
+            // 
+            // Price_Column_Main
+            // 
+            this.Price_Column_Main.DataPropertyName = "Koszt_Szacunkowy";
+            this.Price_Column_Main.HeaderText = "Koszt Szacunkowy";
+            this.Price_Column_Main.Name = "Price_Column_Main";
+            this.Price_Column_Main.ReadOnly = true;
+            // 
+            // Price_Finally_Column_Main
+            // 
+            this.Price_Finally_Column_Main.DataPropertyName = "Koszt_Koncowy";
+            this.Price_Finally_Column_Main.HeaderText = "Koszt końcowy";
+            this.Price_Finally_Column_Main.Name = "Price_Finally_Column_Main";
+            this.Price_Finally_Column_Main.ReadOnly = true;
+            // 
+            // TestDrive_Column_Main
+            // 
+            this.TestDrive_Column_Main.DataPropertyName = "TestDrive";
+            this.TestDrive_Column_Main.HeaderText = "Test Drive";
+            this.TestDrive_Column_Main.Name = "TestDrive_Column_Main";
+            this.TestDrive_Column_Main.ReadOnly = true;
+            // 
+            // Left_Key_Column_Main
+            // 
+            this.Left_Key_Column_Main.DataPropertyName = "PozostawioneKluczyki";
+            this.Left_Key_Column_Main.HeaderText = "Zostawione Kluczyki";
+            this.Left_Key_Column_Main.Name = "Left_Key_Column_Main";
+            this.Left_Key_Column_Main.ReadOnly = true;
+            // 
+            // LeftDocuments_Column_Main
+            // 
+            this.LeftDocuments_Column_Main.DataPropertyName = "PozostawioneDokumenty";
+            this.LeftDocuments_Column_Main.HeaderText = "Zostawione dokumenty";
+            this.LeftDocuments_Column_Main.Name = "LeftDocuments_Column_Main";
+            this.LeftDocuments_Column_Main.ReadOnly = true;
+            // 
+            // Zakupione_Czesci_Column_Main
+            // 
+            this.Zakupione_Czesci_Column_Main.DataPropertyName = "Zakupione_Czesci";
+            this.Zakupione_Czesci_Column_Main.HeaderText = "Zakupione Części";
+            this.Zakupione_Czesci_Column_Main.Name = "Zakupione_Czesci_Column_Main";
+            this.Zakupione_Czesci_Column_Main.ReadOnly = true;
             // 
             // Form1
             // 
@@ -1434,6 +1666,31 @@
         public System.Windows.Forms.MaskedTextBox TelefonKomurkowy;
         public System.Windows.Forms.MaskedTextBox YearOfProduction;
         public System.Windows.Forms.Label Zlecenie_Message;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataPrzyjecia_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataWydania_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marka_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumerRejestracji_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearOfProduction_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PojemnoscSilnika_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Przebieg_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDNadwozia_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDSilnika_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NIP_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telephon_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Adress_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Zlecenie_Klienta_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Diagnostyka_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naprawa_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price_Finally_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TestDrive_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Left_Key_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LeftDocuments_Column_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Zakupione_Czesci_Column_Main;
     }
 }
 

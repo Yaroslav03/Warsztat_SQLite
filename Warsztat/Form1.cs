@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Threading;
 
 namespace Warsztat
 {
@@ -29,15 +30,14 @@ namespace Warsztat
 
         SQLiteConnection sql_conn = new SQLiteConnection();
         SQLiteCommand sql_cmd = new SQLiteCommand();
-        SQLiteDataAdapter DB = new SQLiteDataAdapter();
-        DataSet DS = new DataSet();
-        DataTable DT = new DataTable();
+        
 
         public Form1()
         {          
-            InitializeComponent();
             sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
+            InitializeComponent();
             Warsztat.Load_DB(this);
+            PlanYourCar.Load(this);
             Interface.BodyNumberVerify(this);
             Interface.Verify_Button(this);
             Interface.Zlecenie(this);
@@ -51,6 +51,7 @@ namespace Warsztat
         private void Button_Delete_Click(object sender, EventArgs e)
         {
             Warsztat.Delete(this, ID);
+            Warsztat.Load_DB(this);
         }
 
         private void Button_Save_Click(object sender, EventArgs e)
@@ -110,7 +111,7 @@ namespace Warsztat
         {
             try
             {
-                //Конвертує в число
+                //Convert to number
                 ID = Convert.ToInt32(Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
                 Warsztat.ReadData(this, ID);
             }
@@ -147,33 +148,27 @@ namespace Warsztat
         {
             Interface.Verify_Button(this);
         }
-
-        private void TelefonKomurkowy_TextChanged(object sender, EventArgs e)
-        {
-            Interface.Verify_Button(this);    
-        }
    
         private void stwórzNowąTabelkęToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Load_To_Copy_Old_Tabel();
+            Update.Load_To_Copy_Old_Tabel(this);
             Update.Create_New_DB();
-            Load_To_Copy_NEW_Tabel();
+            Update.Load_To_Copy_NEW_Tabel(this);
         }
 
         private void OLD_Table_MouseClick(object sender, MouseEventArgs e)
         {
-            ID = Convert.ToInt32(OLD_Table.CurrentRow.Cells[0].Value.ToString());
-            
+            ID = Convert.ToInt32(OLD_Table.CurrentRow.Cells[0].Value.ToString()); 
         }
+
         private void kopjujToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
             sql_conn.Open();
             Update.Save_data_old(ID);
             
             sql_conn.Close();
-            Load_To_Copy_NEW_Tabel();
-            Load_To_Copy_Old_Tabel();
+            Update.Load_To_Copy_NEW_Tabel(this);
+            Update.Load_To_Copy_Old_Tabel(this);
             using (var sql_con = new SQLiteConnection(ConnectionString))
             {
                 sql_con.Open();
@@ -186,7 +181,7 @@ namespace Warsztat
                         sql_cmd.Parameters.AddWithValue("@ID", ID);
                         sql_cmd.ExecuteNonQuery();
                         Warsztat.Clear(this, ID);
-                        Load_To_Copy_Old_Tabel();
+                        Update.Load_To_Copy_Old_Tabel(this);
                     }
                     else
                     {
@@ -200,37 +195,8 @@ namespace Warsztat
                 sql_con.Close();
             }
         }
-        private void Load_To_Copy_Old_Tabel()
-        {
-            sql_conn.Open();
-            sql_cmd = sql_conn.CreateCommand();
-            string CommandText = "select * from Dane";
-            DB = new SQLiteDataAdapter(CommandText, sql_conn);
-            DS.Reset();
-            DB.Fill(DS);
-            DT = DS.Tables[0];
-            OLD_Table.DataSource = DT;
-            OLD_Table.Columns[0].Visible = false;
-            sql_conn.Close();
-        }
-        private void Load_To_Copy_NEW_Tabel()
-        {
-            SQLiteDataAdapter sqlDB = new SQLiteDataAdapter();
-            DataSet sqlDS = new DataSet();
-            DataTable sqlDT = new DataTable();
-
-            sql_conn.Open();
-            sql_cmd = sql_conn.CreateCommand();
-            string CommandText = "select * from Dane_New";
-            sqlDB = new SQLiteDataAdapter(CommandText, sql_conn);
-            sqlDS.Reset();
-            sqlDB.Fill(sqlDS);
-            sqlDT = sqlDS.Tables[0];
-            NEW_Table.DataSource = sqlDT;
-            NEW_Table.Columns[0].Visible = false;
-            sql_conn.Close();
-        }
         
+                
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Update.Delete();
@@ -299,8 +265,7 @@ namespace Warsztat
 
         private void GeneretePDF_Click(object sender, EventArgs e)
         {
-            GeneratePDF.Create(this);
-            GeneratePDF.PreviewPDF(this);
+           GeneratePDF.PreviewPDF(this);            
         }
 
         private void IDNadwozia_TextChanged(object sender, EventArgs e)
@@ -311,6 +276,12 @@ namespace Warsztat
         private void txtZlecenie_Klienta_TextChanged(object sender, EventArgs e)
         {
             Interface.Zlecenie(this);
+        }
+
+        private void Scheduled_Cars_View_DoubleClick(object sender, EventArgs e)
+        {
+            PlanYourCar.ReadData(this, ID);
+            Work_Place.SelectTab(tabPage2);
         }
     }
 }

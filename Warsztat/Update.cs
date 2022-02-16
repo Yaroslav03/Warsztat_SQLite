@@ -14,7 +14,9 @@ namespace Warsztat
     {
         private  SQLiteConnection conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
         SQLiteCommand cmd = new SQLiteCommand();
-        
+        SQLiteDataAdapter sqlDB = new SQLiteDataAdapter();
+        DataSet sqlDS = new DataSet();
+        DataTable sqlDT = new DataTable();
 
         public void Create_New_DB()
         {
@@ -129,6 +131,36 @@ namespace Warsztat
                 cmd.Parameters.AddWithValue("@ID", ID);
                 cmd.ExecuteNonQuery();
             }
+            conn.Close();
+        }
+        public void Load_To_Copy_NEW_Tabel(Form1 form)
+        {
+            conn.Open();
+            cmd = conn.CreateCommand();
+            string CommandText = "select * from Dane_New";
+            sqlDB = new SQLiteDataAdapter(CommandText, conn);
+            sqlDS.Reset();
+            sqlDB.Fill(sqlDS);
+            sqlDT = sqlDS.Tables[0];
+            form.NEW_Table.DataSource = sqlDT;
+            form.NEW_Table.Columns[0].Visible = false;
+            conn.Close();
+        }
+        public void Load_To_Copy_Old_Tabel(Form1 form)
+        {
+            SQLiteDataAdapter DB = new SQLiteDataAdapter();
+            DataSet DS = new DataSet();
+            DataTable DT = new DataTable();
+
+            conn.Open();
+            cmd = conn.CreateCommand();
+            string CommandText = "select * from Dane";
+            DB = new SQLiteDataAdapter(CommandText, conn);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            form.OLD_Table.DataSource = DT;
+            form.OLD_Table.Columns[0].Visible = false;
             conn.Close();
         }
     }

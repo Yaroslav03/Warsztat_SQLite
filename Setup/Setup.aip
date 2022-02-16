@@ -3,60 +3,26 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_CURRENT_YEAR" Value="2022" ValueLocId="-"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll" Value="..\packages\Portable.BouncyCastle.1.8.9\lib\net40"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll" Value="..\packages\EntityFramework.6.4.4\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.dll" Value="..\packages\EntityFramework.6.4.4\lib\net45"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Haru.Net.dll" Value="..\packages\Haru.Net.1.0.11\lib\net451"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll" Value="..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Value="..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Value="..\packages\Microsoft.Extensions.DependencyInjection.5.0.0\lib\net461"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Value="..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.dll" Value="..\packages\Microsoft.Extensions.Logging.5.0.0\lib\net461"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Options.dll" Value="..\packages\Microsoft.Extensions.Options.5.0.0\lib\net461"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Primitives.dll" Value="..\packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.mshtml.dll" Value="..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\PublicAssemblies"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Print_Document.docx" Value="..\Warsztat\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Spire.License.dll" Value="..\packages\FreeSpire.PDF.7.8.9\lib\net40"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Spire.Pdf.dll" Value="..\packages\FreeSpire.PDF.7.8.9\lib\net40"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Buffers.dll" Value="..\packages\System.Buffers.4.5.1\lib\net461"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.EF6.dll" Value="..\packages\System.Data.SQLite.EF6.1.0.115.5\lib\net46"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.Linq.dll" Value="..\packages\System.Data.SQLite.Linq.1.0.115.5\lib\net46"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.dll" Value="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Diagnostics.DiagnosticSource.dll" Value="..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Memory.dll" Value="..\packages\System.Memory.4.5.4\lib\net461"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Numerics.Vectors.dll" Value="..\packages\System.Numerics.Vectors.4.5.0\lib\net46"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll" Value="..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Threading.Tasks.Extensions.dll" Value="..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.ValueTuple.dll" Value="..\packages\System.ValueTuple.4.5.0\lib\net47"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.db" Value="..\Warsztat\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe" Value="..\Warsztat\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe.config" Value="..\Warsztat\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.pdb" Value="..\Warsztat\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll" Value="BouncyCastle.Crypto.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll" Value="EntityFramework.SqlServer.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll" Value="EntityFramework.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Haru.Net.dll" Value="Haru.Net.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll" Value="Microsoft.Bcl.AsyncInterfaces.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Value="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Value="Microsoft.Extensions.DependencyInjection.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Value="Microsoft.Extensions.Logging.Abstractions.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.dll" Value="Microsoft.Extensions.Logging.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll" Value="Microsoft.Extensions.Options.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll" Value="Microsoft.Extensions.Primitives.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.mshtml.dll" Value="Microsoft.mshtml.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Print_Document.docx" Value="Print_Document.docx"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Spire.License.dll" Value="Spire.License.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Spire.Pdf.dll" Value="Spire.Pdf.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Buffers.dll" Value="System.Buffers.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.EF6.dll" Value="System.Data.SQLite.EF6.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.Linq.dll" Value="System.Data.SQLite.Linq.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.dll" Value="System.Data.SQLite.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Diagnostics.DiagnosticSource.dll" Value="System.Diagnostics.DiagnosticSource.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Memory.dll" Value="System.Memory.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Numerics.Vectors.dll" Value="System.Numerics.Vectors.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll" Value="System.Runtime.CompilerServices.Unsafe.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Threading.Tasks.Extensions.dll" Value="System.Threading.Tasks.Extensions.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.ValueTuple.dll" Value="System.ValueTuple.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Warsztat.db" Value="Warsztat.db"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe" Value="Warsztat.exe"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe.config" Value="Warsztat.exe.config"/>
@@ -68,10 +34,10 @@
     <ROW Property="ARPNOREMOVE" Value="1"/>
     <ROW Property="ARPNOREPAIR" Value="1"/>
     <ROW Property="Manufacturer" Value="YD"/>
-    <ROW Property="ProductCode" Value="1033:{AB1A8C6E-0B19-4E1C-8C76-D073D8D8B88A} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{86DAAEA2-107A-4ADD-A148-DA4680A43DB4} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Warsztat"/>
-    <ROW Property="ProductVersion" Value="0.9.9.5" Type="32"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{EC8E6FB1-2664-4379-898A-CF4D3CDAF552}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -89,6 +55,7 @@
     <ROW Directory="NewFolder_Dir" Directory_Parent="APPDIR" DefaultDir="NEWFOL~1|New Folder"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
     <ROW Directory="Warsztat_Dir" Directory_Parent="APPDIR" DefaultDir="Warsztat"/>
+    <ROW Directory="pdf_Dir" Directory_Parent="Warsztat_Dir" DefaultDir="pdf"/>
     <ROW Directory="x64_Dir" Directory_Parent="Warsztat_Dir" DefaultDir="x64"/>
     <ROW Directory="x86_Dir" Directory_Parent="Warsztat_Dir" DefaultDir="x86"/>
   </COMPONENT>
@@ -98,10 +65,11 @@
     <ROW Component="ProductInformation" ComponentId="{20F5ACBA-D7FD-4DF7-A82F-005C50596B17}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
     <ROW Component="SQLite.Interop.dll" ComponentId="{23831399-62DB-4BA4-92E8-BCE8B44E97FF}" Directory_="x64_Dir" Attributes="256" KeyPath="SQLite.Interop.dll"/>
     <ROW Component="SQLite.Interop.dll_1" ComponentId="{DDB5229A-8D3A-4485-A23E-53B99147403A}" Directory_="x86_Dir" Attributes="0" KeyPath="SQLite.Interop.dll_1"/>
-    <ROW Component="Warsztat_ContentOutput" ComponentId="{F440D1DC-A29F-4926-8778-4DC31DAC5B3D}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Print_Document.docx" Type="0"/>
+    <ROW Component="Warsztat_ContentOutput" ComponentId="{F440D1DC-A29F-4926-8778-4DC31DAC5B3D}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Warsztat.db" Type="0"/>
     <ROW Component="Warsztat_PrimaryOutput" ComponentId="{11F94243-8202-4E64-878B-72F9CC34137A}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Warsztat.exe"/>
-    <ROW Component="Warsztat_References" ComponentId="{3336F59C-D48A-4A56-B0D9-E162FC82CD28}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Microsoft.mshtml.dll"/>
+    <ROW Component="Warsztat_References" ComponentId="{5E777C84-EE11-4EF6-AC19-711AFF7DC10B}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Microsoft.mshtml.dll"/>
     <ROW Component="Warsztat_SymbolsOutput" ComponentId="{E350289F-730E-4980-B598-5E77A70FADCE}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Warsztat.pdb"/>
+    <ROW Component="pdf" ComponentId="{6EFB38BF-B049-444C-B844-98A77EF14CB6}" Directory_="pdf_Dir" Attributes="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
     <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
@@ -110,62 +78,28 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
     <ROW File="Warsztat.exe" Component_="Warsztat_PrimaryOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.exe&gt;" SelfReg="false" DigSign="true"/>
     <ROW File="Warsztat.exe.config" Component_="Warsztat_PrimaryOutput" FileName="WARSZT~2.CON|[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe.config]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.exe.config&gt;" SelfReg="false"/>
+    <ROW File="Warsztat.pdb" Component_="Warsztat_SymbolsOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.pdb]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.pdb&gt;" SelfReg="false"/>
+    <ROW File="SQLite.Interop.dll" Component_="SQLite.Interop.dll" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\Warsztat\x64\SQLite.Interop.dll" SelfReg="false"/>
+    <ROW File="SQLite.Interop.dll_1" Component_="SQLite.Interop.dll_1" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\Warsztat\x86\SQLite.Interop.dll" SelfReg="false"/>
     <ROW File="EntityFramework.dll" Component_="Warsztat_References" FileName="ENTITY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.dll&gt;" SelfReg="false"/>
     <ROW File="EntityFramework.SqlServer.dll" Component_="Warsztat_References" FileName="ENTITY~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll&gt;" SelfReg="false"/>
     <ROW File="System.Data.SQLite.dll" Component_="Warsztat_References" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.SQLite.dll&gt;" SelfReg="false"/>
     <ROW File="System.Data.SQLite.EF6.dll" Component_="Warsztat_References" FileName="SYSTEM~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.EF6.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.SQLite.EF6.dll&gt;" SelfReg="false"/>
     <ROW File="System.Data.SQLite.Linq.dll" Component_="Warsztat_References" FileName="SYSTEM~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.Linq.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.SQLite.Linq.dll&gt;" SelfReg="false"/>
-    <ROW File="Print_Document.docx" Component_="Warsztat_ContentOutput" FileName="PRINT_~2.DOC|[|AI_PROPPATH_FILENAME_PERBUILD_Print_Document.docx]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Print_Document.docx&gt;" SelfReg="false"/>
-    <ROW File="Warsztat.db" Component_="Warsztat_ContentOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.db]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.db&gt;" SelfReg="false"/>
-    <ROW File="Warsztat.pdb" Component_="Warsztat_SymbolsOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.pdb]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.pdb&gt;" SelfReg="false"/>
-    <ROW File="SQLite.Interop.dll" Component_="SQLite.Interop.dll" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\Warsztat\x64\SQLite.Interop.dll" SelfReg="false"/>
-    <ROW File="SQLite.Interop.dll_1" Component_="SQLite.Interop.dll_1" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\Warsztat\x86\SQLite.Interop.dll" SelfReg="false"/>
-    <ROW File="BouncyCastle.Crypto.dll" Component_="Warsztat_References" FileName="BOUNCY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll&gt;" SelfReg="false"/>
-    <ROW File="Haru.Net.dll" Component_="Warsztat_References" FileName="HARUNE~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Haru.Net.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Haru.Net.dll&gt;" SelfReg="false"/>
-    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Warsztat_References" FileName="MICROS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll&gt;" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Component_="Warsztat_References" FileName="MICROS~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll&gt;" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.DependencyInjection.dll" Component_="Warsztat_References" FileName="MICROS~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.dll&gt;" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Logging.Abstractions.dll" Component_="Warsztat_References" FileName="MICROS~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll&gt;" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Logging.dll" Component_="Warsztat_References" FileName="MICROS~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.dll&gt;" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Options.dll" Component_="Warsztat_References" FileName="MICROS~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Options.dll&gt;" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Primitives.dll" Component_="Warsztat_References" FileName="MICROS~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Primitives.dll&gt;" SelfReg="false"/>
     <ROW File="Spire.License.dll" Component_="Warsztat_References" FileName="SPIREL~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Spire.License.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Spire.License.dll&gt;" SelfReg="false"/>
     <ROW File="Spire.Pdf.dll" Component_="Warsztat_References" FileName="SPIREP~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Spire.Pdf.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Spire.Pdf.dll&gt;" SelfReg="false"/>
-    <ROW File="System.Buffers.dll" Component_="Warsztat_References" FileName="SYSTEM~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Buffers.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Buffers.dll&gt;" SelfReg="false"/>
-    <ROW File="System.Diagnostics.DiagnosticSource.dll" Component_="Warsztat_References" FileName="SYSTEM~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Diagnostics.DiagnosticSource.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Diagnostics.DiagnosticSource.dll&gt;" SelfReg="false"/>
-    <ROW File="System.Memory.dll" Component_="Warsztat_References" FileName="SYSTEM~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Memory.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Memory.dll&gt;" SelfReg="false"/>
-    <ROW File="System.Numerics.Vectors.dll" Component_="Warsztat_References" FileName="SYSTEM~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Numerics.Vectors.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Numerics.Vectors.dll&gt;" SelfReg="false"/>
-    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="Warsztat_References" FileName="SYSTEM~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll&gt;" SelfReg="false"/>
-    <ROW File="System.Threading.Tasks.Extensions.dll" Component_="Warsztat_References" FileName="SYSTE~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Threading.Tasks.Extensions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Threading.Tasks.Extensions.dll&gt;" SelfReg="false"/>
-    <ROW File="System.ValueTuple.dll" Component_="Warsztat_References" FileName="SYSTE~11.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.ValueTuple.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.ValueTuple.dll&gt;" SelfReg="false"/>
-    <ROW File="Microsoft.mshtml.dll" Component_="Warsztat_References" FileName="MICROS~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.mshtml.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.mshtml.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.mshtml.dll" Component_="Warsztat_References" FileName="MICROS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.mshtml.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.mshtml.dll&gt;" SelfReg="false"/>
+    <ROW File="Warsztat.db" Component_="Warsztat_ContentOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.db]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.db&gt;" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
-    <ROW Name="AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_EntityFramework.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_EntityFramework.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Haru.Net.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Haru.Net.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Haru.Net.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Options.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Options.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Primitives.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Primitives.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Microsoft.mshtml.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.mshtml.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.mshtml.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Print_Document.docx" Path="[|AI_PROPPATH_DIR_PERBUILD_Print_Document.docx]\[|AI_PROPPATH_FILENAME_PERBUILD_Print_Document.docx]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Spire.License.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Spire.License.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Spire.License.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Spire.Pdf.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Spire.Pdf.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Spire.Pdf.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_System.Buffers.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Buffers.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Buffers.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_System.Data.SQLite.EF6.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.EF6.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.EF6.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_System.Data.SQLite.Linq.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.Linq.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.Linq.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_System.Data.SQLite.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_System.Diagnostics.DiagnosticSource.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Diagnostics.DiagnosticSource.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Diagnostics.DiagnosticSource.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_System.Memory.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Memory.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Memory.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_System.Numerics.Vectors.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Numerics.Vectors.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Numerics.Vectors.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_System.Threading.Tasks.Extensions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Threading.Tasks.Extensions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Threading.Tasks.Extensions.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_System.ValueTuple.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.ValueTuple.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.ValueTuple.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Warsztat.db" Path="[|AI_PROPPATH_DIR_PERBUILD_Warsztat.db]\[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.db]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Warsztat.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_Warsztat.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Warsztat.exe.config" Path="[|AI_PROPPATH_DIR_PERBUILD_Warsztat.exe.config]\[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe.config]" Type="2" Content="0"/>
@@ -226,6 +160,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
     <ROW Directory_="NewFolder_Dir" Component_="NewFolder" ManualDelete="false"/>
+    <ROW Directory_="pdf_Dir" Component_="pdf" ManualDelete="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
     <ROW Action="AI_ApplyShortcutFlags" Type="3073" Source="ShortcutFlags.dll" Target="UpdateShortcutFlags" WithoutSeq="true"/>
@@ -253,12 +188,13 @@
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
     <ROW Feature_="MainFeature" Component_="ProductInformation"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_PrimaryOutput"/>
-    <ROW Feature_="MainFeature" Component_="Warsztat_References"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_ContentOutput"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_SymbolsOutput"/>
     <ROW Feature_="MainFeature" Component_="SQLite.Interop.dll"/>
     <ROW Feature_="MainFeature" Component_="SQLite.Interop.dll_1"/>
     <ROW Feature_="MainFeature" Component_="NewFolder"/>
+    <ROW Feature_="MainFeature" Component_="Warsztat_References"/>
+    <ROW Feature_="MainFeature" Component_="pdf"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="SystemFoldermsiexec.exe" SourcePath="&lt;AI_RES&gt;uninstall.ico" Index="0"/>
@@ -304,32 +240,15 @@
   <COMPONENT cid="caphyon.advinst.msicomp.VsProjectComponent">
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="PrimaryOutput" OutputFile="Warsztat.exe"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="PrimaryOutput" OutputFile="Warsztat.exe.config"/>
+    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="SymbolsOutput" OutputFile="Warsztat.pdb"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="EntityFramework.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="EntityFramework.SqlServer.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.Data.SQLite.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.Data.SQLite.EF6.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.Data.SQLite.Linq.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="ContentOutput" OutputFile="Print_Document.docx"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="ContentOutput" OutputFile="Warsztat.db"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="SymbolsOutput" OutputFile="Warsztat.pdb"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="BouncyCastle.Crypto.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Haru.Net.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.Bcl.AsyncInterfaces.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.Extensions.DependencyInjection.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.Extensions.Logging.Abstractions.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.Extensions.Logging.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.Extensions.Options.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.Extensions.Primitives.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Spire.License.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Spire.Pdf.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.Buffers.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.Diagnostics.DiagnosticSource.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.Memory.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.Numerics.Vectors.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.Runtime.CompilerServices.Unsafe.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.Threading.Tasks.Extensions.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="System.ValueTuple.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.mshtml.dll"/>
+    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="ContentOutput" OutputFile="Warsztat.db"/>
   </COMPONENT>
 </DOCUMENT>
