@@ -1,9 +1,4 @@
 ﻿//Copy data from old BD to new BD
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Forms;
 using System.Data;

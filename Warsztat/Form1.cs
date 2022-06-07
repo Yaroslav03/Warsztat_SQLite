@@ -1,14 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
-using System.Threading;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace Warsztat
 {
@@ -27,20 +21,21 @@ namespace Warsztat
         Warsztat Warsztat = new Warsztat();
         PlanYourCar PlanYourCar = new PlanYourCar();
         GeneratePDF GeneratePDF = new GeneratePDF();
-
         SQLiteConnection sql_conn = new SQLiteConnection();
         SQLiteCommand sql_cmd = new SQLiteCommand();
-        
+
 
         public Form1()
         {          
             sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
             InitializeComponent();
+            Interface.Load_Data_Localize(this);
             Warsztat.Load_DB(this);
             PlanYourCar.Load(this);
             Interface.BodyNumberVerify(this);
             Interface.Verify_Button(this);
             Interface.Zlecenie(this);
+            
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -123,10 +118,12 @@ namespace Warsztat
         private void polskiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Interface.Localize_PL(this);
+            Interface.Load_Data_Localize(this);
         }
         private void ukraińskiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Interface.Localize_UA(this);
+            Interface.Load_Data_Localize(this);
         }
        
         private void Marka_TextChanged(object sender, EventArgs e)
@@ -263,11 +260,6 @@ namespace Warsztat
             }
         }
 
-        private void GeneretePDF_Click(object sender, EventArgs e)
-        {
-           GeneratePDF.PreviewPDF(this);            
-        }
-
         private void IDNadwozia_TextChanged(object sender, EventArgs e)
         {         
            Interface.BodyNumberVerify(this);
@@ -282,6 +274,45 @@ namespace Warsztat
         {
             PlanYourCar.ReadData(this, ID);
             Work_Place.SelectTab(tabPage2);
+        }
+
+        //Create Order
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GeneratePDF.PreviewPDF(this);
+        }
+
+        // Update Order
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GeneratePDF.UpdatePDF(this);
+        }
+
+        private void viewAllPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", "pdf\\");
+        }
+
+        private void ZlecenieToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GeneratePDF.DeletePDF(this);
+        }
+
+        //Create Invoice
+        private void createToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GeneratePDF.Create_Invoice(this);
+        }
+        // Update Invoice
+        private void updateToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ustawieniaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Setting_Form b2 = new Setting_Form();
+            b2.ShowDialog();            
         }
     }
 }

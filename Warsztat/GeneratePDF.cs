@@ -1,19 +1,24 @@
 ﻿using Spire.Pdf;
-using Spire.License;
-using System;
-using Spire.Pdf.Texts;
-using Spire.Pdf.ColorSpace;
 using Spire.Pdf.Graphics;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Warsztat
 {
     internal class GeneratePDF
     {
+
+        private string NameCompany;
+        private string AdresCompany;
+        private string NIP;
+        private string Konto;
+        private string NumerBDD;
+
+
         PdfDocument pdfDocument = new PdfDocument();
         PdfSolidBrush brush1 = new PdfSolidBrush(Color.Black);
         PdfTrueTypeFont fontTrue = new PdfTrueTypeFont(new Font("Bahnschrift Light", 10f), true);//write a polish letter
@@ -26,7 +31,10 @@ namespace Warsztat
         string jazda_;
         string kluczyki_;
         string dokumenty_;
-
+        
+       // string path_Zlecenie = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
+        #region Zlecenie
+        
         public void PreviewPDF(Form1 form)
         {
             
@@ -48,6 +56,24 @@ namespace Warsztat
             }
         }
 
+        public void UpdatePDF(Form1 form) //methods for button Update
+        {
+            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                PreviewPDF(form);
+            }
+        }
+        public void DeletePDF(Form1 form)
+        {
+            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                MessageBox.Show("File was deleted", "Warsztat");
+            }
+        }
 
         public async void Create(Form1 form)
         {
@@ -56,8 +82,8 @@ namespace Warsztat
             VerefyChceckBox(form);
             string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
             await Task.Run(() => {
-                //Tytuł
-                page.Canvas.DrawString("Data Przyjęcia: " + form.DataPrzyjecia.Text, fontTrue, brush1, 0, -2);
+            //Tytuł
+            page.Canvas.DrawString("Data Przyjęcia: " + form.DataPrzyjecia.Text, fontTrue, brush1, 0, -2);
             //Dane Samochodu
             page.Canvas.DrawRectangle(brush, new RectangleF(new Point(0, 14), new SizeF(1300, 14)));
             page.Canvas.DrawString("DANE SAMOCHODU ", fontTrue, brush1, 5, 15);
@@ -113,6 +139,7 @@ namespace Warsztat
                 pdfDocument.SaveToFile(path);
                 pdfDocument.Close();
         }
+
         
         private void VerefyChceckBox(Form1 form)
         { 
@@ -141,5 +168,111 @@ namespace Warsztat
              dokumenty_ = "Nie";
          }
         }
+        #endregion Zlecenie
+        #region Faktura
+        public void PreviewInvoice(Form1 form)
+        {
+            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
+            var FileInfo = File.Exists(path);
+            if (FileInfo)
+            {
+                Process.Start(path);
+            }
+            else if (!FileInfo)
+            {
+                Create(form);
+                DialogResult result = MessageBox.Show("Pdf stworzony otwórzyć go? ", "Warsztat", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Process.Start(path);
+                }
+
+            }
+        }
+
+        public void UpdateInvoice(Form1 form) //methods for button Update
+        {
+            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                PreviewInvoice(form);
+            }
+        }
+        public void DeleteInvoice(Form1 form)
+        {
+            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                MessageBox.Show("File was deleted", "Warsztat");
+            }
+        }
+
+        public async void Create_Invoice(Form1 form)
+        {
+            PdfTrueTypeFont Title = new PdfTrueTypeFont(new Font("Bahnschrift SemiBold", 20f), true);//write a polish letter
+            PdfPen pen = new PdfPen(PdfBrushes.Black, 0.5f);
+            PdfPageBase page = pdfDocument.Pages.Add();
+
+            _ = Task.Run(() => { ReadXML(); });
+                VerefyChceckBox(form);
+            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + "_FAKTURA.pdf";
+            await Task.Run(() => {
+                //Title
+                page.Canvas.DrawString("Miejsce i Data " ,  fontTrue, brush1, 330, -2);
+                page.Canvas.DrawLine(pen, new PointF(350, 10), new PointF(510, 10));
+                page.Canvas.DrawString(AdresCompany + "/" + form.DataWydania.Text, fontTrue, brush1, 350, 12);
+                page.Canvas.DrawString(NameCompany.Trim(), Title, brush1, 200, 30);
+                //seller
+                page.Canvas.DrawString("Sprzedawca " + NameCompany.Trim(), fontTrue, brush1, 0, 70);
+                page.Canvas.DrawString("NIP: " + NIP.Trim(), fontTrue, brush1, 0, 80);
+                page.Canvas.DrawString("KONTO: " + Konto.Trim(), fontTrue, brush1, 0, 90);
+                page.Canvas.DrawString("Numer BDD: " + NumerBDD.Trim(), fontTrue, brush1, 0, 100);
+                            });
+            await Task.Run(() => {
+                //Buyer
+                page.Canvas.DrawLine(pen, new PointF(250, 60), new PointF(250, 120));
+                page.Canvas.DrawString("Nabywca", fontTrue, brush1, 300, 70);
+                page.Canvas.DrawString("Imię: ", fontTrue, brush1, 300, 80);
+                page.Canvas.DrawString("NIP: ", fontTrue, brush1, 300, 90); 
+                page.Canvas.DrawString("Adres: ", fontTrue, brush1, 300, 100); ; 
+             });
+
+            pdfDocument.SaveToFile(path);
+            pdfDocument.Close();
+        }
+
+        #endregion Faktura
+        #region RemoveLaterFromHere
+        public void ReadXML()
+        {
+            XmlTextReader reader = new XmlTextReader("Settings.xml");
+
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "NameCompany")
+                {
+                    NameCompany = reader.ReadElementContentAsString();
+                }
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "AdresCompany")
+                {
+                    AdresCompany = reader.ReadElementContentAsString();
+                }
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "NIPCompany")
+                {
+                    NIP = reader.ReadElementContentAsString();
+                }
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "KontoCompany")
+                {
+                    Konto = reader.ReadElementContentAsString();
+                }
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "NumerBDDCompany")
+                {
+                    NumerBDD = reader.ReadElementContentAsString();
+                }
+            }
+        }
+        #endregion
     }
 }

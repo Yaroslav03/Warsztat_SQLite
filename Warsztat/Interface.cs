@@ -1,24 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing;
-
+using System.IO;
 
 namespace Warsztat
 {
     internal class Interface
     {
+        string path = "Settings.txt";
+        string UA = "Localize: UA";
+        string PL = "Localize: PL";
 
         public void Localize_UA(Form1 _form)
         {
+            StreamWriter sw = File.CreateText(path);
+            sw.WriteLine("Localize: UA");
+            sw.Close();
+            
             _form.ustawieniaToolStripMenuItem.Text = "Налаштування";
             _form.językToolStripMenuItem.Text = "Мова";
             _form.polskiToolStripMenuItem.Text = "Польська";
             _form.ukraińskiToolStripMenuItem.Text = "Українська";
-
+            _form.Update_DB.Text = "Оновити до новішої версії базу даних";
+            _form.akcjeToolStripMenuItem1.Text = "Дії";
+            _form.stwórzNowąTabelkęToolStripMenuItem1.Text = "Створити нову таблицю";
+            _form.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Text = "Створити таблицю заплоновані автомобіллі";
+            _form.zakończToolStripMenuItem.Text = "Закінчити";
+            _form.deleteToolStripMenuItem.Text = "Видалити нову створену таблицю";
+            _form.kopjujToolStripMenuItem.Text = "Копіювати";
+            _form.Scheduled_Cars.Text = "Заплановані автомобілі";
             //Кнопки
             _form.Button_Save.Text = "Зберегти";
             _form.tabPage2.Text = "Додати дані";
@@ -32,12 +42,15 @@ namespace Warsztat
             _form.Button_Clear_Zlecenie_Klienta.Text = "Стерти";
             _form.Button_Clear_Diagnostyka.Text = "Стерти";
             _form.Button_PurchasedParts_Clear.Text = "Стерти";
+            _form.Delete_Scheduled_Car.Text = "Видалити";
+            _form.Update_Scheduled_Cars.Text = "Оновити";
+            _form.Plan_your_car.Text = "Запланувати автомобіль";
             //Текст
             _form.lngMarka.Text = "Марка";
             _form.lngModel.Text = "Модель";
             _form.lngRegistrationNumber.Text = "Номер Реєстрації";
             _form.lngYearOfProduction.Text = "Рок продукції";
-            _form.lngLastName.Text = "Фамілія";
+            _form.lngLastName.Text = "Прізвище";
             _form.lngSearch.Text = "Пошук";
             _form.lngAdress.Text = "Адрес";
             _form.lngVehicleDescription.Text = "Опис транспортного засобу";
@@ -61,13 +74,27 @@ namespace Warsztat
             _form.lngPriceFinally.Text = "Ціна кінцева";
             _form.lngPurchasedParts.Text = "Закуплені запчастини";
             _form.lngIDEngine.Text = "Номер/Код двигуна";
+            _form.lngOldBD.Text = "Стара база даних";
+            _form.lngNewBD.Text = "Нова база даних";
         }
-        public void Localize_PL(Form1 _form)
+        public   void Localize_PL(Form1 _form)
         {
+            StreamWriter sw = File.CreateText(path);
+            sw.WriteLine("Localize: PL");
+            sw.Close();
+          
             _form.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             _form.językToolStripMenuItem.Text = "Język";
             _form.polskiToolStripMenuItem.Text = "Polski";
             _form.ukraińskiToolStripMenuItem.Text = "Ukraiński";
+            _form.Update_DB.Text = "Odśwież do nowszej wersji Bazy Danych";
+            _form.akcjeToolStripMenuItem1.Text = "Akcje";
+            _form.stwórzNowąTabelkęToolStripMenuItem1.Text = "Stwórz nową tabelkę ";
+            _form.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Text = "Stwórz tabelkę Zaplanowane Samochody";
+            _form.zakończToolStripMenuItem.Text = "Zakończ";
+            _form.deleteToolStripMenuItem.Text = "Usuń nową tabelkę";
+            _form.kopjujToolStripMenuItem.Text = "Kopjuj";
+            _form.Scheduled_Cars.Text = "Zaplanowane Samochody";
 
             //Кнопки
             _form.Button_Save.Text = "Zapisz";
@@ -82,6 +109,10 @@ namespace Warsztat
             _form.Button_Clear_Zlecenie_Klienta.Text = "Wyczyść";
             _form.Button_Clear_Diagnostyka.Text = "Wyczyść";
             _form.Button_PurchasedParts_Clear.Text = "Wyczyść";
+            _form.Delete_Scheduled_Car.Text = "Usuń";
+            _form.Update_Scheduled_Cars.Text = "Odśwież";
+            _form.Plan_your_car.Text = "Zaplanuj Samochód";
+
             //Текст
             _form.lngMarka.Text = "Marka";
             _form.lngModel.Text = "Model";
@@ -111,6 +142,8 @@ namespace Warsztat
             _form.lngPriceFinally.Text = "Koszt Koncowy";
             _form.lngPurchasedParts.Text = "Zakupione Części";
             _form.lngIDEngine.Text = "Numer/kod Silnika";
+            _form.lngOldBD.Text = "Stara Baza Danych";
+            _form.lngNewBD.Text = "Nowa Baza Danych";
         }
         public void Verify_Button(Form1 form)
         {
@@ -136,16 +169,64 @@ namespace Warsztat
         }
         public void Zlecenie(Form1 form)
         {
-            if (form.txtZlecenie_Klienta.Text.Length > 330)
+            Console.WriteLine(form.txtZlecenie_Klienta.Text.Length);
+            
+            if(form.txtZlecenie_Klienta.Text.Length >= 105 && form.txtZlecenie_Klienta.Text.Length <= 109)
             {
-                form.GeneretePDF_.Enabled = false;
-                form.Zlecenie_Message.Text = " Dałej nie ma miejsca na druk";
+                form.Zlecenie_Message.Text = "We recommend pressing Enter";
+            }
+            else if (form.txtZlecenie_Klienta.Text.Length >= 215 && form.txtZlecenie_Klienta.Text.Length <= 220)
+            {
+                form.Zlecenie_Message.Text = "We recommend pressing Enter";
+            }
+            else if (form.txtZlecenie_Klienta.Text.Length >= 325 && form.txtZlecenie_Klienta.Text.Length <= 330)
+            {
+                form.Zlecenie_Message.Text = "We recommend pressing Enter";
+            }
+            else if (form.txtZlecenie_Klienta.Text.Length >= 440 && form.txtZlecenie_Klienta.Text.Length <= 444)
+            {
+                form.Zlecenie_Message.Text = "We recommend pressing Enter";
+            }
+            else if (form.txtZlecenie_Klienta.Text.Length >= 547 && form.txtZlecenie_Klienta.Text.Length <= 552)
+            {
+                form.Zlecenie_Message.Text = "We recommend pressing Enter";
+            }
+            else if (form.txtZlecenie_Klienta.Text.Length >= 663 && form.txtZlecenie_Klienta.Text.Length <= 668)
+            {
+                form.Zlecenie_Message.Text = "We recommend pressing Enter";
+            }
+            else if (form.txtZlecenie_Klienta.Text.Length >= 765 && form.txtZlecenie_Klienta.Text.Length <= 770)
+            {
+                form.Zlecenie_Message.Text = "We recommend pressing Enter";
+            }
+            else if (form.txtZlecenie_Klienta.Text.Length > 770)
+            {
+                form.Zlecenie_Message.Text = "There is no place for printing any further";
             }
             else
             {
-                form.GeneretePDF_.Enabled = true;
                 form.Zlecenie_Message.Text = " ";
             }
+        }
+
+        public  void Load_Data_Localize(Form1 _form)
+        {
+            try 
+            { 
+                string word = File.ReadAllText("Settings.txt").Trim();
+                if (UA == word)
+                {
+                    Localize_UA(_form);
+                }
+                else if (PL == word)
+                {
+                    Localize_PL(_form);
+                }
+            }
+            catch
+            {
+                File.Create(path);
+            }  
         }
     }
 }

@@ -29,15 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Work_Place = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Button_Delete = new System.Windows.Forms.Button();
             this.lngSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.Dane_Warsztat = new System.Windows.Forms.DataGridView();
+            this.ID_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataPrzyjecia_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataWydania_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marka_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumerRejestracji_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearOfProduction_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PojemnoscSilnika_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Przebieg_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDNadwozia_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDSilnika_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NIP_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telephon_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adress_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zlecenie_Klienta_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diagnostyka_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naprawa_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price_Finally_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TestDrive_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Left_Key_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeftDocuments_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zakupione_Czesci_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.GeneretePDF_ = new System.Windows.Forms.Button();
             this.Plan_your_car = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtNaprawa = new System.Windows.Forms.TextBox();
@@ -66,6 +90,10 @@
             this.Price = new System.Windows.Forms.TextBox();
             this.lngAdditionalInformation = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lngNumerBDD = new System.Windows.Forms.Label();
+            this.NBDD = new System.Windows.Forms.TextBox();
+            this.lngKonto = new System.Windows.Forms.Label();
+            this.Konto = new System.Windows.Forms.TextBox();
             this.TelefonKomurkowy = new System.Windows.Forms.MaskedTextBox();
             this.lngCustomerData = new System.Windows.Forms.Label();
             this.Button_Clear_DK = new System.Windows.Forms.Button();
@@ -139,31 +167,14 @@
             this.językToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ukraińskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ID_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataPrzyjecia_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataWydania_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marka_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumerRejestracji_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearOfProduction_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PojemnoscSilnika_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Przebieg_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDNadwozia_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDSilnika_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NIP_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telephon_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adress_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Zlecenie_Klienta_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Diagnostyka_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naprawa_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price_Finally_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TestDrive_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Left_Key_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeftDocuments_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Zakupione_Czesci_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stwórzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAllPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Work_Place.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
@@ -287,10 +298,184 @@
             this.Dane_Warsztat.DoubleClick += new System.EventHandler(this.Dane_Warsztat_DoubleClick);
             this.Dane_Warsztat.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Dane_Warsztat_MouseClick);
             // 
+            // ID_Column_Main
+            // 
+            this.ID_Column_Main.DataPropertyName = "ID";
+            this.ID_Column_Main.HeaderText = "ID";
+            this.ID_Column_Main.Name = "ID_Column_Main";
+            this.ID_Column_Main.ReadOnly = true;
+            // 
+            // DataPrzyjecia_Column_Main
+            // 
+            this.DataPrzyjecia_Column_Main.DataPropertyName = "DataPrzyjecia";
+            this.DataPrzyjecia_Column_Main.HeaderText = "Data Przyjęcia";
+            this.DataPrzyjecia_Column_Main.Name = "DataPrzyjecia_Column_Main";
+            this.DataPrzyjecia_Column_Main.ReadOnly = true;
+            // 
+            // DataWydania_Column_Main
+            // 
+            this.DataWydania_Column_Main.DataPropertyName = "DataWydania";
+            this.DataWydania_Column_Main.HeaderText = "Data wydania";
+            this.DataWydania_Column_Main.Name = "DataWydania_Column_Main";
+            this.DataWydania_Column_Main.ReadOnly = true;
+            // 
+            // Marka_Column_Main
+            // 
+            this.Marka_Column_Main.DataPropertyName = "Marka";
+            this.Marka_Column_Main.HeaderText = "Marka";
+            this.Marka_Column_Main.Name = "Marka_Column_Main";
+            this.Marka_Column_Main.ReadOnly = true;
+            // 
+            // Model_Column_Main
+            // 
+            this.Model_Column_Main.DataPropertyName = "Model";
+            this.Model_Column_Main.HeaderText = "Model";
+            this.Model_Column_Main.Name = "Model_Column_Main";
+            this.Model_Column_Main.ReadOnly = true;
+            // 
+            // NumerRejestracji_Column_Main
+            // 
+            this.NumerRejestracji_Column_Main.DataPropertyName = "NumerRejestracji";
+            this.NumerRejestracji_Column_Main.HeaderText = "Numer rejestracji";
+            this.NumerRejestracji_Column_Main.Name = "NumerRejestracji_Column_Main";
+            this.NumerRejestracji_Column_Main.ReadOnly = true;
+            // 
+            // YearOfProduction_Column_Main
+            // 
+            this.YearOfProduction_Column_Main.DataPropertyName = "RokProdukcji";
+            this.YearOfProduction_Column_Main.HeaderText = "Rok produkcji";
+            this.YearOfProduction_Column_Main.Name = "YearOfProduction_Column_Main";
+            this.YearOfProduction_Column_Main.ReadOnly = true;
+            // 
+            // PojemnoscSilnika_Column_Main
+            // 
+            this.PojemnoscSilnika_Column_Main.DataPropertyName = "PojemnoscSilnika";
+            this.PojemnoscSilnika_Column_Main.HeaderText = "Pojemność silnika";
+            this.PojemnoscSilnika_Column_Main.Name = "PojemnoscSilnika_Column_Main";
+            this.PojemnoscSilnika_Column_Main.ReadOnly = true;
+            // 
+            // Przebieg_Column_Main
+            // 
+            this.Przebieg_Column_Main.DataPropertyName = "Przebieg";
+            this.Przebieg_Column_Main.HeaderText = "Przebieg";
+            this.Przebieg_Column_Main.Name = "Przebieg_Column_Main";
+            this.Przebieg_Column_Main.ReadOnly = true;
+            // 
+            // IDNadwozia_Column_Main
+            // 
+            this.IDNadwozia_Column_Main.DataPropertyName = "NumerNadwozia";
+            this.IDNadwozia_Column_Main.HeaderText = "ID Nadwozia";
+            this.IDNadwozia_Column_Main.Name = "IDNadwozia_Column_Main";
+            this.IDNadwozia_Column_Main.ReadOnly = true;
+            // 
+            // IDSilnika_Column_Main
+            // 
+            this.IDSilnika_Column_Main.DataPropertyName = "IDSilnika";
+            this.IDSilnika_Column_Main.HeaderText = "ID Silnika";
+            this.IDSilnika_Column_Main.Name = "IDSilnika_Column_Main";
+            this.IDSilnika_Column_Main.ReadOnly = true;
+            // 
+            // Name_Column_Main
+            // 
+            this.Name_Column_Main.DataPropertyName = "Imie";
+            this.Name_Column_Main.HeaderText = "Imię";
+            this.Name_Column_Main.Name = "Name_Column_Main";
+            this.Name_Column_Main.ReadOnly = true;
+            // 
+            // LastName_Column_Main
+            // 
+            this.LastName_Column_Main.DataPropertyName = "Nazwisko";
+            this.LastName_Column_Main.HeaderText = "Nazwisko";
+            this.LastName_Column_Main.Name = "LastName_Column_Main";
+            this.LastName_Column_Main.ReadOnly = true;
+            // 
+            // NIP_Column_Main
+            // 
+            this.NIP_Column_Main.DataPropertyName = "NIP";
+            this.NIP_Column_Main.HeaderText = "NIP";
+            this.NIP_Column_Main.Name = "NIP_Column_Main";
+            this.NIP_Column_Main.ReadOnly = true;
+            // 
+            // Telephon_Column_Main
+            // 
+            this.Telephon_Column_Main.DataPropertyName = "Telefon";
+            this.Telephon_Column_Main.HeaderText = "Telefon";
+            this.Telephon_Column_Main.Name = "Telephon_Column_Main";
+            this.Telephon_Column_Main.ReadOnly = true;
+            // 
+            // Adress_Column_Main
+            // 
+            this.Adress_Column_Main.DataPropertyName = "Adres";
+            this.Adress_Column_Main.HeaderText = "Adres";
+            this.Adress_Column_Main.Name = "Adress_Column_Main";
+            this.Adress_Column_Main.ReadOnly = true;
+            // 
+            // Zlecenie_Klienta_Column_Main
+            // 
+            this.Zlecenie_Klienta_Column_Main.DataPropertyName = "ZlecenieKlienta";
+            this.Zlecenie_Klienta_Column_Main.HeaderText = "Zlecenie klienta";
+            this.Zlecenie_Klienta_Column_Main.Name = "Zlecenie_Klienta_Column_Main";
+            this.Zlecenie_Klienta_Column_Main.ReadOnly = true;
+            // 
+            // Diagnostyka_Column_Main
+            // 
+            this.Diagnostyka_Column_Main.DataPropertyName = "Diagnostyka";
+            this.Diagnostyka_Column_Main.HeaderText = "Diagnostyka";
+            this.Diagnostyka_Column_Main.Name = "Diagnostyka_Column_Main";
+            this.Diagnostyka_Column_Main.ReadOnly = true;
+            // 
+            // Naprawa_Column_Main
+            // 
+            this.Naprawa_Column_Main.DataPropertyName = "Naprawa";
+            this.Naprawa_Column_Main.HeaderText = "Naprawa";
+            this.Naprawa_Column_Main.Name = "Naprawa_Column_Main";
+            this.Naprawa_Column_Main.ReadOnly = true;
+            // 
+            // Price_Column_Main
+            // 
+            this.Price_Column_Main.DataPropertyName = "Koszt_Szacunkowy";
+            this.Price_Column_Main.HeaderText = "Koszt Szacunkowy";
+            this.Price_Column_Main.Name = "Price_Column_Main";
+            this.Price_Column_Main.ReadOnly = true;
+            // 
+            // Price_Finally_Column_Main
+            // 
+            this.Price_Finally_Column_Main.DataPropertyName = "Koszt_Koncowy";
+            this.Price_Finally_Column_Main.HeaderText = "Koszt końcowy";
+            this.Price_Finally_Column_Main.Name = "Price_Finally_Column_Main";
+            this.Price_Finally_Column_Main.ReadOnly = true;
+            // 
+            // TestDrive_Column_Main
+            // 
+            this.TestDrive_Column_Main.DataPropertyName = "TestDrive";
+            this.TestDrive_Column_Main.HeaderText = "Test Drive";
+            this.TestDrive_Column_Main.Name = "TestDrive_Column_Main";
+            this.TestDrive_Column_Main.ReadOnly = true;
+            // 
+            // Left_Key_Column_Main
+            // 
+            this.Left_Key_Column_Main.DataPropertyName = "PozostawioneKluczyki";
+            this.Left_Key_Column_Main.HeaderText = "Zostawione Kluczyki";
+            this.Left_Key_Column_Main.Name = "Left_Key_Column_Main";
+            this.Left_Key_Column_Main.ReadOnly = true;
+            // 
+            // LeftDocuments_Column_Main
+            // 
+            this.LeftDocuments_Column_Main.DataPropertyName = "PozostawioneDokumenty";
+            this.LeftDocuments_Column_Main.HeaderText = "Zostawione dokumenty";
+            this.LeftDocuments_Column_Main.Name = "LeftDocuments_Column_Main";
+            this.LeftDocuments_Column_Main.ReadOnly = true;
+            // 
+            // Zakupione_Czesci_Column_Main
+            // 
+            this.Zakupione_Czesci_Column_Main.DataPropertyName = "Zakupione_Czesci";
+            this.Zakupione_Czesci_Column_Main.HeaderText = "Zakupione Części";
+            this.Zakupione_Czesci_Column_Main.Name = "Zakupione_Czesci_Column_Main";
+            this.Zakupione_Czesci_Column_Main.ReadOnly = true;
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.tabPage2.Controls.Add(this.GeneretePDF_);
             this.tabPage2.Controls.Add(this.Plan_your_car);
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.panel4);
@@ -310,26 +495,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Dodaj Dane";
             // 
-            // GeneretePDF_
-            // 
-            this.GeneretePDF_.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.GeneretePDF_.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.GeneretePDF_.Location = new System.Drawing.Point(96, 12);
-            this.GeneretePDF_.Name = "GeneretePDF_";
-            this.GeneretePDF_.Size = new System.Drawing.Size(75, 23);
-            this.GeneretePDF_.TabIndex = 3;
-            this.GeneretePDF_.Text = "Stwórz PDF";
-            this.GeneretePDF_.UseVisualStyleBackColor = false;
-            this.GeneretePDF_.Click += new System.EventHandler(this.GeneretePDF_Click);
-            // 
             // Plan_your_car
             // 
             this.Plan_your_car.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Plan_your_car.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Plan_your_car.Location = new System.Drawing.Point(187, 13);
+            this.Plan_your_car.Location = new System.Drawing.Point(84, 13);
             this.Plan_your_car.Name = "Plan_your_car";
             this.Plan_your_car.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Plan_your_car.Size = new System.Drawing.Size(141, 22);
+            this.Plan_your_car.Size = new System.Drawing.Size(159, 22);
             this.Plan_your_car.TabIndex = 2;
             this.Plan_your_car.Text = "Zaplanuj samochód";
             this.Plan_your_car.UseVisualStyleBackColor = false;
@@ -611,6 +784,10 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel3.Controls.Add(this.lngNumerBDD);
+            this.panel3.Controls.Add(this.NBDD);
+            this.panel3.Controls.Add(this.lngKonto);
+            this.panel3.Controls.Add(this.Konto);
             this.panel3.Controls.Add(this.TelefonKomurkowy);
             this.panel3.Controls.Add(this.lngCustomerData);
             this.panel3.Controls.Add(this.Button_Clear_DK);
@@ -628,6 +805,38 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(360, 202);
             this.panel3.TabIndex = 1;
+            // 
+            // lngNumerBDD
+            // 
+            this.lngNumerBDD.AutoSize = true;
+            this.lngNumerBDD.Location = new System.Drawing.Point(191, 158);
+            this.lngNumerBDD.Name = "lngNumerBDD";
+            this.lngNumerBDD.Size = new System.Drawing.Size(70, 15);
+            this.lngNumerBDD.TabIndex = 6;
+            this.lngNumerBDD.Text = "Numer BDD";
+            // 
+            // NBDD
+            // 
+            this.NBDD.Location = new System.Drawing.Point(187, 176);
+            this.NBDD.Name = "NBDD";
+            this.NBDD.Size = new System.Drawing.Size(168, 23);
+            this.NBDD.TabIndex = 5;
+            // 
+            // lngKonto
+            // 
+            this.lngKonto.AutoSize = true;
+            this.lngKonto.Location = new System.Drawing.Point(8, 158);
+            this.lngKonto.Name = "lngKonto";
+            this.lngKonto.Size = new System.Drawing.Size(39, 15);
+            this.lngKonto.TabIndex = 4;
+            this.lngKonto.Text = "Konto";
+            // 
+            // Konto
+            // 
+            this.Konto.Location = new System.Drawing.Point(5, 176);
+            this.Konto.Name = "Konto";
+            this.Konto.Size = new System.Drawing.Size(168, 23);
+            this.Konto.TabIndex = 3;
             // 
             // TelefonKomurkowy
             // 
@@ -1203,9 +1412,9 @@
             this.Zlecenie_Klienta_Column});
             this.Scheduled_Cars_View.Location = new System.Drawing.Point(6, 61);
             this.Scheduled_Cars_View.Name = "Scheduled_Cars_View";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.NullValue = null;
-            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.NullValue = null;
+            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Scheduled_Cars_View.Size = new System.Drawing.Size(1042, 550);
             this.Scheduled_Cars_View.TabIndex = 0;
             this.Scheduled_Cars_View.DoubleClick += new System.EventHandler(this.Scheduled_Cars_View_DoubleClick);
@@ -1293,7 +1502,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ustawieniaToolStripMenuItem});
+            this.ustawieniaToolStripMenuItem,
+            this.pDFToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
@@ -1307,6 +1517,7 @@
             this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
             this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
+            this.ustawieniaToolStripMenuItem.Click += new System.EventHandler(this.ustawieniaToolStripMenuItem_Click);
             // 
             // językToolStripMenuItem
             // 
@@ -1331,180 +1542,66 @@
             this.ukraińskiToolStripMenuItem.Text = "Ukraiński";
             this.ukraińskiToolStripMenuItem.Click += new System.EventHandler(this.ukraińskiToolStripMenuItem_Click);
             // 
-            // ID_Column_Main
+            // pDFToolStripMenuItem
             // 
-            this.ID_Column_Main.DataPropertyName = "ID";
-            this.ID_Column_Main.HeaderText = "ID";
-            this.ID_Column_Main.Name = "ID_Column_Main";
-            this.ID_Column_Main.ReadOnly = true;
+            this.pDFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createPDFToolStripMenuItem,
+            this.createInvoiceToolStripMenuItem,
+            this.viewAllPDFToolStripMenuItem});
+            this.pDFToolStripMenuItem.Name = "pDFToolStripMenuItem";
+            this.pDFToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.pDFToolStripMenuItem.Text = "PDF";
             // 
-            // DataPrzyjecia_Column_Main
+            // createPDFToolStripMenuItem
             // 
-            this.DataPrzyjecia_Column_Main.DataPropertyName = "DataPrzyjecia";
-            this.DataPrzyjecia_Column_Main.HeaderText = "Data Przyjęcia";
-            this.DataPrzyjecia_Column_Main.Name = "DataPrzyjecia_Column_Main";
-            this.DataPrzyjecia_Column_Main.ReadOnly = true;
+            this.createPDFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stwórzToolStripMenuItem,
+            this.updateToolStripMenuItem,
+            this.usuńToolStripMenuItem});
+            this.createPDFToolStripMenuItem.Name = "createPDFToolStripMenuItem";
+            this.createPDFToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.createPDFToolStripMenuItem.Text = "Zlecenie";
             // 
-            // DataWydania_Column_Main
+            // stwórzToolStripMenuItem
             // 
-            this.DataWydania_Column_Main.DataPropertyName = "DataWydania";
-            this.DataWydania_Column_Main.HeaderText = "Data wydania";
-            this.DataWydania_Column_Main.Name = "DataWydania_Column_Main";
-            this.DataWydania_Column_Main.ReadOnly = true;
+            this.stwórzToolStripMenuItem.Name = "stwórzToolStripMenuItem";
+            this.stwórzToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.stwórzToolStripMenuItem.Text = "Stwórz";
             // 
-            // Marka_Column_Main
+            // updateToolStripMenuItem
             // 
-            this.Marka_Column_Main.DataPropertyName = "Marka";
-            this.Marka_Column_Main.HeaderText = "Marka";
-            this.Marka_Column_Main.Name = "Marka_Column_Main";
-            this.Marka_Column_Main.ReadOnly = true;
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.updateToolStripMenuItem.Text = "Aktualizacja";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
-            // Model_Column_Main
+            // usuńToolStripMenuItem
             // 
-            this.Model_Column_Main.DataPropertyName = "Model";
-            this.Model_Column_Main.HeaderText = "Model";
-            this.Model_Column_Main.Name = "Model_Column_Main";
-            this.Model_Column_Main.ReadOnly = true;
+            this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.usuńToolStripMenuItem.Text = "Usuń";
             // 
-            // NumerRejestracji_Column_Main
+            // createInvoiceToolStripMenuItem
             // 
-            this.NumerRejestracji_Column_Main.DataPropertyName = "NumerRejestracji";
-            this.NumerRejestracji_Column_Main.HeaderText = "Numer rejestracji";
-            this.NumerRejestracji_Column_Main.Name = "NumerRejestracji_Column_Main";
-            this.NumerRejestracji_Column_Main.ReadOnly = true;
+            this.createInvoiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createToolStripMenuItem1});
+            this.createInvoiceToolStripMenuItem.Name = "createInvoiceToolStripMenuItem";
+            this.createInvoiceToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.createInvoiceToolStripMenuItem.Text = "Faktura";
             // 
-            // YearOfProduction_Column_Main
+            // createToolStripMenuItem1
             // 
-            this.YearOfProduction_Column_Main.DataPropertyName = "RokProdukcji";
-            this.YearOfProduction_Column_Main.HeaderText = "Rok produkcji";
-            this.YearOfProduction_Column_Main.Name = "YearOfProduction_Column_Main";
-            this.YearOfProduction_Column_Main.ReadOnly = true;
+            this.createToolStripMenuItem1.Name = "createToolStripMenuItem1";
+            this.createToolStripMenuItem1.Size = new System.Drawing.Size(109, 22);
+            this.createToolStripMenuItem1.Text = "Stwórz";
+            this.createToolStripMenuItem1.Click += new System.EventHandler(this.createToolStripMenuItem1_Click);
             // 
-            // PojemnoscSilnika_Column_Main
+            // viewAllPDFToolStripMenuItem
             // 
-            this.PojemnoscSilnika_Column_Main.DataPropertyName = "PojemnoscSilnika";
-            this.PojemnoscSilnika_Column_Main.HeaderText = "Pojemność silnika";
-            this.PojemnoscSilnika_Column_Main.Name = "PojemnoscSilnika_Column_Main";
-            this.PojemnoscSilnika_Column_Main.ReadOnly = true;
-            // 
-            // Przebieg_Column_Main
-            // 
-            this.Przebieg_Column_Main.DataPropertyName = "Przebieg";
-            this.Przebieg_Column_Main.HeaderText = "Przebieg";
-            this.Przebieg_Column_Main.Name = "Przebieg_Column_Main";
-            this.Przebieg_Column_Main.ReadOnly = true;
-            // 
-            // IDNadwozia_Column_Main
-            // 
-            this.IDNadwozia_Column_Main.DataPropertyName = "NumerNadwozia";
-            this.IDNadwozia_Column_Main.HeaderText = "ID Nadwozia";
-            this.IDNadwozia_Column_Main.Name = "IDNadwozia_Column_Main";
-            this.IDNadwozia_Column_Main.ReadOnly = true;
-            // 
-            // IDSilnika_Column_Main
-            // 
-            this.IDSilnika_Column_Main.DataPropertyName = "IDSilnika";
-            this.IDSilnika_Column_Main.HeaderText = "ID Silnika";
-            this.IDSilnika_Column_Main.Name = "IDSilnika_Column_Main";
-            this.IDSilnika_Column_Main.ReadOnly = true;
-            // 
-            // Name_Column_Main
-            // 
-            this.Name_Column_Main.DataPropertyName = "Imie";
-            this.Name_Column_Main.HeaderText = "Imię";
-            this.Name_Column_Main.Name = "Name_Column_Main";
-            this.Name_Column_Main.ReadOnly = true;
-            // 
-            // LastName_Column_Main
-            // 
-            this.LastName_Column_Main.DataPropertyName = "Nazwisko";
-            this.LastName_Column_Main.HeaderText = "Nazwisko";
-            this.LastName_Column_Main.Name = "LastName_Column_Main";
-            this.LastName_Column_Main.ReadOnly = true;
-            // 
-            // NIP_Column_Main
-            // 
-            this.NIP_Column_Main.DataPropertyName = "NIP";
-            this.NIP_Column_Main.HeaderText = "NIP";
-            this.NIP_Column_Main.Name = "NIP_Column_Main";
-            this.NIP_Column_Main.ReadOnly = true;
-            // 
-            // Telephon_Column_Main
-            // 
-            this.Telephon_Column_Main.DataPropertyName = "Telefon";
-            this.Telephon_Column_Main.HeaderText = "Telefon";
-            this.Telephon_Column_Main.Name = "Telephon_Column_Main";
-            this.Telephon_Column_Main.ReadOnly = true;
-            // 
-            // Adress_Column_Main
-            // 
-            this.Adress_Column_Main.DataPropertyName = "Adres";
-            this.Adress_Column_Main.HeaderText = "Adres";
-            this.Adress_Column_Main.Name = "Adress_Column_Main";
-            this.Adress_Column_Main.ReadOnly = true;
-            // 
-            // Zlecenie_Klienta_Column_Main
-            // 
-            this.Zlecenie_Klienta_Column_Main.DataPropertyName = "ZlecenieKlienta";
-            this.Zlecenie_Klienta_Column_Main.HeaderText = "Zlecenie klienta";
-            this.Zlecenie_Klienta_Column_Main.Name = "Zlecenie_Klienta_Column_Main";
-            this.Zlecenie_Klienta_Column_Main.ReadOnly = true;
-            // 
-            // Diagnostyka_Column_Main
-            // 
-            this.Diagnostyka_Column_Main.DataPropertyName = "Diagnostyka";
-            this.Diagnostyka_Column_Main.HeaderText = "Diagnostyka";
-            this.Diagnostyka_Column_Main.Name = "Diagnostyka_Column_Main";
-            this.Diagnostyka_Column_Main.ReadOnly = true;
-            // 
-            // Naprawa_Column_Main
-            // 
-            this.Naprawa_Column_Main.DataPropertyName = "Naprawa";
-            this.Naprawa_Column_Main.HeaderText = "Naprawa";
-            this.Naprawa_Column_Main.Name = "Naprawa_Column_Main";
-            this.Naprawa_Column_Main.ReadOnly = true;
-            // 
-            // Price_Column_Main
-            // 
-            this.Price_Column_Main.DataPropertyName = "Koszt_Szacunkowy";
-            this.Price_Column_Main.HeaderText = "Koszt Szacunkowy";
-            this.Price_Column_Main.Name = "Price_Column_Main";
-            this.Price_Column_Main.ReadOnly = true;
-            // 
-            // Price_Finally_Column_Main
-            // 
-            this.Price_Finally_Column_Main.DataPropertyName = "Koszt_Koncowy";
-            this.Price_Finally_Column_Main.HeaderText = "Koszt końcowy";
-            this.Price_Finally_Column_Main.Name = "Price_Finally_Column_Main";
-            this.Price_Finally_Column_Main.ReadOnly = true;
-            // 
-            // TestDrive_Column_Main
-            // 
-            this.TestDrive_Column_Main.DataPropertyName = "TestDrive";
-            this.TestDrive_Column_Main.HeaderText = "Test Drive";
-            this.TestDrive_Column_Main.Name = "TestDrive_Column_Main";
-            this.TestDrive_Column_Main.ReadOnly = true;
-            // 
-            // Left_Key_Column_Main
-            // 
-            this.Left_Key_Column_Main.DataPropertyName = "PozostawioneKluczyki";
-            this.Left_Key_Column_Main.HeaderText = "Zostawione Kluczyki";
-            this.Left_Key_Column_Main.Name = "Left_Key_Column_Main";
-            this.Left_Key_Column_Main.ReadOnly = true;
-            // 
-            // LeftDocuments_Column_Main
-            // 
-            this.LeftDocuments_Column_Main.DataPropertyName = "PozostawioneDokumenty";
-            this.LeftDocuments_Column_Main.HeaderText = "Zostawione dokumenty";
-            this.LeftDocuments_Column_Main.Name = "LeftDocuments_Column_Main";
-            this.LeftDocuments_Column_Main.ReadOnly = true;
-            // 
-            // Zakupione_Czesci_Column_Main
-            // 
-            this.Zakupione_Czesci_Column_Main.DataPropertyName = "Zakupione_Czesci";
-            this.Zakupione_Czesci_Column_Main.HeaderText = "Zakupione Części";
-            this.Zakupione_Czesci_Column_Main.Name = "Zakupione_Czesci_Column_Main";
-            this.Zakupione_Czesci_Column_Main.ReadOnly = true;
+            this.viewAllPDFToolStripMenuItem.Name = "viewAllPDFToolStripMenuItem";
+            this.viewAllPDFToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.viewAllPDFToolStripMenuItem.Text = "Zobacz wszystkie PDF";
+            this.viewAllPDFToolStripMenuItem.Click += new System.EventHandler(this.viewAllPDFToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1514,7 +1611,6 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.Work_Place);
-            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
             this.ShowIcon = false;
@@ -1661,7 +1757,6 @@
         public System.Windows.Forms.DataGridViewTextBoxColumn Nazwisko_Column;
         public System.Windows.Forms.DataGridViewTextBoxColumn Zlecenie_Klienta_Column;
         public System.Windows.Forms.ToolStripMenuItem stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem;
-        public System.Windows.Forms.Button GeneretePDF_;
         public System.Windows.Forms.Label BodyNumberLenght;
         public System.Windows.Forms.MaskedTextBox TelefonKomurkowy;
         public System.Windows.Forms.MaskedTextBox YearOfProduction;
@@ -1691,6 +1786,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Left_Key_Column_Main;
         private System.Windows.Forms.DataGridViewTextBoxColumn LeftDocuments_Column_Main;
         private System.Windows.Forms.DataGridViewTextBoxColumn Zakupione_Czesci_Column_Main;
+        private System.Windows.Forms.ToolStripMenuItem pDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createPDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createInvoiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewAllPDFToolStripMenuItem;
+        private System.Windows.Forms.Label lngKonto;
+        public System.Windows.Forms.TextBox Konto;
+        private System.Windows.Forms.Label lngNumerBDD;
+        public System.Windows.Forms.TextBox NBDD;
+        private System.Windows.Forms.ToolStripMenuItem stwórzToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem;
     }
 }
 

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+
 namespace Warsztat
 {
     internal class PlanYourCar
@@ -19,8 +14,7 @@ namespace Warsztat
         DataTable DT = new DataTable();
         Warsztat Warsztat = new Warsztat();
         Update Update = new Update();
-
-        
+                
         public void Load (Form1 form)
         {
             try
@@ -91,6 +85,7 @@ namespace Warsztat
         {
             sql_conn.Open();
             ID = Convert.ToInt32(form.Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
+
             form.DataPrzyjecia.Text = form.Scheduled_Cars_View.CurrentRow.Cells["DataPrzyjecia_Column"].Value.ToString();
             form.Marka.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Marka_Column"].Value.ToString();
             form.Model.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Model_Column"].Value.ToString();

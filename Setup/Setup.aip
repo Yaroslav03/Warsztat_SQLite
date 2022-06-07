@@ -6,8 +6,10 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll" Value="..\packages\EntityFramework.6.4.4\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.dll" Value="..\packages\EntityFramework.6.4.4\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.mshtml.dll" Value="..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\PublicAssemblies"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Spire.License.dll" Value="..\packages\FreeSpire.PDF.7.8.9\lib\net40"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Spire.Pdf.dll" Value="..\packages\FreeSpire.PDF.7.8.9\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLite.Interop.dll" Value="..\Warsztat\bin\Debug\x64"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLite.Interop.dll_1" Value="..\Warsztat\bin\Debug\x86"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Spire.License.dll" Value="..\packages\FreeSpire.PDF.8.2.0\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Spire.Pdf.dll" Value="..\packages\FreeSpire.PDF.8.2.0\lib\net40"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.EF6.dll" Value="..\packages\System.Data.SQLite.EF6.1.0.115.5\lib\net46"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.Linq.dll" Value="..\packages\System.Data.SQLite.Linq.1.0.115.5\lib\net46"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.dll" Value="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46"/>
@@ -18,6 +20,8 @@
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll" Value="EntityFramework.SqlServer.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll" Value="EntityFramework.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.mshtml.dll" Value="Microsoft.mshtml.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SQLite.Interop.dll" Value="SQLite.Interop.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SQLite.Interop.dll_1" Value="SQLite.Interop.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Spire.License.dll" Value="Spire.License.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Spire.Pdf.dll" Value="Spire.Pdf.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.EF6.dll" Value="System.Data.SQLite.EF6.dll"/>
@@ -63,9 +67,9 @@
     <ROW Component="APPDIR" ComponentId="{6E596785-DFFB-4400-A77A-CC4BF058B2DE}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="NewFolder" ComponentId="{83C145AC-381A-400F-8996-8917A10B5EFC}" Directory_="NewFolder_Dir" Attributes="0"/>
     <ROW Component="ProductInformation" ComponentId="{20F5ACBA-D7FD-4DF7-A82F-005C50596B17}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="SQLite.Interop.dll" ComponentId="{23831399-62DB-4BA4-92E8-BCE8B44E97FF}" Directory_="x64_Dir" Attributes="256" KeyPath="SQLite.Interop.dll"/>
-    <ROW Component="SQLite.Interop.dll_1" ComponentId="{DDB5229A-8D3A-4485-A23E-53B99147403A}" Directory_="x86_Dir" Attributes="0" KeyPath="SQLite.Interop.dll_1"/>
     <ROW Component="Warsztat_ContentOutput" ComponentId="{F440D1DC-A29F-4926-8778-4DC31DAC5B3D}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Warsztat.db" Type="0"/>
+    <ROW Component="Warsztat_ContentOutput_x64" ComponentId="{23831399-62DB-4BA4-92E8-BCE8B44E97FF}" Directory_="x64_Dir" Attributes="256" KeyPath="SQLite.Interop.dll"/>
+    <ROW Component="Warsztat_ContentOutput_x86" ComponentId="{DDB5229A-8D3A-4485-A23E-53B99147403A}" Directory_="x86_Dir" Attributes="0" KeyPath="SQLite.Interop.dll_1"/>
     <ROW Component="Warsztat_PrimaryOutput" ComponentId="{11F94243-8202-4E64-878B-72F9CC34137A}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Warsztat.exe"/>
     <ROW Component="Warsztat_References" ComponentId="{5E777C84-EE11-4EF6-AC19-711AFF7DC10B}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Microsoft.mshtml.dll"/>
     <ROW Component="Warsztat_SymbolsOutput" ComponentId="{E350289F-730E-4980-B598-5E77A70FADCE}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Warsztat.pdb"/>
@@ -79,8 +83,8 @@
     <ROW File="Warsztat.exe" Component_="Warsztat_PrimaryOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.exe&gt;" SelfReg="false" DigSign="true"/>
     <ROW File="Warsztat.exe.config" Component_="Warsztat_PrimaryOutput" FileName="WARSZT~2.CON|[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe.config]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.exe.config&gt;" SelfReg="false"/>
     <ROW File="Warsztat.pdb" Component_="Warsztat_SymbolsOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.pdb]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.pdb&gt;" SelfReg="false"/>
-    <ROW File="SQLite.Interop.dll" Component_="SQLite.Interop.dll" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\Warsztat\x64\SQLite.Interop.dll" SelfReg="false"/>
-    <ROW File="SQLite.Interop.dll_1" Component_="SQLite.Interop.dll_1" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\Warsztat\x86\SQLite.Interop.dll" SelfReg="false"/>
+    <ROW File="SQLite.Interop.dll" Component_="Warsztat_ContentOutput_x64" FileName="SQLITE~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SQLite.Interop.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SQLite.Interop.dll&gt;" SelfReg="false"/>
+    <ROW File="SQLite.Interop.dll_1" Component_="Warsztat_ContentOutput_x86" FileName="SQLITE~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SQLite.Interop.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SQLite.Interop.dll_1&gt;" SelfReg="false"/>
     <ROW File="EntityFramework.dll" Component_="Warsztat_References" FileName="ENTITY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.dll&gt;" SelfReg="false"/>
     <ROW File="EntityFramework.SqlServer.dll" Component_="Warsztat_References" FileName="ENTITY~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll&gt;" SelfReg="false"/>
     <ROW File="System.Data.SQLite.dll" Component_="Warsztat_References" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.SQLite.dll&gt;" SelfReg="false"/>
@@ -95,6 +99,8 @@
     <ROW Name="AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_EntityFramework.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_EntityFramework.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Microsoft.mshtml.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.mshtml.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.mshtml.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SQLite.Interop.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SQLite.Interop.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SQLite.Interop.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SQLite.Interop.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_SQLite.Interop.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_SQLite.Interop.dll_1]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Spire.License.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Spire.License.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Spire.License.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Spire.Pdf.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Spire.Pdf.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Spire.Pdf.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_System.Data.SQLite.EF6.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.EF6.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.EF6.dll]" Type="2" Content="0"/>
@@ -190,8 +196,8 @@
     <ROW Feature_="MainFeature" Component_="Warsztat_PrimaryOutput"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_ContentOutput"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_SymbolsOutput"/>
-    <ROW Feature_="MainFeature" Component_="SQLite.Interop.dll"/>
-    <ROW Feature_="MainFeature" Component_="SQLite.Interop.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Warsztat_ContentOutput_x64"/>
+    <ROW Feature_="MainFeature" Component_="Warsztat_ContentOutput_x86"/>
     <ROW Feature_="MainFeature" Component_="NewFolder"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_References"/>
     <ROW Feature_="MainFeature" Component_="pdf"/>
@@ -250,5 +256,7 @@
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Spire.Pdf.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.mshtml.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="ContentOutput" OutputFile="Warsztat.db"/>
+    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="ContentOutput" OutputFile="SQLite.Interop.dll"/>
+    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="ContentOutput" OutputFile="SQLite.Interop.dll_1"/>
   </COMPONENT>
 </DOCUMENT>

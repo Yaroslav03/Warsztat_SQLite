@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data;
 using System.Windows.Forms;
@@ -50,6 +46,7 @@ namespace Warsztat
                 form.Work_Place.SelectTab(form.tabPage1);
                 Clear(form, ID);
                 form.Button_Save.Enabled = true;
+                form.DataPrzyjecia.Text = DateTime.Now.ToString();
             }
             catch
             {
@@ -68,6 +65,7 @@ namespace Warsztat
                 MessageBox.Show("Probłem z podłączeniem do bazy danych bądź z zapisem danych", "Baza danych");
             }
             Load_DB(form);
+            form.DataPrzyjecia.Text = DateTime.Now.ToString();
         }
         public void ReadData(Form1 form, int ID)
         {
@@ -260,6 +258,8 @@ namespace Warsztat
             ID = 0;
             form.Button_Save.Text = "Zapisz";
             form.Button_Delete.Enabled = false;
+            form.DataPrzyjecia.Text = DateTime.Now.ToString();
+            form.DataWydania.Text = DateTime.Now.ToString();
         }
         public void ClearPart(Form form, Control.ControlCollection controlCollection)
         {
@@ -278,6 +278,5 @@ namespace Warsztat
                 MessageBox.Show(ex.Message);
             }
         }
-
     }
 }
