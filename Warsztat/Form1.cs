@@ -21,6 +21,8 @@ namespace Warsztat
         Warsztat Warsztat = new Warsztat();
         PlanYourCar PlanYourCar = new PlanYourCar();
         GeneratePDF GeneratePDF = new GeneratePDF();
+        InvoiceDB invoiceDB = new InvoiceDB();
+
         SQLiteConnection sql_conn = new SQLiteConnection();
         SQLiteCommand sql_cmd = new SQLiteCommand();
 
@@ -28,14 +30,7 @@ namespace Warsztat
         public Form1()
         {          
             sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
-            InitializeComponent();
-            Interface.Load_Data_Localize(this);
-            Warsztat.Load_DB(this);
-            PlanYourCar.Load(this);
-            Interface.BodyNumberVerify(this);
-            Interface.Verify_Button(this);
-            Interface.Zlecenie(this);
-            
+            InitializeComponent();                   
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -99,7 +94,7 @@ namespace Warsztat
         private void Dane_Warsztat_DoubleClick(object sender, EventArgs e)
         {
             Warsztat.ReadData(this,ID);
-            Work_Place.SelectTab(tabPage2);
+            Work_Place.SelectTab(AddData);
             Button_Save.Enabled = false;
         }       
         private void Dane_Warsztat_MouseClick(object sender, MouseEventArgs e)
@@ -115,17 +110,7 @@ namespace Warsztat
                 MessageBox.Show("Wybrana Kolumna jest pusta");
             }
         }
-        private void polskiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Interface.Localize_PL(this);
-            Interface.Load_Data_Localize(this);
-        }
-        private void ukraińskiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Interface.Localize_UA(this);
-            Interface.Load_Data_Localize(this);
-        }
-       
+        
         private void Marka_TextChanged(object sender, EventArgs e)
         {
             Interface.Verify_Button(this);
@@ -192,8 +177,7 @@ namespace Warsztat
                 sql_con.Close();
             }
         }
-        
-                
+                        
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Update.Delete();
@@ -214,7 +198,6 @@ namespace Warsztat
 
         private void Plan_your_car_Click(object sender, EventArgs e)
         {
-
            PlanYourCar.Add(this, ID);
            Load_Scheduled_Cars();
         }
@@ -273,16 +256,9 @@ namespace Warsztat
         private void Scheduled_Cars_View_DoubleClick(object sender, EventArgs e)
         {
             PlanYourCar.ReadData(this, ID);
-            Work_Place.SelectTab(tabPage2);
+            Work_Place.SelectTab(AddData);
         }
 
-        //Create Order
-        private void createToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GeneratePDF.PreviewPDF(this);
-        }
-
-        // Update Order
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GeneratePDF.UpdatePDF(this);
@@ -293,26 +269,69 @@ namespace Warsztat
             Process.Start("explorer.exe", "pdf\\");
         }
 
-        private void ZlecenieToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            GeneratePDF.DeletePDF(this);
-        }
-
         //Create Invoice
         private void createToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             GeneratePDF.Create_Invoice(this);
         }
-        // Update Invoice
-        private void updateToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void ustawieniaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Setting_Form b2 = new Setting_Form();
-            b2.ShowDialog();            
+            b2.ShowDialog();         
+        }
+
+        private void stwórzToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GeneratePDF.Create(this);
+        }
+
+        private void usuńToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GeneratePDF.UpdatePDF(this);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Interface.Load_Data_Localize(this);
+            Warsztat.Load_DB(this);
+            PlanYourCar.Load(this);
+            Interface.BodyNumberVerify(this);
+            Interface.Verify_Button(this);
+            Interface.Zlecenie(this);
+            invoiceDB.Load(this);
+        }
+
+        private void Card_CheckedChanged(object sender, EventArgs e)
+        {
+            KontoInvoice.Enabled  = InBankInvoice.Enabled = true;
+        }
+
+        private void Cash_CheckedChanged(object sender, EventArgs e)
+        {
+            KontoInvoice.Enabled = InBankInvoice.Enabled = false;
+            KontoInvoice.Text = InBankInvoice.Text = string.Empty; 
+        }
+
+        private void checkDateOfPayInvoice_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void InvoiceDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            invoiceDB.Read(this, ID);
+            invoiceDB.CreateInvoiceNR(this);
+        }
+
+        private void Search_Invoice_TextChanged(object sender, EventArgs e)
+        {
+            invoiceDB.Search(this);
+        }
+
+        private void todayInvoice_CheckedChanged(object sender, EventArgs e)
+        {
+            Interface.VerefyCheckDateOfPayInvoice(this);
         }
     }
 }

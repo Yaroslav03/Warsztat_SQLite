@@ -122,12 +122,7 @@
     </Compile>
     <Compile Include="GeneratePDF.cs" />
     <Compile Include="Interface.cs" />
-    <Compile Include="Invoices.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Invoices.Designer.cs">
-      <DependentUpon>Invoices.cs</DependentUpon>
-    </Compile>
+    <Compile Include="InvoiceDB.cs" />
     <Compile Include="PlanYourCar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,9 +143,6 @@
     </Content>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Invoices.resx">
-      <DependentUpon>Invoices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

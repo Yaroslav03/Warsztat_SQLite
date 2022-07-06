@@ -19,14 +19,16 @@ namespace Warsztat
             InitializeComponent();
         }
 
-        private void PL_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Settings.SaveXml(this, "PL");
-        }
-
-        private void UA_Click(object sender, EventArgs e)
-        {
-            Settings.SaveXml(this, "UA");
+            if (Ukranian.Checked == true)
+            {
+                Settings.SaveXml(this, "Ukranian");
+            }
+            else if (Polish.Checked == true)
+            {
+                Settings.SaveXml(this, "Polish");
+            }
         }
     }
 }

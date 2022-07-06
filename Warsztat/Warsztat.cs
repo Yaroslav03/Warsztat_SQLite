@@ -43,7 +43,7 @@ namespace Warsztat
                 Load_DB(form);
                 MessageBox.Show("Dane zostałe odświeżone", "Baza danych");
 
-                form.Work_Place.SelectTab(form.tabPage1);
+                form.Work_Place.SelectTab(form.Home);
                 Clear(form, ID);
                 form.Button_Save.Enabled = true;
                 form.DataPrzyjecia.Text = DateTime.Now.ToString();
@@ -118,7 +118,8 @@ namespace Warsztat
         }
 
         public void Load_DB(Form1 form)
-        {try
+        {
+            try
             {
                 conn.Open();
                 cmd = conn.CreateCommand();
@@ -128,7 +129,7 @@ namespace Warsztat
                 DB.Fill(DS);
                 DT = DS.Tables[0];
                 form.Dane_Warsztat.DataSource = DT;
-                form.Dane_Warsztat.Columns[0].Visible = false;
+                form.Dane_Warsztat.Columns["ID_Invoice"].Visible = false;
                 conn.Close();
             }
             catch (Exception ex)//it`s a fix
@@ -174,7 +175,7 @@ namespace Warsztat
             MessageBox.Show("Wszystko zostało zapisane");
             conn.Close();
             Console.WriteLine("Sql close");
-            form.Work_Place.SelectTab(form.tabPage1);
+            form.Work_Place.SelectTab(form.Home);
         }
         private void Edit_AND_Save(Form1 form) // Тут містяться параметри для sql
         {

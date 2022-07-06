@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Work_Place = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Home = new System.Windows.Forms.TabPage();
             this.Button_Delete = new System.Windows.Forms.Button();
             this.lngSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@
             this.Left_Key_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LeftDocuments_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Zakupione_Czesci_Column_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.AddData = new System.Windows.Forms.TabPage();
             this.Plan_your_car = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtNaprawa = new System.Windows.Forms.TextBox();
@@ -134,6 +134,84 @@
             this.Button_Update = new System.Windows.Forms.Button();
             this.Button_Clear = new System.Windows.Forms.Button();
             this.Button_Save = new System.Windows.Forms.Button();
+            this.Invoice = new System.Windows.Forms.TabPage();
+            this.Button_Delete_Invoice = new System.Windows.Forms.Button();
+            this.Button_Update_Invoice = new System.Windows.Forms.Button();
+            this.Button_Save_Invoice = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Search_Invoice = new System.Windows.Forms.TextBox();
+            this.InvoiceDataGridView = new System.Windows.Forms.DataGridView();
+            this.ID_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FakturaNr_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NIP_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adres_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usluga1_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usluga2_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usluga3_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usluga4_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KosztUslugi1_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KosztUslugi2_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KosztUslugi3_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KosztUslugi4_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bank_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CenaKoncowa_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SposobPlatnosci_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TerminZaplaty_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.PriceService4Invoice = new System.Windows.Forms.TextBox();
+            this.Service4Invoice = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.Service3Invoice = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.PriceService3Invoice = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.PriceService2Invoice = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.Service2Invoice = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.Service1Invoice = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.PriceService1Invoice = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.forTimeInvoice = new System.Windows.Forms.RadioButton();
+            this.todayInvoice = new System.Windows.Forms.RadioButton();
+            this.dateTimePickerInvoice = new System.Windows.Forms.DateTimePicker();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.Cash = new System.Windows.Forms.RadioButton();
+            this.Card = new System.Windows.Forms.RadioButton();
+            this.DateOfPayInvoice = new System.Windows.Forms.TextBox();
+            this.InBankInvoice = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.KontoInvoice = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.FakturaNrlng = new System.Windows.Forms.Label();
+            this.FakturaNr = new System.Windows.Forms.Label();
+            this.AdresInvoice = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.NameORNameCompanyInvoice = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.NipInvoice = new System.Windows.Forms.TextBox();
+            this.Scheduled_Cars = new System.Windows.Forms.TabPage();
+            this.Update_Scheduled_Cars = new System.Windows.Forms.Button();
+            this.Delete_Scheduled_Car = new System.Windows.Forms.Button();
+            this.Scheduled_Cars_View = new System.Windows.Forms.DataGridView();
+            this.ID_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataPrzyjecia_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marka_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imie_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nazwisko_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zlecenie_Klienta_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Update_DB = new System.Windows.Forms.TabPage();
             this.lngNewBD = new System.Windows.Forms.Label();
             this.lngOldBD = new System.Windows.Forms.Label();
@@ -146,17 +224,6 @@
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kopjujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Scheduled_Cars = new System.Windows.Forms.TabPage();
-            this.Update_Scheduled_Cars = new System.Windows.Forms.Button();
-            this.Delete_Scheduled_Car = new System.Windows.Forms.Button();
-            this.Scheduled_Cars_View = new System.Windows.Forms.DataGridView();
-            this.ID_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataPrzyjecia_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marka_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imie_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nazwisko_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Zlecenie_Klienta_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,9 +231,6 @@
             this.asdToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.językToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.polskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ukraińskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stwórzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -176,9 +240,9 @@
             this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Work_Place.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.Home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.AddData.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -187,12 +251,17 @@
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.Invoice.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InvoiceDataGridView)).BeginInit();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.Scheduled_Cars.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Scheduled_Cars_View)).BeginInit();
             this.Update_DB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NEW_Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OLD_Table)).BeginInit();
             this.menuStrip2.SuspendLayout();
-            this.Scheduled_Cars.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Scheduled_Cars_View)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -202,29 +271,30 @@
             this.Work_Place.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Work_Place.Controls.Add(this.tabPage1);
-            this.Work_Place.Controls.Add(this.tabPage2);
-            this.Work_Place.Controls.Add(this.Update_DB);
+            this.Work_Place.Controls.Add(this.Home);
+            this.Work_Place.Controls.Add(this.AddData);
+            this.Work_Place.Controls.Add(this.Invoice);
             this.Work_Place.Controls.Add(this.Scheduled_Cars);
+            this.Work_Place.Controls.Add(this.Update_DB);
             this.Work_Place.Location = new System.Drawing.Point(1, 36);
             this.Work_Place.Name = "Work_Place";
             this.Work_Place.SelectedIndex = 0;
             this.Work_Place.Size = new System.Drawing.Size(1264, 666);
             this.Work_Place.TabIndex = 0;
             // 
-            // tabPage1
+            // Home
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.tabPage1.Controls.Add(this.Button_Delete);
-            this.tabPage1.Controls.Add(this.lngSearch);
-            this.tabPage1.Controls.Add(this.txtSearch);
-            this.tabPage1.Controls.Add(this.Dane_Warsztat);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1256, 640);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Zobacz Baze Danych";
+            this.Home.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Home.Controls.Add(this.Button_Delete);
+            this.Home.Controls.Add(this.lngSearch);
+            this.Home.Controls.Add(this.txtSearch);
+            this.Home.Controls.Add(this.Dane_Warsztat);
+            this.Home.Location = new System.Drawing.Point(4, 22);
+            this.Home.Name = "Home";
+            this.Home.Padding = new System.Windows.Forms.Padding(3);
+            this.Home.Size = new System.Drawing.Size(1256, 640);
+            this.Home.TabIndex = 0;
+            this.Home.Text = "Zobacz Baze Danych";
             // 
             // Button_Delete
             // 
@@ -473,27 +543,27 @@
             this.Zakupione_Czesci_Column_Main.Name = "Zakupione_Czesci_Column_Main";
             this.Zakupione_Czesci_Column_Main.ReadOnly = true;
             // 
-            // tabPage2
+            // AddData
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.tabPage2.Controls.Add(this.Plan_your_car);
-            this.tabPage2.Controls.Add(this.panel6);
-            this.tabPage2.Controls.Add(this.panel4);
-            this.tabPage2.Controls.Add(this.panel8);
-            this.tabPage2.Controls.Add(this.panel2);
-            this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Controls.Add(this.panel3);
-            this.tabPage2.Controls.Add(this.panel7);
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this.Button_Update);
-            this.tabPage2.Controls.Add(this.Button_Clear);
-            this.tabPage2.Controls.Add(this.Button_Save);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1256, 640);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Dodaj Dane";
+            this.AddData.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.AddData.Controls.Add(this.Plan_your_car);
+            this.AddData.Controls.Add(this.panel6);
+            this.AddData.Controls.Add(this.panel4);
+            this.AddData.Controls.Add(this.panel8);
+            this.AddData.Controls.Add(this.panel2);
+            this.AddData.Controls.Add(this.panel5);
+            this.AddData.Controls.Add(this.panel3);
+            this.AddData.Controls.Add(this.panel7);
+            this.AddData.Controls.Add(this.panel1);
+            this.AddData.Controls.Add(this.Button_Update);
+            this.AddData.Controls.Add(this.Button_Clear);
+            this.AddData.Controls.Add(this.Button_Save);
+            this.AddData.Location = new System.Drawing.Point(4, 22);
+            this.AddData.Name = "AddData";
+            this.AddData.Padding = new System.Windows.Forms.Padding(3);
+            this.AddData.Size = new System.Drawing.Size(1256, 640);
+            this.AddData.TabIndex = 1;
+            this.AddData.Text = "Dodaj Dane";
             // 
             // Plan_your_car
             // 
@@ -811,9 +881,9 @@
             this.lngNumerBDD.AutoSize = true;
             this.lngNumerBDD.Location = new System.Drawing.Point(191, 158);
             this.lngNumerBDD.Name = "lngNumerBDD";
-            this.lngNumerBDD.Size = new System.Drawing.Size(70, 15);
+            this.lngNumerBDD.Size = new System.Drawing.Size(71, 15);
             this.lngNumerBDD.TabIndex = 6;
-            this.lngNumerBDD.Text = "Numer BDD";
+            this.lngNumerBDD.Text = "Numer BDO";
             // 
             // NBDD
             // 
@@ -1239,126 +1309,655 @@
             this.Button_Save.UseVisualStyleBackColor = false;
             this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
             // 
-            // Update_DB
+            // Invoice
             // 
-            this.Update_DB.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Update_DB.Controls.Add(this.lngNewBD);
-            this.Update_DB.Controls.Add(this.lngOldBD);
-            this.Update_DB.Controls.Add(this.NEW_Table);
-            this.Update_DB.Controls.Add(this.OLD_Table);
-            this.Update_DB.Controls.Add(this.menuStrip2);
-            this.Update_DB.Location = new System.Drawing.Point(4, 22);
-            this.Update_DB.Name = "Update_DB";
-            this.Update_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.Update_DB.Size = new System.Drawing.Size(1256, 640);
-            this.Update_DB.TabIndex = 2;
-            this.Update_DB.Text = "Odśwież do nowszej wersji Bazy Danych";
+            this.Invoice.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Invoice.Controls.Add(this.Button_Delete_Invoice);
+            this.Invoice.Controls.Add(this.Button_Update_Invoice);
+            this.Invoice.Controls.Add(this.Button_Save_Invoice);
+            this.Invoice.Controls.Add(this.label5);
+            this.Invoice.Controls.Add(this.Search_Invoice);
+            this.Invoice.Controls.Add(this.InvoiceDataGridView);
+            this.Invoice.Controls.Add(this.panel9);
+            this.Invoice.Controls.Add(this.panel10);
+            this.Invoice.Controls.Add(this.panel11);
+            this.Invoice.Location = new System.Drawing.Point(4, 22);
+            this.Invoice.Name = "Invoice";
+            this.Invoice.Size = new System.Drawing.Size(1256, 640);
+            this.Invoice.TabIndex = 4;
+            this.Invoice.Text = "Faktura";
             // 
-            // lngNewBD
+            // Button_Delete_Invoice
             // 
-            this.lngNewBD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lngNewBD.AutoSize = true;
-            this.lngNewBD.Location = new System.Drawing.Point(796, 42);
-            this.lngNewBD.Name = "lngNewBD";
-            this.lngNewBD.Size = new System.Drawing.Size(102, 13);
-            this.lngNewBD.TabIndex = 2;
-            this.lngNewBD.Text = "Nowa Baza Danych";
+            this.Button_Delete_Invoice.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Button_Delete_Invoice.Location = new System.Drawing.Point(713, 28);
+            this.Button_Delete_Invoice.Name = "Button_Delete_Invoice";
+            this.Button_Delete_Invoice.Size = new System.Drawing.Size(56, 20);
+            this.Button_Delete_Invoice.TabIndex = 18;
+            this.Button_Delete_Invoice.Text = "Usuń";
+            this.Button_Delete_Invoice.UseVisualStyleBackColor = false;
             // 
-            // lngOldBD
+            // Button_Update_Invoice
             // 
-            this.lngOldBD.AutoSize = true;
-            this.lngOldBD.Location = new System.Drawing.Point(72, 42);
-            this.lngOldBD.Name = "lngOldBD";
-            this.lngOldBD.Size = new System.Drawing.Size(99, 13);
-            this.lngOldBD.TabIndex = 2;
-            this.lngOldBD.Text = "Stara Baza Danych";
+            this.Button_Update_Invoice.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Button_Update_Invoice.Location = new System.Drawing.Point(88, 12);
+            this.Button_Update_Invoice.Name = "Button_Update_Invoice";
+            this.Button_Update_Invoice.Size = new System.Drawing.Size(75, 23);
+            this.Button_Update_Invoice.TabIndex = 18;
+            this.Button_Update_Invoice.Text = "Odśwież";
+            this.Button_Update_Invoice.UseVisualStyleBackColor = false;
             // 
-            // NEW_Table
+            // Button_Save_Invoice
             // 
-            this.NEW_Table.AllowUserToAddRows = false;
-            this.NEW_Table.AllowUserToResizeColumns = false;
-            this.NEW_Table.AllowUserToResizeRows = false;
-            this.NEW_Table.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Button_Save_Invoice.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Button_Save_Invoice.Location = new System.Drawing.Point(7, 12);
+            this.Button_Save_Invoice.Name = "Button_Save_Invoice";
+            this.Button_Save_Invoice.Size = new System.Drawing.Size(75, 23);
+            this.Button_Save_Invoice.TabIndex = 18;
+            this.Button_Save_Invoice.Text = "Zapisz";
+            this.Button_Save_Invoice.UseVisualStyleBackColor = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(560, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Szukaj";
+            // 
+            // Search_Invoice
+            // 
+            this.Search_Invoice.Location = new System.Drawing.Point(563, 28);
+            this.Search_Invoice.Name = "Search_Invoice";
+            this.Search_Invoice.Size = new System.Drawing.Size(144, 20);
+            this.Search_Invoice.TabIndex = 13;
+            this.Search_Invoice.TextChanged += new System.EventHandler(this.Search_Invoice_TextChanged);
+            // 
+            // InvoiceDataGridView
+            // 
+            this.InvoiceDataGridView.AllowUserToAddRows = false;
+            this.InvoiceDataGridView.AllowUserToDeleteRows = false;
+            this.InvoiceDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NEW_Table.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.NEW_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.NEW_Table.Location = new System.Drawing.Point(653, 58);
-            this.NEW_Table.Name = "NEW_Table";
-            this.NEW_Table.Size = new System.Drawing.Size(597, 553);
-            this.NEW_Table.TabIndex = 0;
+            this.InvoiceDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.InvoiceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.InvoiceDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_Invoice,
+            this.FakturaNr_Invoice,
+            this.Name_Invoice,
+            this.NIP_Invoice,
+            this.Adres_Invoice,
+            this.Usluga1_Invoice,
+            this.Usluga2_Invoice,
+            this.Usluga3_Invoice,
+            this.Usluga4_Invoice,
+            this.KosztUslugi1_Invoice,
+            this.KosztUslugi2_Invoice,
+            this.KosztUslugi3_Invoice,
+            this.KosztUslugi4_Invoice,
+            this.Bank_Invoice,
+            this.CenaKoncowa_Invoice,
+            this.SposobPlatnosci_Invoice,
+            this.TerminZaplaty_Invoice});
+            this.InvoiceDataGridView.Location = new System.Drawing.Point(563, 54);
+            this.InvoiceDataGridView.Name = "InvoiceDataGridView";
+            this.InvoiceDataGridView.ReadOnly = true;
+            this.InvoiceDataGridView.Size = new System.Drawing.Size(693, 568);
+            this.InvoiceDataGridView.TabIndex = 12;
+            this.InvoiceDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InvoiceDataGridView_CellClick);
             // 
-            // OLD_Table
+            // ID_Invoice
             // 
-            this.OLD_Table.AllowUserToAddRows = false;
-            this.OLD_Table.AllowUserToDeleteRows = false;
-            this.OLD_Table.AllowUserToResizeColumns = false;
-            this.OLD_Table.AllowUserToResizeRows = false;
-            this.OLD_Table.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.OLD_Table.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.OLD_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OLD_Table.Location = new System.Drawing.Point(7, 58);
-            this.OLD_Table.Name = "OLD_Table";
-            this.OLD_Table.Size = new System.Drawing.Size(640, 553);
-            this.OLD_Table.TabIndex = 0;
-            this.OLD_Table.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OLD_Table_MouseClick);
+            this.ID_Invoice.DataPropertyName = "ID";
+            this.ID_Invoice.HeaderText = "ID";
+            this.ID_Invoice.Name = "ID_Invoice";
+            this.ID_Invoice.ReadOnly = true;
             // 
-            // menuStrip2
+            // FakturaNr_Invoice
             // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.akcjeToolStripMenuItem1,
-            this.kopjujToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1250, 24);
-            this.menuStrip2.TabIndex = 1;
-            this.menuStrip2.Text = "menuStrip2";
+            this.FakturaNr_Invoice.DataPropertyName = "FakturaNr";
+            this.FakturaNr_Invoice.HeaderText = "Faktura Nr";
+            this.FakturaNr_Invoice.Name = "FakturaNr_Invoice";
+            this.FakturaNr_Invoice.ReadOnly = true;
             // 
-            // akcjeToolStripMenuItem1
+            // Name_Invoice
             // 
-            this.akcjeToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stwórzNowąTabelkęToolStripMenuItem1,
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem,
-            this.zakończToolStripMenuItem,
-            this.deleteToolStripMenuItem});
-            this.akcjeToolStripMenuItem1.Name = "akcjeToolStripMenuItem1";
-            this.akcjeToolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
-            this.akcjeToolStripMenuItem1.Text = "Akcje";
+            this.Name_Invoice.DataPropertyName = "Name";
+            this.Name_Invoice.HeaderText = "Imię";
+            this.Name_Invoice.Name = "Name_Invoice";
+            this.Name_Invoice.ReadOnly = true;
             // 
-            // stwórzNowąTabelkęToolStripMenuItem1
+            // NIP_Invoice
             // 
-            this.stwórzNowąTabelkęToolStripMenuItem1.Name = "stwórzNowąTabelkęToolStripMenuItem1";
-            this.stwórzNowąTabelkęToolStripMenuItem1.Size = new System.Drawing.Size(290, 22);
-            this.stwórzNowąTabelkęToolStripMenuItem1.Text = "Stwórz nową tabelkę";
-            this.stwórzNowąTabelkęToolStripMenuItem1.Click += new System.EventHandler(this.stwórzNowąTabelkęToolStripMenuItem1_Click);
+            this.NIP_Invoice.DataPropertyName = "NIP";
+            this.NIP_Invoice.HeaderText = "NIP";
+            this.NIP_Invoice.Name = "NIP_Invoice";
+            this.NIP_Invoice.ReadOnly = true;
             // 
-            // stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem
+            // Adres_Invoice
             // 
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Name = "stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem";
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Text = "Stwórz tabelkę Zaplanowane Samochody";
-            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Click += new System.EventHandler(this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem_Click);
+            this.Adres_Invoice.DataPropertyName = "Adres";
+            this.Adres_Invoice.HeaderText = "Adres";
+            this.Adres_Invoice.Name = "Adres_Invoice";
+            this.Adres_Invoice.ReadOnly = true;
             // 
-            // zakończToolStripMenuItem
+            // Usluga1_Invoice
             // 
-            this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
-            this.zakończToolStripMenuItem.Text = "Zakończ";
-            this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click_1);
+            this.Usluga1_Invoice.DataPropertyName = "Usluga1";
+            this.Usluga1_Invoice.HeaderText = "Usługa 1";
+            this.Usluga1_Invoice.Name = "Usluga1_Invoice";
+            this.Usluga1_Invoice.ReadOnly = true;
             // 
-            // deleteToolStripMenuItem
+            // Usluga2_Invoice
             // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.Usluga2_Invoice.DataPropertyName = "Usluga2";
+            this.Usluga2_Invoice.HeaderText = "Usługa 2";
+            this.Usluga2_Invoice.Name = "Usluga2_Invoice";
+            this.Usluga2_Invoice.ReadOnly = true;
             // 
-            // kopjujToolStripMenuItem
+            // Usluga3_Invoice
             // 
-            this.kopjujToolStripMenuItem.Name = "kopjujToolStripMenuItem";
-            this.kopjujToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.kopjujToolStripMenuItem.Text = "Kopjuj";
-            this.kopjujToolStripMenuItem.Click += new System.EventHandler(this.kopjujToolStripMenuItem_Click);
+            this.Usluga3_Invoice.DataPropertyName = "Usluga3";
+            this.Usluga3_Invoice.HeaderText = "Usługa 3";
+            this.Usluga3_Invoice.Name = "Usluga3_Invoice";
+            this.Usluga3_Invoice.ReadOnly = true;
+            // 
+            // Usluga4_Invoice
+            // 
+            this.Usluga4_Invoice.DataPropertyName = "Usluga4";
+            this.Usluga4_Invoice.HeaderText = "Usługa 4";
+            this.Usluga4_Invoice.Name = "Usluga4_Invoice";
+            this.Usluga4_Invoice.ReadOnly = true;
+            // 
+            // KosztUslugi1_Invoice
+            // 
+            this.KosztUslugi1_Invoice.DataPropertyName = "KosztUslugi1";
+            this.KosztUslugi1_Invoice.HeaderText = "Koszt Usługi 1";
+            this.KosztUslugi1_Invoice.Name = "KosztUslugi1_Invoice";
+            this.KosztUslugi1_Invoice.ReadOnly = true;
+            // 
+            // KosztUslugi2_Invoice
+            // 
+            this.KosztUslugi2_Invoice.DataPropertyName = "KosztUslugi2";
+            this.KosztUslugi2_Invoice.HeaderText = "Koszt Usługi 2";
+            this.KosztUslugi2_Invoice.Name = "KosztUslugi2_Invoice";
+            this.KosztUslugi2_Invoice.ReadOnly = true;
+            // 
+            // KosztUslugi3_Invoice
+            // 
+            this.KosztUslugi3_Invoice.DataPropertyName = "KosztUslugi3";
+            this.KosztUslugi3_Invoice.HeaderText = "Koszt Usługi 3";
+            this.KosztUslugi3_Invoice.Name = "KosztUslugi3_Invoice";
+            this.KosztUslugi3_Invoice.ReadOnly = true;
+            // 
+            // KosztUslugi4_Invoice
+            // 
+            this.KosztUslugi4_Invoice.DataPropertyName = "KosztUslugi4";
+            this.KosztUslugi4_Invoice.HeaderText = "Koszt Usługi 4";
+            this.KosztUslugi4_Invoice.Name = "KosztUslugi4_Invoice";
+            this.KosztUslugi4_Invoice.ReadOnly = true;
+            // 
+            // Bank_Invoice
+            // 
+            this.Bank_Invoice.DataPropertyName = "Bank";
+            this.Bank_Invoice.HeaderText = "Bank";
+            this.Bank_Invoice.Name = "Bank_Invoice";
+            this.Bank_Invoice.ReadOnly = true;
+            // 
+            // CenaKoncowa_Invoice
+            // 
+            this.CenaKoncowa_Invoice.DataPropertyName = "CenaKoncowa";
+            this.CenaKoncowa_Invoice.HeaderText = "Koszt";
+            this.CenaKoncowa_Invoice.Name = "CenaKoncowa_Invoice";
+            this.CenaKoncowa_Invoice.ReadOnly = true;
+            // 
+            // SposobPlatnosci_Invoice
+            // 
+            this.SposobPlatnosci_Invoice.DataPropertyName = "SposobPlatnosci";
+            this.SposobPlatnosci_Invoice.HeaderText = "Sposób płatności";
+            this.SposobPlatnosci_Invoice.Name = "SposobPlatnosci_Invoice";
+            this.SposobPlatnosci_Invoice.ReadOnly = true;
+            // 
+            // TerminZaplaty_Invoice
+            // 
+            this.TerminZaplaty_Invoice.DataPropertyName = "TerminZaplaty";
+            this.TerminZaplaty_Invoice.HeaderText = "termin zapłaty";
+            this.TerminZaplaty_Invoice.Name = "TerminZaplaty_Invoice";
+            this.TerminZaplaty_Invoice.ReadOnly = true;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel9.Controls.Add(this.label20);
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Controls.Add(this.PriceService4Invoice);
+            this.panel9.Controls.Add(this.Service4Invoice);
+            this.panel9.Controls.Add(this.label14);
+            this.panel9.Controls.Add(this.Service3Invoice);
+            this.panel9.Controls.Add(this.label19);
+            this.panel9.Controls.Add(this.PriceService3Invoice);
+            this.panel9.Controls.Add(this.label17);
+            this.panel9.Controls.Add(this.PriceService2Invoice);
+            this.panel9.Controls.Add(this.label13);
+            this.panel9.Controls.Add(this.Service2Invoice);
+            this.panel9.Controls.Add(this.label15);
+            this.panel9.Controls.Add(this.label16);
+            this.panel9.Controls.Add(this.Service1Invoice);
+            this.panel9.Controls.Add(this.label18);
+            this.panel9.Controls.Add(this.PriceService1Invoice);
+            this.panel9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.panel9.Location = new System.Drawing.Point(7, 427);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(550, 168);
+            this.panel9.TabIndex = 11;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label20.Location = new System.Drawing.Point(267, 91);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(52, 15);
+            this.label20.TabIndex = 19;
+            this.label20.Text = "Usługa 4";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label2.Location = new System.Drawing.Point(437, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 15);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Koszt usługi 4";
+            // 
+            // PriceService4Invoice
+            // 
+            this.PriceService4Invoice.Location = new System.Drawing.Point(439, 109);
+            this.PriceService4Invoice.Name = "PriceService4Invoice";
+            this.PriceService4Invoice.Size = new System.Drawing.Size(77, 23);
+            this.PriceService4Invoice.TabIndex = 18;
+            this.PriceService4Invoice.Text = "0";
+            // 
+            // Service4Invoice
+            // 
+            this.Service4Invoice.Location = new System.Drawing.Point(267, 109);
+            this.Service4Invoice.Multiline = true;
+            this.Service4Invoice.Name = "Service4Invoice";
+            this.Service4Invoice.Size = new System.Drawing.Size(168, 44);
+            this.Service4Invoice.TabIndex = 16;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label14.Location = new System.Drawing.Point(267, 26);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(52, 15);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Usługa 3";
+            // 
+            // Service3Invoice
+            // 
+            this.Service3Invoice.Location = new System.Drawing.Point(267, 44);
+            this.Service3Invoice.Multiline = true;
+            this.Service3Invoice.Name = "Service3Invoice";
+            this.Service3Invoice.Size = new System.Drawing.Size(168, 44);
+            this.Service3Invoice.TabIndex = 14;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label19.Location = new System.Drawing.Point(438, 26);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(79, 15);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "Koszt usługi 3";
+            // 
+            // PriceService3Invoice
+            // 
+            this.PriceService3Invoice.Location = new System.Drawing.Point(440, 44);
+            this.PriceService3Invoice.Name = "PriceService3Invoice";
+            this.PriceService3Invoice.Size = new System.Drawing.Size(77, 23);
+            this.PriceService3Invoice.TabIndex = 15;
+            this.PriceService3Invoice.Text = "0";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label17.Location = new System.Drawing.Point(179, 91);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(79, 15);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "Koszt usługi 2";
+            // 
+            // PriceService2Invoice
+            // 
+            this.PriceService2Invoice.Location = new System.Drawing.Point(178, 109);
+            this.PriceService2Invoice.Name = "PriceService2Invoice";
+            this.PriceService2Invoice.Size = new System.Drawing.Size(77, 23);
+            this.PriceService2Invoice.TabIndex = 11;
+            this.PriceService2Invoice.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label13.Location = new System.Drawing.Point(3, 91);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(52, 15);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Usługa 2";
+            // 
+            // Service2Invoice
+            // 
+            this.Service2Invoice.Location = new System.Drawing.Point(5, 109);
+            this.Service2Invoice.Multiline = true;
+            this.Service2Invoice.Name = "Service2Invoice";
+            this.Service2Invoice.Size = new System.Drawing.Size(168, 44);
+            this.Service2Invoice.TabIndex = 5;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label15.Location = new System.Drawing.Point(7, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(103, 16);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Rodzaj Usług";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label16.Location = new System.Drawing.Point(5, 26);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 15);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Usługa 1";
+            // 
+            // Service1Invoice
+            // 
+            this.Service1Invoice.Location = new System.Drawing.Point(5, 44);
+            this.Service1Invoice.Multiline = true;
+            this.Service1Invoice.Name = "Service1Invoice";
+            this.Service1Invoice.Size = new System.Drawing.Size(168, 44);
+            this.Service1Invoice.TabIndex = 1;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label18.Location = new System.Drawing.Point(176, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(79, 15);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Koszt usługi 1";
+            // 
+            // PriceService1Invoice
+            // 
+            this.PriceService1Invoice.Location = new System.Drawing.Point(178, 44);
+            this.PriceService1Invoice.Name = "PriceService1Invoice";
+            this.PriceService1Invoice.Size = new System.Drawing.Size(77, 23);
+            this.PriceService1Invoice.TabIndex = 1;
+            this.PriceService1Invoice.Text = "0";
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel10.Controls.Add(this.forTimeInvoice);
+            this.panel10.Controls.Add(this.todayInvoice);
+            this.panel10.Controls.Add(this.dateTimePickerInvoice);
+            this.panel10.Controls.Add(this.panel13);
+            this.panel10.Controls.Add(this.Cash);
+            this.panel10.Controls.Add(this.Card);
+            this.panel10.Controls.Add(this.DateOfPayInvoice);
+            this.panel10.Controls.Add(this.InBankInvoice);
+            this.panel10.Controls.Add(this.label1);
+            this.panel10.Controls.Add(this.KontoInvoice);
+            this.panel10.Controls.Add(this.label8);
+            this.panel10.Controls.Add(this.label9);
+            this.panel10.Controls.Add(this.label10);
+            this.panel10.Controls.Add(this.label11);
+            this.panel10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.panel10.Location = new System.Drawing.Point(7, 203);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(360, 200);
+            this.panel10.TabIndex = 10;
+            // 
+            // forTimeInvoice
+            // 
+            this.forTimeInvoice.AutoSize = true;
+            this.forTimeInvoice.Location = new System.Drawing.Point(245, 32);
+            this.forTimeInvoice.Name = "forTimeInvoice";
+            this.forTimeInvoice.Size = new System.Drawing.Size(105, 19);
+            this.forTimeInvoice.TabIndex = 17;
+            this.forTimeInvoice.TabStop = true;
+            this.forTimeInvoice.Text = "Określona Data";
+            this.forTimeInvoice.UseVisualStyleBackColor = true;
+            // 
+            // todayInvoice
+            // 
+            this.todayInvoice.AutoSize = true;
+            this.todayInvoice.Location = new System.Drawing.Point(182, 32);
+            this.todayInvoice.Name = "todayInvoice";
+            this.todayInvoice.Size = new System.Drawing.Size(46, 19);
+            this.todayInvoice.TabIndex = 16;
+            this.todayInvoice.TabStop = true;
+            this.todayInvoice.Text = "Dziś";
+            this.todayInvoice.UseVisualStyleBackColor = true;
+            this.todayInvoice.CheckedChanged += new System.EventHandler(this.todayInvoice_CheckedChanged);
+            // 
+            // dateTimePickerInvoice
+            // 
+            this.dateTimePickerInvoice.CustomFormat = "yyyy.MM.dd";
+            this.dateTimePickerInvoice.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerInvoice.Location = new System.Drawing.Point(182, 52);
+            this.dateTimePickerInvoice.Name = "dateTimePickerInvoice";
+            this.dateTimePickerInvoice.Size = new System.Drawing.Size(102, 23);
+            this.dateTimePickerInvoice.TabIndex = 4;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel13.Location = new System.Drawing.Point(10, 110);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(337, 10);
+            this.panel13.TabIndex = 14;
+            // 
+            // Cash
+            // 
+            this.Cash.AutoSize = true;
+            this.Cash.Location = new System.Drawing.Point(6, 85);
+            this.Cash.Name = "Cash";
+            this.Cash.Size = new System.Drawing.Size(72, 19);
+            this.Cash.TabIndex = 9;
+            this.Cash.TabStop = true;
+            this.Cash.Text = "Gotówka";
+            this.Cash.UseVisualStyleBackColor = true;
+            this.Cash.CheckedChanged += new System.EventHandler(this.Cash_CheckedChanged);
+            // 
+            // Card
+            // 
+            this.Card.AutoSize = true;
+            this.Card.Location = new System.Drawing.Point(6, 63);
+            this.Card.Name = "Card";
+            this.Card.Size = new System.Drawing.Size(65, 19);
+            this.Card.TabIndex = 8;
+            this.Card.TabStop = true;
+            this.Card.Text = "Przelew";
+            this.Card.UseVisualStyleBackColor = true;
+            this.Card.CheckedChanged += new System.EventHandler(this.Card_CheckedChanged);
+            // 
+            // DateOfPayInvoice
+            // 
+            this.DateOfPayInvoice.Location = new System.Drawing.Point(182, 52);
+            this.DateOfPayInvoice.Name = "DateOfPayInvoice";
+            this.DateOfPayInvoice.Size = new System.Drawing.Size(168, 23);
+            this.DateOfPayInvoice.TabIndex = 5;
+            // 
+            // InBankInvoice
+            // 
+            this.InBankInvoice.Location = new System.Drawing.Point(182, 141);
+            this.InBankInvoice.Name = "InBankInvoice";
+            this.InBankInvoice.Size = new System.Drawing.Size(168, 23);
+            this.InBankInvoice.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(183, 123);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "W banku";
+            // 
+            // KontoInvoice
+            // 
+            this.KontoInvoice.Location = new System.Drawing.Point(6, 141);
+            this.KontoInvoice.Name = "KontoInvoice";
+            this.KontoInvoice.Size = new System.Drawing.Size(168, 23);
+            this.KontoInvoice.TabIndex = 5;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 123);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 15);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Konto";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(7, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 16);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Płatność";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label10.Location = new System.Drawing.Point(3, 34);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 15);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Sposób zapłaty";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label11.Location = new System.Drawing.Point(7, 70);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 15);
+            this.label11.TabIndex = 0;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel11.Controls.Add(this.FakturaNrlng);
+            this.panel11.Controls.Add(this.FakturaNr);
+            this.panel11.Controls.Add(this.AdresInvoice);
+            this.panel11.Controls.Add(this.label3);
+            this.panel11.Controls.Add(this.label4);
+            this.panel11.Controls.Add(this.NameORNameCompanyInvoice);
+            this.panel11.Controls.Add(this.label6);
+            this.panel11.Controls.Add(this.label7);
+            this.panel11.Controls.Add(this.NipInvoice);
+            this.panel11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.panel11.Location = new System.Drawing.Point(7, 54);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(360, 143);
+            this.panel11.TabIndex = 9;
+            // 
+            // FakturaNrlng
+            // 
+            this.FakturaNrlng.AutoSize = true;
+            this.FakturaNrlng.Location = new System.Drawing.Point(238, 13);
+            this.FakturaNrlng.Name = "FakturaNrlng";
+            this.FakturaNrlng.Size = new System.Drawing.Size(65, 15);
+            this.FakturaNrlng.TabIndex = 19;
+            this.FakturaNrlng.Text = "Faktura Nr:";
+            // 
+            // FakturaNr
+            // 
+            this.FakturaNr.AutoSize = true;
+            this.FakturaNr.Location = new System.Drawing.Point(303, 13);
+            this.FakturaNr.Name = "FakturaNr";
+            this.FakturaNr.Size = new System.Drawing.Size(0, 15);
+            this.FakturaNr.TabIndex = 19;
+            // 
+            // AdresInvoice
+            // 
+            this.AdresInvoice.Location = new System.Drawing.Point(5, 109);
+            this.AdresInvoice.Name = "AdresInvoice";
+            this.AdresInvoice.Size = new System.Drawing.Size(168, 23);
+            this.AdresInvoice.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(7, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Nabywca";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label4.Location = new System.Drawing.Point(5, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(165, 15);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Imie i Nazwisko/ Nazwa Firmy";
+            // 
+            // NameORNameCompanyInvoice
+            // 
+            this.NameORNameCompanyInvoice.Location = new System.Drawing.Point(5, 65);
+            this.NameORNameCompanyInvoice.Name = "NameORNameCompanyInvoice";
+            this.NameORNameCompanyInvoice.Size = new System.Drawing.Size(168, 23);
+            this.NameORNameCompanyInvoice.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label6.Location = new System.Drawing.Point(7, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 15);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Adres";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label7.Location = new System.Drawing.Point(176, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 15);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "NIP";
+            // 
+            // NipInvoice
+            // 
+            this.NipInvoice.Location = new System.Drawing.Point(179, 65);
+            this.NipInvoice.Name = "NipInvoice";
+            this.NipInvoice.Size = new System.Drawing.Size(158, 23);
+            this.NipInvoice.TabIndex = 1;
             // 
             // Scheduled_Cars
             // 
@@ -1464,6 +2063,128 @@
             this.Zlecenie_Klienta_Column.Name = "Zlecenie_Klienta_Column";
             this.Zlecenie_Klienta_Column.Width = 400;
             // 
+            // Update_DB
+            // 
+            this.Update_DB.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Update_DB.Controls.Add(this.lngNewBD);
+            this.Update_DB.Controls.Add(this.lngOldBD);
+            this.Update_DB.Controls.Add(this.NEW_Table);
+            this.Update_DB.Controls.Add(this.OLD_Table);
+            this.Update_DB.Controls.Add(this.menuStrip2);
+            this.Update_DB.Location = new System.Drawing.Point(4, 22);
+            this.Update_DB.Name = "Update_DB";
+            this.Update_DB.Padding = new System.Windows.Forms.Padding(3);
+            this.Update_DB.Size = new System.Drawing.Size(1256, 640);
+            this.Update_DB.TabIndex = 2;
+            this.Update_DB.Text = "Odśwież do nowszej wersji Bazy Danych";
+            // 
+            // lngNewBD
+            // 
+            this.lngNewBD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lngNewBD.AutoSize = true;
+            this.lngNewBD.Location = new System.Drawing.Point(796, 42);
+            this.lngNewBD.Name = "lngNewBD";
+            this.lngNewBD.Size = new System.Drawing.Size(102, 13);
+            this.lngNewBD.TabIndex = 2;
+            this.lngNewBD.Text = "Nowa Baza Danych";
+            // 
+            // lngOldBD
+            // 
+            this.lngOldBD.AutoSize = true;
+            this.lngOldBD.Location = new System.Drawing.Point(72, 42);
+            this.lngOldBD.Name = "lngOldBD";
+            this.lngOldBD.Size = new System.Drawing.Size(99, 13);
+            this.lngOldBD.TabIndex = 2;
+            this.lngOldBD.Text = "Stara Baza Danych";
+            // 
+            // NEW_Table
+            // 
+            this.NEW_Table.AllowUserToAddRows = false;
+            this.NEW_Table.AllowUserToResizeColumns = false;
+            this.NEW_Table.AllowUserToResizeRows = false;
+            this.NEW_Table.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NEW_Table.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.NEW_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NEW_Table.Location = new System.Drawing.Point(653, 58);
+            this.NEW_Table.Name = "NEW_Table";
+            this.NEW_Table.Size = new System.Drawing.Size(597, 553);
+            this.NEW_Table.TabIndex = 0;
+            // 
+            // OLD_Table
+            // 
+            this.OLD_Table.AllowUserToAddRows = false;
+            this.OLD_Table.AllowUserToDeleteRows = false;
+            this.OLD_Table.AllowUserToResizeColumns = false;
+            this.OLD_Table.AllowUserToResizeRows = false;
+            this.OLD_Table.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.OLD_Table.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.OLD_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OLD_Table.Location = new System.Drawing.Point(7, 58);
+            this.OLD_Table.Name = "OLD_Table";
+            this.OLD_Table.Size = new System.Drawing.Size(640, 553);
+            this.OLD_Table.TabIndex = 0;
+            this.OLD_Table.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OLD_Table_MouseClick);
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.akcjeToolStripMenuItem1,
+            this.kopjujToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1250, 24);
+            this.menuStrip2.TabIndex = 1;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // akcjeToolStripMenuItem1
+            // 
+            this.akcjeToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stwórzNowąTabelkęToolStripMenuItem1,
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem,
+            this.zakończToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.akcjeToolStripMenuItem1.Name = "akcjeToolStripMenuItem1";
+            this.akcjeToolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
+            this.akcjeToolStripMenuItem1.Text = "Akcje";
+            // 
+            // stwórzNowąTabelkęToolStripMenuItem1
+            // 
+            this.stwórzNowąTabelkęToolStripMenuItem1.Name = "stwórzNowąTabelkęToolStripMenuItem1";
+            this.stwórzNowąTabelkęToolStripMenuItem1.Size = new System.Drawing.Size(290, 22);
+            this.stwórzNowąTabelkęToolStripMenuItem1.Text = "Stwórz nową tabelkę";
+            this.stwórzNowąTabelkęToolStripMenuItem1.Click += new System.EventHandler(this.stwórzNowąTabelkęToolStripMenuItem1_Click);
+            // 
+            // stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem
+            // 
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Name = "stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem";
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Text = "Stwórz tabelkę Zaplanowane Samochody";
+            this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Click += new System.EventHandler(this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem_Click);
+            // 
+            // zakończToolStripMenuItem
+            // 
+            this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
+            this.zakończToolStripMenuItem.Text = "Zakończ";
+            this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click_1);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // kopjujToolStripMenuItem
+            // 
+            this.kopjujToolStripMenuItem.Name = "kopjujToolStripMenuItem";
+            this.kopjujToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.kopjujToolStripMenuItem.Text = "Kopjuj";
+            this.kopjujToolStripMenuItem.Click += new System.EventHandler(this.kopjujToolStripMenuItem_Click);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1512,35 +2233,10 @@
             // 
             // ustawieniaToolStripMenuItem
             // 
-            this.ustawieniaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.językToolStripMenuItem});
             this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
             this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             this.ustawieniaToolStripMenuItem.Click += new System.EventHandler(this.ustawieniaToolStripMenuItem_Click);
-            // 
-            // językToolStripMenuItem
-            // 
-            this.językToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.polskiToolStripMenuItem,
-            this.ukraińskiToolStripMenuItem});
-            this.językToolStripMenuItem.Name = "językToolStripMenuItem";
-            this.językToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            this.językToolStripMenuItem.Text = "Język";
-            // 
-            // polskiToolStripMenuItem
-            // 
-            this.polskiToolStripMenuItem.Name = "polskiToolStripMenuItem";
-            this.polskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.polskiToolStripMenuItem.Text = "Polski";
-            this.polskiToolStripMenuItem.Click += new System.EventHandler(this.polskiToolStripMenuItem_Click);
-            // 
-            // ukraińskiToolStripMenuItem
-            // 
-            this.ukraińskiToolStripMenuItem.Name = "ukraińskiToolStripMenuItem";
-            this.ukraińskiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.ukraińskiToolStripMenuItem.Text = "Ukraiński";
-            this.ukraińskiToolStripMenuItem.Click += new System.EventHandler(this.ukraińskiToolStripMenuItem_Click);
             // 
             // pDFToolStripMenuItem
             // 
@@ -1567,6 +2263,7 @@
             this.stwórzToolStripMenuItem.Name = "stwórzToolStripMenuItem";
             this.stwórzToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.stwórzToolStripMenuItem.Text = "Stwórz";
+            this.stwórzToolStripMenuItem.Click += new System.EventHandler(this.stwórzToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
@@ -1580,6 +2277,7 @@
             this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
             this.usuńToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.usuńToolStripMenuItem.Text = "Usuń";
+            this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
             // 
             // createInvoiceToolStripMenuItem
             // 
@@ -1615,11 +2313,12 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Work_Place.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.Home.ResumeLayout(false);
+            this.Home.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.AddData.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1636,14 +2335,23 @@
             this.panel7.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.Invoice.ResumeLayout(false);
+            this.Invoice.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InvoiceDataGridView)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.Scheduled_Cars.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Scheduled_Cars_View)).EndInit();
             this.Update_DB.ResumeLayout(false);
             this.Update_DB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NEW_Table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OLD_Table)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            this.Scheduled_Cars.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Scheduled_Cars_View)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1678,9 +2386,6 @@
         public System.Windows.Forms.Label lngPrice;
         public System.Windows.Forms.Label lngDateOfAdmission;
         public System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem językToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem polskiToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem ukraińskiToolStripMenuItem;
         public System.Windows.Forms.Label lngPurchasedParts;
         public System.Windows.Forms.Label lngPriceFinally;
         public System.Windows.Forms.Button Button_Clear_Naprawa;
@@ -1696,8 +2401,8 @@
         public System.Windows.Forms.CheckBox LeftDocumets;
         public System.Windows.Forms.Button Button_PurchasedParts_Clear;
         public System.Windows.Forms.Button Plan_your_car;
-        public System.Windows.Forms.TabPage tabPage1;
-        public System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabPage Home;
+        public System.Windows.Forms.TabPage AddData;
         public System.Windows.Forms.TabPage Update_DB;
         public System.Windows.Forms.ToolStripMenuItem akcjeToolStripMenuItem1;
         public System.Windows.Forms.ToolStripMenuItem kopjujToolStripMenuItem;
@@ -1798,6 +2503,73 @@
         public System.Windows.Forms.TextBox NBDD;
         private System.Windows.Forms.ToolStripMenuItem stwórzToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem;
+        private System.Windows.Forms.TabPage Invoice;
+        public System.Windows.Forms.Panel panel9;
+        public System.Windows.Forms.Label label17;
+        public System.Windows.Forms.TextBox PriceService2Invoice;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.TextBox Service2Invoice;
+        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.Label label16;
+        public System.Windows.Forms.TextBox Service1Invoice;
+        public System.Windows.Forms.Label label18;
+        public System.Windows.Forms.TextBox PriceService1Invoice;
+        public System.Windows.Forms.Panel panel10;
+        public System.Windows.Forms.TextBox KontoInvoice;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Panel panel11;
+        public System.Windows.Forms.TextBox AdresInvoice;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox NameORNameCompanyInvoice;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox NipInvoice;
+        private System.Windows.Forms.Panel panel13;
+        public System.Windows.Forms.DataGridView InvoiceDataGridView;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox PriceService4Invoice;
+        public System.Windows.Forms.TextBox Service4Invoice;
+        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.TextBox Service3Invoice;
+        public System.Windows.Forms.Label label19;
+        public System.Windows.Forms.TextBox PriceService3Invoice;
+        public System.Windows.Forms.Label label20;
+        public System.Windows.Forms.RadioButton Cash;
+        public System.Windows.Forms.RadioButton Card;
+        public System.Windows.Forms.TextBox InBankInvoice;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox DateOfPayInvoice;
+        protected internal System.Windows.Forms.DateTimePicker dateTimePickerInvoice;
+        public System.Windows.Forms.Button Button_Delete_Invoice;
+        public System.Windows.Forms.Button Button_Update_Invoice;
+        public System.Windows.Forms.Button Button_Save_Invoice;
+        public System.Windows.Forms.TextBox Search_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FakturaNr_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NIP_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Adres_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usluga1_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usluga2_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usluga3_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usluga4_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KosztUslugi1_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KosztUslugi2_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KosztUslugi3_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KosztUslugi4_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bank_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CenaKoncowa_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SposobPlatnosci_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TerminZaplaty_Invoice;
+        public System.Windows.Forms.Label FakturaNr;
+        public System.Windows.Forms.Label FakturaNrlng;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.RadioButton forTimeInvoice;
+        public System.Windows.Forms.RadioButton todayInvoice;
     }
 }
 

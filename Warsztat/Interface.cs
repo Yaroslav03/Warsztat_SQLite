@@ -2,25 +2,18 @@
 using System.Linq;
 using System.Drawing;
 using System.IO;
+using System.Xml;
 
 namespace Warsztat
 {
     internal class Interface
     {
-        string path = "Settings.txt";
-        string UA = "Localize: UA";
-        string PL = "Localize: PL";
+        public string language;
+        public string UA = "Ukranian";
 
         public void Localize_UA(Form1 _form)
-        {
-            StreamWriter sw = File.CreateText(path);
-            sw.WriteLine("Localize: UA");
-            sw.Close();
-            
+        {          
             _form.ustawieniaToolStripMenuItem.Text = "Налаштування";
-            _form.językToolStripMenuItem.Text = "Мова";
-            _form.polskiToolStripMenuItem.Text = "Польська";
-            _form.ukraińskiToolStripMenuItem.Text = "Українська";
             _form.Update_DB.Text = "Оновити до новішої версії базу даних";
             _form.akcjeToolStripMenuItem1.Text = "Дії";
             _form.stwórzNowąTabelkęToolStripMenuItem1.Text = "Створити нову таблицю";
@@ -31,11 +24,11 @@ namespace Warsztat
             _form.Scheduled_Cars.Text = "Заплановані автомобілі";
             //Кнопки
             _form.Button_Save.Text = "Зберегти";
-            _form.tabPage2.Text = "Додати дані";
+            _form.AddData.Text = "Додати дані";
             _form.Button_Clear.Text = "Стерти";
             _form.Button_Update.Text = "Оновити Дані";
             _form.Button_Delete.Text = "Видалити";
-            _form.tabPage1.Text = "Переглянути базу даних";
+            _form.Home.Text = "Переглянути базу даних";
             _form.Button_Clear_DK.Text = "Стерти";
             _form.Button_Clear_OP.Text = "Стерти";
             _form.Button_Clear_Naprawa.Text = "Стерти";
@@ -78,15 +71,8 @@ namespace Warsztat
             _form.lngNewBD.Text = "Нова база даних";
         }
         public   void Localize_PL(Form1 _form)
-        {
-            StreamWriter sw = File.CreateText(path);
-            sw.WriteLine("Localize: PL");
-            sw.Close();
-          
+        {         
             _form.ustawieniaToolStripMenuItem.Text = "Ustawienia";
-            _form.językToolStripMenuItem.Text = "Język";
-            _form.polskiToolStripMenuItem.Text = "Polski";
-            _form.ukraińskiToolStripMenuItem.Text = "Ukraiński";
             _form.Update_DB.Text = "Odśwież do nowszej wersji Bazy Danych";
             _form.akcjeToolStripMenuItem1.Text = "Akcje";
             _form.stwórzNowąTabelkęToolStripMenuItem1.Text = "Stwórz nową tabelkę ";
@@ -98,11 +84,11 @@ namespace Warsztat
 
             //Кнопки
             _form.Button_Save.Text = "Zapisz";
-            _form.tabPage2.Text = "Dodaj Dane";
+            _form.AddData.Text = "Dodaj Dane";
             _form.Button_Clear.Text = "Wyczyść";
             _form.Button_Update.Text = "Odśwież Dane";
             _form.Button_Delete.Text = "Usuń";
-            _form.tabPage1.Text = "Zobacz Baze Danych";
+            _form.Home.Text = "Zobacz Baze Danych";
             _form.Button_Clear_DK.Text = "Wyczyść";
             _form.Button_Clear_OP.Text = "Wyczyść";
             _form.Button_Clear_Naprawa.Text = "Wyczyść";
@@ -159,14 +145,31 @@ namespace Warsztat
             form.BodyNumberLenght.Text = form.IDNadwozia.Text.Length.ToString();
             if (form.IDNadwozia.Text.Length == 17)
             {
-
                 form.Button_Save.Enabled = true;
             }
-            else if (form.IDNadwozia.Text.Length < 17)
+            else if (form.IDNadwozia.Text.Length <= 16)
             {
                 form.Button_Save.Enabled = false;
             }
         }
+        public void VerefyCheckDateOfPayInvoice(Form1 form)
+        {
+            if (form.todayInvoice.Checked == true)
+            {
+                form.dateTimePickerInvoice.Text = DateTime.Now.ToString("yyyy.MM.dd");
+                form.DateOfPayInvoice.Text = String.Empty;
+                form.dateTimePickerInvoice.Show();
+                form.DateOfPayInvoice.Hide();
+            }
+            else if (form.forTimeInvoice.Checked == true)
+            {
+                form.dateTimePickerInvoice.Text = DateTime.Now.ToString("yyyy.MM.dd");
+                form.dateTimePickerInvoice.Hide();
+                form.DateOfPayInvoice.Show();
+                form.DateOfPayInvoice.Enabled = true;
+            }
+        }
+
         public void Zlecenie(Form1 form)
         {
             Console.WriteLine(form.txtZlecenie_Klienta.Text.Length);
@@ -205,27 +208,30 @@ namespace Warsztat
             }
             else
             {
-                form.Zlecenie_Message.Text = " ";
+                form.Zlecenie_Message.Text = String.Empty;
             }
         }
 
         public  void Load_Data_Localize(Form1 _form)
         {
+            XmlTextReader reader = new XmlTextReader("Settings.xml");
             try 
-            { 
-                string word = File.ReadAllText("Settings.txt").Trim();
-                if (UA == word)
+            {
+                while (reader.Read())
+                {
+                    if (reader.NodeType == XmlNodeType.Element && reader.Name == "Language")
+                    {
+                        language = reader.ReadElementContentAsString();
+                    }
+                }
+                if (UA == language)
                 {
                     Localize_UA(_form);
-                }
-                else if (PL == word)
-                {
-                    Localize_PL(_form);
                 }
             }
             catch
             {
-                File.Create(path);
+                Localize_PL(_form);
             }  
         }
     }

@@ -6,7 +6,9 @@ namespace Warsztat
 {
     internal class Settings
     {
-        public void SaveXml(Setting_Form form, string lang)
+        XmlTextReader reader = new XmlTextReader("Settings.xml");
+
+        public  void SaveXml(Setting_Form form, string lang)
         {
              Task.Run(() =>
             {
@@ -18,23 +20,20 @@ namespace Warsztat
                 xmlWrite.WriteStartElement("Settings");
                 xmlWrite.WriteStartElement("Interface");
                 xmlWrite.WriteElementString("Language", lang);
-               // xmlWrite.WriteEndElement();
                 xmlWrite.WriteStartElement("CompanyData");
                 xmlWrite.WriteElementString("NameCompany", form.NameCompany.Text.Trim());
                 xmlWrite.WriteElementString("AdresCompany", form.AdresCompany.Text.Trim());
                 xmlWrite.WriteElementString("NIPCompany", form.NIP.Text.Trim());
                 xmlWrite.WriteElementString("KontoCompany", form.Konto.Text.Trim());
-                xmlWrite.WriteElementString("NumerBDDCompany", form.NumerBDD.Text.Trim());
+                xmlWrite.WriteElementString("NumerBDOCompany", form.NumerBDO.Text.Trim());
 
                 xmlWrite.WriteEndDocument();
                 xmlWrite.Flush();
                 xmlWrite.Close();
             });        
         }
-        public void ReadXML(Setting_Form form)
+        public  void ReadXML(Setting_Form form)
         {
-            XmlTextReader reader = new XmlTextReader("Settings.xml");
-
             while (reader.Read())
             {
                 if (reader.NodeType == XmlNodeType.Element && reader.Name == "NameCompany")
@@ -53,9 +52,25 @@ namespace Warsztat
                 {
                     form.Konto.Text = reader.ReadElementContentAsString();
                 }
-                if (reader.NodeType == XmlNodeType.Element && reader.Name == "NumerBDDCompany")
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "NumerBDOCompany")
                 {
-                    form.NumerBDD.Text = reader.ReadElementContentAsString();
+                    form.NumerBDO.Text = reader.ReadElementContentAsString();
+                }
+
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "Language")
+                {
+                    string ukranian = "Ukranian";
+                    string polish = "Polish";
+                    string lang = reader.ReadElementContentAsString();
+                    
+                    if (lang == ukranian)
+                    {
+                        form.Ukranian.Checked = true;
+                    }
+                    if (lang == polish)
+                    {
+                        form.Ukranian.Checked = true;
+                    }
                 }
             }
         }
