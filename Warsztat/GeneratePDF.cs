@@ -43,30 +43,45 @@ namespace Warsztat
         #region Zlecenie
 
         public void PreviewPDF(Form1 form)
-        {
+        {         
+            string dir = "pdf\\" + form.IDNadwozia.Text;
+            string path = dir +"\\ZLECENIE_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + ".pdf";
 
-            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
-            var FileInfo = File.Exists(path);
-            if (FileInfo)
+            if (!Directory.Exists(dir))
             {
-                Process.Start(path);
-            }
-            else if (!FileInfo)
-            {
-                Create(form);
+                Directory.CreateDirectory(dir);
+                Create(form, path);
                 DialogResult result = MessageBox.Show("Pdf stworzony otwórzyć go? ", "Warsztat", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     Process.Start(path);
                 }
-
+            }
+            else if (Directory.Exists(dir) && !File.Exists(path))
+            {
+                Create(form, path);
+                DialogResult result = MessageBox.Show("Pdf stworzony otwórzyć go? ", "Warsztat", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Process.Start(path);
+                }
+            }
+            else
+            {
+                Process.Start(path);
             }
         }
 
         public void UpdatePDF(Form1 form) //methods for button Update
         {
-            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
-            if (File.Exists(path))
+            string dir = "pdf\\" + form.IDNadwozia.Text;
+            string path = dir + "\\ZLECENIE_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + ".pdf";
+
+            if (!Directory.Exists(dir) || !File.Exists(path))
+            {
+                MessageBox.Show("Pliku nie istnieje, proszę go najpierw stworzyć a póżniej edytować", "Warsztat");
+            }
+            else
             {
                 File.Delete(path);
                 PreviewPDF(form);
@@ -74,20 +89,26 @@ namespace Warsztat
         }
         public void DeletePDF(Form1 form)
         {
-            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
-            if (File.Exists(path))
+
+            string dir = "pdf\\" + form.IDNadwozia.Text;
+            string path = dir + "\\ZLECENIE_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + ".pdf";
+
+            if (!Directory.Exists(dir) || !File.Exists(path))
+            {
+                MessageBox.Show("Pliku nie istnieje, proszę go najpierw stworzyć a póżniej usuwać :)", "Warsztat");
+            }
+            else
             {
                 File.Delete(path);
-                MessageBox.Show("File was deleted", "Warsztat");
+                MessageBox.Show("Plik usunięty", "Warsztat");
             }
         }
 
-        public async void Create(Form1 form)
+        public async void Create(Form1 form, string path)
         {
-
             PdfPageBase page = pdfDocument.Pages.Add();
             VerefyChceckBox(form);
-            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
+
             await Task.Run(() => {
                 //Tytuł
                 page.Canvas.DrawString("Data Przyjęcia: " + form.DataPrzyjecia.Text, polish, brush1, 0, -2);
@@ -179,21 +200,31 @@ namespace Warsztat
         #region Faktura
         public void PreviewInvoice(Form1 form)
         {
-            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
-            var FileInfo = File.Exists(path);
-            if (FileInfo)
+            string dir = "pdf\\" + form.IDNadwozia.Text;
+            string path = dir + "\\FAKTURA_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + ".pdf";
+
+            if (!Directory.Exists(dir))
             {
-                Process.Start(path);
-            }
-            else if (!FileInfo)
-            {
-                Create(form);
+                Directory.CreateDirectory(dir);
+                Create_Invoice(form, path);
                 DialogResult result = MessageBox.Show("Pdf stworzony otwórzyć go? ", "Warsztat", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     Process.Start(path);
                 }
-
+            }
+            else if(Directory.Exists(dir) && !File.Exists(path))
+            {
+                Create_Invoice(form, path);
+                DialogResult result = MessageBox.Show("Pdf stworzony otwórzyć go? ", "Warsztat", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    Process.Start(path);
+                }
+            }
+            else
+            {
+                Process.Start(path);
             }
         }
 
@@ -216,7 +247,7 @@ namespace Warsztat
             }
         }
 
-        public async void Create_Invoice(Form1 form)
+        private async void Create_Invoice(Form1 form, string path)
         {
             PdfTrueTypeFont Title = new PdfTrueTypeFont(new Font("Bahnschrift SemiBold", 20f), true);//write a polish letter
             PdfPen pen = new PdfPen(PdfBrushes.Black, 0.5f);
@@ -229,7 +260,7 @@ namespace Warsztat
 
             _ = Task.Run(() => { ReadXML(); });
             VerefyChceckBox(form);
-            string path = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + "_FAKTURA.pdf";
+            
             await Task.Run(() => {
                 //IMPORTANT INFORMATION
                 page.Canvas.DrawRectangle(pen, gray, new Rectangle(new Point(0, 0), new Size(505, 20)));
@@ -239,7 +270,7 @@ namespace Warsztat
                     "ustawy z dnia 11 marca 2004 r. o podatku od towarów i usług (Dz.U. z 2016 r. poz. 710, z późn. zm)]",
                     FT, white, 0, 10);
                 //Title
-                page.Canvas.DrawString("Miejsce i Data          Faktura Nr: ", polish, brush1, 330, 25);
+                page.Canvas.DrawString("Miejsce i Data          Faktura Nr: " + form.FakturaNrtxt.Text, polish, brush1, 330, 25);
                 page.Canvas.DrawLine(pen, new PointF(330, 37), new PointF(510, 37));
                 page.Canvas.DrawString(AdresCompany + "/" + form.DataWydania.Text, polish, brush1, 330, 38);
                 page.Canvas.DrawString(NameCompany.Trim(), Title, brush1, 200, 55);
@@ -280,11 +311,15 @@ namespace Warsztat
                 //Information
                 PayRadioButton(form);
                 page.Canvas.DrawString("Sposób płatności: " + pay, polish, brush1, 0, 220);
-                if(form.forTimeInvoice.Checked == true)
+                if(form.todayInvoice.Checked == true)
                 {
                     page.Canvas.DrawString("termin zapłaty: " + form.dateTimePickerInvoice.Text.Trim(), polish, brush1, 0, 230);
                 }
-                page.Canvas.DrawString("termin zapłaty: " + form.DateOfPayInvoice.Text.Trim(), polish, brush1, 0, 230);
+                else
+                {
+                    page.Canvas.DrawString("termin zapłaty: " + form.DateOfPayInvoice.Text.Trim(), polish, brush1, 0, 230);
+                }
+                
                 page.Canvas.DrawString("W banku: " + form.InBankInvoice.Text.Trim(), polish, brush1, 300, 230);
                 page.Canvas.DrawString("Nr Konta: " + form.KontoInvoice.Text.Trim(), polish, brush1, 0, 240);
                 page.Canvas.DrawString("Kwota należności ogółem do zapłaty: " + sum + "zł", polish, brush1, 300, 240);
@@ -347,5 +382,10 @@ namespace Warsztat
             }
         }
         #endregion
+        private void CreateFolder(Form1 form, string pathInvoice)
+        {
+
+
+        }
     }
 }

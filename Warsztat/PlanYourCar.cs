@@ -24,31 +24,36 @@ namespace Warsztat
                 DataTable Scheduled_Cars_DT = new DataTable();
                 sql_conn.Open();
                 sql_cmd = sql_conn.CreateCommand();
-                string CommandText = "SELECT ID, DataPrzyjecia, Marka, Model, Imie, Nazwisko, Zlecenie_Klienta FROM Zaplanowane_Samochody";
+                string CommandText = "SELECT ID, DataPrzyjecia, Marka, Model, Imie, Nazwisko, NrTelefonu, Zlecenie_Klienta FROM Zaplanowane_Samochody";
                 Scheduled_Cars_DB = new SQLiteDataAdapter(CommandText, sql_conn);
                 Scheduled_Cars_DS.Reset();
                 Scheduled_Cars_DB.Fill(Scheduled_Cars_DS);
                 Scheduled_Cars_DT = Scheduled_Cars_DS.Tables[0];
                 form.Scheduled_Cars_View.DataSource = Scheduled_Cars_DT;
                 sql_conn.Close();
+
+                form.Scheduled_Cars_View.Columns["ID_Column"].Visible = false;
             }
             catch
             {
                 MessageBox.Show("Tabelka już stworzona", "Warsztat");
                 Update.Create_Scheduled_Cars();
             }
+            //form.Scheduled_Cars_View.Columns["ID_Column"].Visible = false;
         }
         public void Add(Form1 form, int ID)
-        { 
+        {
+            sql_conn.Close();
             sql_conn.Open();
             try
             {
-                sql_cmd =new SQLiteCommand("INSERT INTO Zaplanowane_Samochody(DataPrzyjecia,Model, Marka,  Imie, Nazwisko, Zlecenie_Klienta) " +
-                "VALUES(@DataPrzyjecia, @Model, @Marka, @Imie, @Nazwisko, @Zlecenie_Klienta)",sql_conn);
+                sql_cmd =new SQLiteCommand("INSERT INTO Zaplanowane_Samochody(DataPrzyjecia,Model, Marka,  Imie, Nazwisko, NrTelefonu, Zlecenie_Klienta) " +
+                "VALUES(@DataPrzyjecia, @Model, @Marka, @Imie, @Nazwisko,@NrTelefonu, @Zlecenie_Klienta)", sql_conn);
                 sql_cmd.Parameters.AddWithValue("@Model", form.Model.Text.Trim());
                 sql_cmd.Parameters.AddWithValue("@Marka", form.Marka.Text.Trim());
                 sql_cmd.Parameters.AddWithValue("@Imie", form._Name.Text.Trim());
                 sql_cmd.Parameters.AddWithValue("@Nazwisko", form.LastName.Text.Trim());
+                sql_cmd.Parameters.AddWithValue("@NrTelefonu", form.TelefonKomurkowy.Text);
                 sql_cmd.Parameters.AddWithValue("@Zlecenie_Klienta", form.txtZlecenie_Klienta.Text.Trim());
                 sql_cmd.Parameters.AddWithValue("@DataPrzyjecia", form.DataPrzyjecia.Text.Trim());
                 sql_cmd.ExecuteNonQuery();              
@@ -64,6 +69,7 @@ namespace Warsztat
         }
         public void Read_ID_Scheduled_Cars(int ID)
         {
+            sql_conn.Close();
             sql_conn.Open();
             try
             {
@@ -83,8 +89,9 @@ namespace Warsztat
         }
         public void ReadData(Form1 form, int ID)
         {
+            sql_conn.Close();
             sql_conn.Open();
-            ID = Convert.ToInt32(form.Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
+            ID = Convert.ToInt32(form.Scheduled_Cars_View.CurrentRow.Cells["ID_Column"].Value.ToString());
 
             form.DataPrzyjecia.Text = form.Scheduled_Cars_View.CurrentRow.Cells["DataPrzyjecia_Column"].Value.ToString();
             form.Marka.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Marka_Column"].Value.ToString();
@@ -92,7 +99,8 @@ namespace Warsztat
             form._Name.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Imie_Column"].Value.ToString();
             form.LastName.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Nazwisko_Column"].Value.ToString();
             form.txtZlecenie_Klienta.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Zlecenie_Klienta_Column"].Value.ToString();
-            
+            form.TelefonKomurkowy.Text= form.Scheduled_Cars_View.CurrentRow.Cells["NrTelefonu_Column"].Value.ToString();
+
             sql_conn.Close();
         }
     }

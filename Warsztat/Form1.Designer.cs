@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Work_Place = new System.Windows.Forms.TabControl();
             this.Home = new System.Windows.Forms.TabPage();
             this.Button_Delete = new System.Windows.Forms.Button();
@@ -90,10 +90,6 @@
             this.Price = new System.Windows.Forms.TextBox();
             this.lngAdditionalInformation = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lngNumerBDD = new System.Windows.Forms.Label();
-            this.NBDD = new System.Windows.Forms.TextBox();
-            this.lngKonto = new System.Windows.Forms.Label();
-            this.Konto = new System.Windows.Forms.TextBox();
             this.TelefonKomurkowy = new System.Windows.Forms.MaskedTextBox();
             this.lngCustomerData = new System.Windows.Forms.Label();
             this.Button_Clear_DK = new System.Windows.Forms.Button();
@@ -154,11 +150,14 @@
             this.KosztUslugi2_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KosztUslugi3_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KosztUslugi4_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Konto_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Bank_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CenaKoncowa_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SposobPlatnosci_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TerminZaplaty_Invoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.PriceFinall = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PriceService4Invoice = new System.Windows.Forms.TextBox();
@@ -177,13 +176,14 @@
             this.label18 = new System.Windows.Forms.Label();
             this.PriceService1Invoice = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.forTimeInvoice = new System.Windows.Forms.RadioButton();
-            this.todayInvoice = new System.Windows.Forms.RadioButton();
             this.dateTimePickerInvoice = new System.Windows.Forms.DateTimePicker();
+            this.todayInvoice = new System.Windows.Forms.RadioButton();
+            this.DateOfPayInvoice = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.Cash = new System.Windows.Forms.RadioButton();
             this.Card = new System.Windows.Forms.RadioButton();
-            this.DateOfPayInvoice = new System.Windows.Forms.TextBox();
             this.InBankInvoice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.KontoInvoice = new System.Windows.Forms.TextBox();
@@ -193,7 +193,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.FakturaNrlng = new System.Windows.Forms.Label();
-            this.FakturaNr = new System.Windows.Forms.Label();
+            this.FakturaNrtxt = new System.Windows.Forms.Label();
             this.AdresInvoice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -211,6 +211,7 @@
             this.Model_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imie_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nazwisko_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NrTelefonu_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Zlecenie_Klienta_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Update_DB = new System.Windows.Forms.TabPage();
             this.lngNewBD = new System.Windows.Forms.Label();
@@ -221,6 +222,7 @@
             this.akcjeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stwórzNowąTabelkęToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stwórzTabelkęFakturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kopjujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -239,6 +241,7 @@
             this.createInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FakturaNrMask = new System.Windows.Forms.MaskedTextBox();
             this.Work_Place.SuspendLayout();
             this.Home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
@@ -255,6 +258,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.InvoiceDataGridView)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.Scheduled_Cars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Scheduled_Cars_View)).BeginInit();
@@ -854,10 +858,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel3.Controls.Add(this.lngNumerBDD);
-            this.panel3.Controls.Add(this.NBDD);
-            this.panel3.Controls.Add(this.lngKonto);
-            this.panel3.Controls.Add(this.Konto);
             this.panel3.Controls.Add(this.TelefonKomurkowy);
             this.panel3.Controls.Add(this.lngCustomerData);
             this.panel3.Controls.Add(this.Button_Clear_DK);
@@ -875,38 +875,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(360, 202);
             this.panel3.TabIndex = 1;
-            // 
-            // lngNumerBDD
-            // 
-            this.lngNumerBDD.AutoSize = true;
-            this.lngNumerBDD.Location = new System.Drawing.Point(191, 158);
-            this.lngNumerBDD.Name = "lngNumerBDD";
-            this.lngNumerBDD.Size = new System.Drawing.Size(71, 15);
-            this.lngNumerBDD.TabIndex = 6;
-            this.lngNumerBDD.Text = "Numer BDO";
-            // 
-            // NBDD
-            // 
-            this.NBDD.Location = new System.Drawing.Point(187, 176);
-            this.NBDD.Name = "NBDD";
-            this.NBDD.Size = new System.Drawing.Size(168, 23);
-            this.NBDD.TabIndex = 5;
-            // 
-            // lngKonto
-            // 
-            this.lngKonto.AutoSize = true;
-            this.lngKonto.Location = new System.Drawing.Point(8, 158);
-            this.lngKonto.Name = "lngKonto";
-            this.lngKonto.Size = new System.Drawing.Size(39, 15);
-            this.lngKonto.TabIndex = 4;
-            this.lngKonto.Text = "Konto";
-            // 
-            // Konto
-            // 
-            this.Konto.Location = new System.Drawing.Point(5, 176);
-            this.Konto.Name = "Konto";
-            this.Konto.Size = new System.Drawing.Size(168, 23);
-            this.Konto.TabIndex = 3;
             // 
             // TelefonKomurkowy
             // 
@@ -1336,6 +1304,7 @@
             this.Button_Delete_Invoice.TabIndex = 18;
             this.Button_Delete_Invoice.Text = "Usuń";
             this.Button_Delete_Invoice.UseVisualStyleBackColor = false;
+            this.Button_Delete_Invoice.Click += new System.EventHandler(this.Button_Delete_Invoice_Click);
             // 
             // Button_Update_Invoice
             // 
@@ -1346,6 +1315,7 @@
             this.Button_Update_Invoice.TabIndex = 18;
             this.Button_Update_Invoice.Text = "Odśwież";
             this.Button_Update_Invoice.UseVisualStyleBackColor = false;
+            this.Button_Update_Invoice.Click += new System.EventHandler(this.Button_Update_Invoice_Click);
             // 
             // Button_Save_Invoice
             // 
@@ -1356,6 +1326,7 @@
             this.Button_Save_Invoice.TabIndex = 18;
             this.Button_Save_Invoice.Text = "Zapisz";
             this.Button_Save_Invoice.UseVisualStyleBackColor = false;
+            this.Button_Save_Invoice.Click += new System.EventHandler(this.Button_Save_Invoice_Click);
             // 
             // label5
             // 
@@ -1398,6 +1369,7 @@
             this.KosztUslugi2_Invoice,
             this.KosztUslugi3_Invoice,
             this.KosztUslugi4_Invoice,
+            this.Konto_Invoice,
             this.Bank_Invoice,
             this.CenaKoncowa_Invoice,
             this.SposobPlatnosci_Invoice,
@@ -1408,6 +1380,7 @@
             this.InvoiceDataGridView.Size = new System.Drawing.Size(693, 568);
             this.InvoiceDataGridView.TabIndex = 12;
             this.InvoiceDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InvoiceDataGridView_CellClick);
+            this.InvoiceDataGridView.DoubleClick += new System.EventHandler(this.InvoiceDataGridView_DoubleClick);
             // 
             // ID_Invoice
             // 
@@ -1500,6 +1473,13 @@
             this.KosztUslugi4_Invoice.Name = "KosztUslugi4_Invoice";
             this.KosztUslugi4_Invoice.ReadOnly = true;
             // 
+            // Konto_Invoice
+            // 
+            this.Konto_Invoice.DataPropertyName = "Konto";
+            this.Konto_Invoice.HeaderText = "Konto";
+            this.Konto_Invoice.Name = "Konto_Invoice";
+            this.Konto_Invoice.ReadOnly = true;
+            // 
             // Bank_Invoice
             // 
             this.Bank_Invoice.DataPropertyName = "Bank";
@@ -1531,6 +1511,8 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel9.Controls.Add(this.PriceFinall);
+            this.panel9.Controls.Add(this.label12);
             this.panel9.Controls.Add(this.label20);
             this.panel9.Controls.Add(this.label2);
             this.panel9.Controls.Add(this.PriceService4Invoice);
@@ -1551,14 +1533,33 @@
             this.panel9.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.panel9.Location = new System.Drawing.Point(7, 427);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(550, 168);
+            this.panel9.Size = new System.Drawing.Size(550, 195);
             this.panel9.TabIndex = 11;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            // 
+            // PriceFinall
+            // 
+            this.PriceFinall.AutoSize = true;
+            this.PriceFinall.Location = new System.Drawing.Point(92, 35);
+            this.PriceFinall.Name = "PriceFinall";
+            this.PriceFinall.Size = new System.Drawing.Size(13, 15);
+            this.PriceFinall.TabIndex = 21;
+            this.PriceFinall.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 35);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(88, 15);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Cena końcowa:";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label20.Location = new System.Drawing.Point(267, 91);
+            this.label20.Location = new System.Drawing.Point(270, 126);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(52, 15);
             this.label20.TabIndex = 19;
@@ -1568,7 +1569,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label2.Location = new System.Drawing.Point(437, 91);
+            this.label2.Location = new System.Drawing.Point(440, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 15);
             this.label2.TabIndex = 17;
@@ -1576,7 +1577,7 @@
             // 
             // PriceService4Invoice
             // 
-            this.PriceService4Invoice.Location = new System.Drawing.Point(439, 109);
+            this.PriceService4Invoice.Location = new System.Drawing.Point(442, 144);
             this.PriceService4Invoice.Name = "PriceService4Invoice";
             this.PriceService4Invoice.Size = new System.Drawing.Size(77, 23);
             this.PriceService4Invoice.TabIndex = 18;
@@ -1584,7 +1585,7 @@
             // 
             // Service4Invoice
             // 
-            this.Service4Invoice.Location = new System.Drawing.Point(267, 109);
+            this.Service4Invoice.Location = new System.Drawing.Point(270, 144);
             this.Service4Invoice.Multiline = true;
             this.Service4Invoice.Name = "Service4Invoice";
             this.Service4Invoice.Size = new System.Drawing.Size(168, 44);
@@ -1594,7 +1595,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label14.Location = new System.Drawing.Point(267, 26);
+            this.label14.Location = new System.Drawing.Point(270, 61);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(52, 15);
             this.label14.TabIndex = 12;
@@ -1602,7 +1603,7 @@
             // 
             // Service3Invoice
             // 
-            this.Service3Invoice.Location = new System.Drawing.Point(267, 44);
+            this.Service3Invoice.Location = new System.Drawing.Point(270, 79);
             this.Service3Invoice.Multiline = true;
             this.Service3Invoice.Name = "Service3Invoice";
             this.Service3Invoice.Size = new System.Drawing.Size(168, 44);
@@ -1612,7 +1613,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label19.Location = new System.Drawing.Point(438, 26);
+            this.label19.Location = new System.Drawing.Point(441, 61);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(79, 15);
             this.label19.TabIndex = 13;
@@ -1620,7 +1621,7 @@
             // 
             // PriceService3Invoice
             // 
-            this.PriceService3Invoice.Location = new System.Drawing.Point(440, 44);
+            this.PriceService3Invoice.Location = new System.Drawing.Point(443, 79);
             this.PriceService3Invoice.Name = "PriceService3Invoice";
             this.PriceService3Invoice.Size = new System.Drawing.Size(77, 23);
             this.PriceService3Invoice.TabIndex = 15;
@@ -1630,7 +1631,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label17.Location = new System.Drawing.Point(179, 91);
+            this.label17.Location = new System.Drawing.Point(182, 126);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(79, 15);
             this.label17.TabIndex = 10;
@@ -1638,7 +1639,7 @@
             // 
             // PriceService2Invoice
             // 
-            this.PriceService2Invoice.Location = new System.Drawing.Point(178, 109);
+            this.PriceService2Invoice.Location = new System.Drawing.Point(181, 144);
             this.PriceService2Invoice.Name = "PriceService2Invoice";
             this.PriceService2Invoice.Size = new System.Drawing.Size(77, 23);
             this.PriceService2Invoice.TabIndex = 11;
@@ -1648,7 +1649,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label13.Location = new System.Drawing.Point(3, 91);
+            this.label13.Location = new System.Drawing.Point(6, 126);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 15);
             this.label13.TabIndex = 4;
@@ -1656,7 +1657,7 @@
             // 
             // Service2Invoice
             // 
-            this.Service2Invoice.Location = new System.Drawing.Point(5, 109);
+            this.Service2Invoice.Location = new System.Drawing.Point(8, 144);
             this.Service2Invoice.Multiline = true;
             this.Service2Invoice.Name = "Service2Invoice";
             this.Service2Invoice.Size = new System.Drawing.Size(168, 44);
@@ -1666,7 +1667,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(7, 10);
+            this.label15.Location = new System.Drawing.Point(8, 10);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(103, 16);
             this.label15.TabIndex = 0;
@@ -1676,7 +1677,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label16.Location = new System.Drawing.Point(5, 26);
+            this.label16.Location = new System.Drawing.Point(8, 61);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 15);
             this.label16.TabIndex = 0;
@@ -1684,7 +1685,7 @@
             // 
             // Service1Invoice
             // 
-            this.Service1Invoice.Location = new System.Drawing.Point(5, 44);
+            this.Service1Invoice.Location = new System.Drawing.Point(8, 79);
             this.Service1Invoice.Multiline = true;
             this.Service1Invoice.Name = "Service1Invoice";
             this.Service1Invoice.Size = new System.Drawing.Size(168, 44);
@@ -1694,7 +1695,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label18.Location = new System.Drawing.Point(176, 26);
+            this.label18.Location = new System.Drawing.Point(179, 61);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(79, 15);
             this.label18.TabIndex = 0;
@@ -1702,7 +1703,7 @@
             // 
             // PriceService1Invoice
             // 
-            this.PriceService1Invoice.Location = new System.Drawing.Point(178, 44);
+            this.PriceService1Invoice.Location = new System.Drawing.Point(181, 79);
             this.PriceService1Invoice.Name = "PriceService1Invoice";
             this.PriceService1Invoice.Size = new System.Drawing.Size(77, 23);
             this.PriceService1Invoice.TabIndex = 1;
@@ -1711,13 +1712,10 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel10.Controls.Add(this.forTimeInvoice);
-            this.panel10.Controls.Add(this.todayInvoice);
-            this.panel10.Controls.Add(this.dateTimePickerInvoice);
+            this.panel10.Controls.Add(this.panel12);
             this.panel10.Controls.Add(this.panel13);
             this.panel10.Controls.Add(this.Cash);
             this.panel10.Controls.Add(this.Card);
-            this.panel10.Controls.Add(this.DateOfPayInvoice);
             this.panel10.Controls.Add(this.InBankInvoice);
             this.panel10.Controls.Add(this.label1);
             this.panel10.Controls.Add(this.KontoInvoice);
@@ -1731,10 +1729,21 @@
             this.panel10.Size = new System.Drawing.Size(360, 200);
             this.panel10.TabIndex = 10;
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.forTimeInvoice);
+            this.panel12.Controls.Add(this.dateTimePickerInvoice);
+            this.panel12.Controls.Add(this.todayInvoice);
+            this.panel12.Controls.Add(this.DateOfPayInvoice);
+            this.panel12.Location = new System.Drawing.Point(150, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(200, 89);
+            this.panel12.TabIndex = 18;
+            // 
             // forTimeInvoice
             // 
             this.forTimeInvoice.AutoSize = true;
-            this.forTimeInvoice.Location = new System.Drawing.Point(245, 32);
+            this.forTimeInvoice.Location = new System.Drawing.Point(66, 29);
             this.forTimeInvoice.Name = "forTimeInvoice";
             this.forTimeInvoice.Size = new System.Drawing.Size(105, 19);
             this.forTimeInvoice.TabIndex = 17;
@@ -1742,10 +1751,19 @@
             this.forTimeInvoice.Text = "Określona Data";
             this.forTimeInvoice.UseVisualStyleBackColor = true;
             // 
+            // dateTimePickerInvoice
+            // 
+            this.dateTimePickerInvoice.CustomFormat = "yyyy.MM.dd";
+            this.dateTimePickerInvoice.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerInvoice.Location = new System.Drawing.Point(3, 49);
+            this.dateTimePickerInvoice.Name = "dateTimePickerInvoice";
+            this.dateTimePickerInvoice.Size = new System.Drawing.Size(102, 23);
+            this.dateTimePickerInvoice.TabIndex = 4;
+            // 
             // todayInvoice
             // 
             this.todayInvoice.AutoSize = true;
-            this.todayInvoice.Location = new System.Drawing.Point(182, 32);
+            this.todayInvoice.Location = new System.Drawing.Point(3, 29);
             this.todayInvoice.Name = "todayInvoice";
             this.todayInvoice.Size = new System.Drawing.Size(46, 19);
             this.todayInvoice.TabIndex = 16;
@@ -1754,14 +1772,12 @@
             this.todayInvoice.UseVisualStyleBackColor = true;
             this.todayInvoice.CheckedChanged += new System.EventHandler(this.todayInvoice_CheckedChanged);
             // 
-            // dateTimePickerInvoice
+            // DateOfPayInvoice
             // 
-            this.dateTimePickerInvoice.CustomFormat = "yyyy.MM.dd";
-            this.dateTimePickerInvoice.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerInvoice.Location = new System.Drawing.Point(182, 52);
-            this.dateTimePickerInvoice.Name = "dateTimePickerInvoice";
-            this.dateTimePickerInvoice.Size = new System.Drawing.Size(102, 23);
-            this.dateTimePickerInvoice.TabIndex = 4;
+            this.DateOfPayInvoice.Location = new System.Drawing.Point(3, 49);
+            this.DateOfPayInvoice.Name = "DateOfPayInvoice";
+            this.DateOfPayInvoice.Size = new System.Drawing.Size(168, 23);
+            this.DateOfPayInvoice.TabIndex = 5;
             // 
             // panel13
             // 
@@ -1794,13 +1810,6 @@
             this.Card.Text = "Przelew";
             this.Card.UseVisualStyleBackColor = true;
             this.Card.CheckedChanged += new System.EventHandler(this.Card_CheckedChanged);
-            // 
-            // DateOfPayInvoice
-            // 
-            this.DateOfPayInvoice.Location = new System.Drawing.Point(182, 52);
-            this.DateOfPayInvoice.Name = "DateOfPayInvoice";
-            this.DateOfPayInvoice.Size = new System.Drawing.Size(168, 23);
-            this.DateOfPayInvoice.TabIndex = 5;
             // 
             // InBankInvoice
             // 
@@ -1866,8 +1875,9 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel11.Controls.Add(this.FakturaNrMask);
             this.panel11.Controls.Add(this.FakturaNrlng);
-            this.panel11.Controls.Add(this.FakturaNr);
+            this.panel11.Controls.Add(this.FakturaNrtxt);
             this.panel11.Controls.Add(this.AdresInvoice);
             this.panel11.Controls.Add(this.label3);
             this.panel11.Controls.Add(this.label4);
@@ -1884,19 +1894,20 @@
             // FakturaNrlng
             // 
             this.FakturaNrlng.AutoSize = true;
-            this.FakturaNrlng.Location = new System.Drawing.Point(238, 13);
+            this.FakturaNrlng.Location = new System.Drawing.Point(193, 13);
             this.FakturaNrlng.Name = "FakturaNrlng";
             this.FakturaNrlng.Size = new System.Drawing.Size(65, 15);
             this.FakturaNrlng.TabIndex = 19;
             this.FakturaNrlng.Text = "Faktura Nr:";
+            this.FakturaNrlng.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FakturaNrlng_MouseClick);
             // 
-            // FakturaNr
+            // FakturaNrtxt
             // 
-            this.FakturaNr.AutoSize = true;
-            this.FakturaNr.Location = new System.Drawing.Point(303, 13);
-            this.FakturaNr.Name = "FakturaNr";
-            this.FakturaNr.Size = new System.Drawing.Size(0, 15);
-            this.FakturaNr.TabIndex = 19;
+            this.FakturaNrtxt.AutoSize = true;
+            this.FakturaNrtxt.Location = new System.Drawing.Point(258, 13);
+            this.FakturaNrtxt.Name = "FakturaNrtxt";
+            this.FakturaNrtxt.Size = new System.Drawing.Size(0, 15);
+            this.FakturaNrtxt.TabIndex = 19;
             // 
             // AdresInvoice
             // 
@@ -1956,7 +1967,7 @@
             // 
             this.NipInvoice.Location = new System.Drawing.Point(179, 65);
             this.NipInvoice.Name = "NipInvoice";
-            this.NipInvoice.Size = new System.Drawing.Size(158, 23);
+            this.NipInvoice.Size = new System.Drawing.Size(168, 23);
             this.NipInvoice.TabIndex = 1;
             // 
             // Scheduled_Cars
@@ -2008,13 +2019,14 @@
             this.Model_Column,
             this.Imie_Column,
             this.Nazwisko_Column,
+            this.NrTelefonu_Column,
             this.Zlecenie_Klienta_Column});
             this.Scheduled_Cars_View.Location = new System.Drawing.Point(6, 61);
             this.Scheduled_Cars_View.Name = "Scheduled_Cars_View";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.NullValue = null;
-            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Scheduled_Cars_View.Size = new System.Drawing.Size(1042, 550);
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle9.NullValue = null;
+            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.Scheduled_Cars_View.Size = new System.Drawing.Size(1193, 550);
             this.Scheduled_Cars_View.TabIndex = 0;
             this.Scheduled_Cars_View.DoubleClick += new System.EventHandler(this.Scheduled_Cars_View_DoubleClick);
             this.Scheduled_Cars_View.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Scheduled_Cars_View_MouseClick);
@@ -2055,6 +2067,13 @@
             this.Nazwisko_Column.DataPropertyName = "Nazwisko";
             this.Nazwisko_Column.HeaderText = "Nazwisko";
             this.Nazwisko_Column.Name = "Nazwisko_Column";
+            // 
+            // NrTelefonu_Column
+            // 
+            this.NrTelefonu_Column.DataPropertyName = "NrTelefonu";
+            this.NrTelefonu_Column.HeaderText = "Numer Telefonu";
+            this.NrTelefonu_Column.Name = "NrTelefonu_Column";
+            this.NrTelefonu_Column.Width = 150;
             // 
             // Zlecenie_Klienta_Column
             // 
@@ -2144,6 +2163,7 @@
             this.akcjeToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stwórzNowąTabelkęToolStripMenuItem1,
             this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem,
+            this.stwórzTabelkęFakturaToolStripMenuItem,
             this.zakończToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.akcjeToolStripMenuItem1.Name = "akcjeToolStripMenuItem1";
@@ -2163,6 +2183,13 @@
             this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
             this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Text = "Stwórz tabelkę Zaplanowane Samochody";
             this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem.Click += new System.EventHandler(this.stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem_Click);
+            // 
+            // stwórzTabelkęFakturaToolStripMenuItem
+            // 
+            this.stwórzTabelkęFakturaToolStripMenuItem.Name = "stwórzTabelkęFakturaToolStripMenuItem";
+            this.stwórzTabelkęFakturaToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
+            this.stwórzTabelkęFakturaToolStripMenuItem.Text = "Stwórz tabelkę Faktura";
+            this.stwórzTabelkęFakturaToolStripMenuItem.Click += new System.EventHandler(this.stwórzTabelkęFakturaToolStripMenuItem_Click);
             // 
             // zakończToolStripMenuItem
             // 
@@ -2301,6 +2328,15 @@
             this.viewAllPDFToolStripMenuItem.Text = "Zobacz wszystkie PDF";
             this.viewAllPDFToolStripMenuItem.Click += new System.EventHandler(this.viewAllPDFToolStripMenuItem_Click);
             // 
+            // FakturaNrMask
+            // 
+            this.FakturaNrMask.Location = new System.Drawing.Point(258, 8);
+            this.FakturaNrMask.Mask = "00\\/0000";
+            this.FakturaNrMask.Name = "FakturaNrMask";
+            this.FakturaNrMask.Size = new System.Drawing.Size(89, 23);
+            this.FakturaNrMask.TabIndex = 20;
+            this.FakturaNrMask.Leave += new System.EventHandler(this.FakturaNrMask_Leave);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2342,6 +2378,8 @@
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.Scheduled_Cars.ResumeLayout(false);
@@ -2454,13 +2492,6 @@
         public System.Windows.Forms.Label lngOldBD;
         public System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         public System.Windows.Forms.DataGridView Scheduled_Cars_View;
-        public System.Windows.Forms.DataGridViewTextBoxColumn ID_Column;
-        public System.Windows.Forms.DataGridViewTextBoxColumn DataPrzyjecia_Column;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Marka_Column;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Model_Column;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Imie_Column;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Nazwisko_Column;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Zlecenie_Klienta_Column;
         public System.Windows.Forms.ToolStripMenuItem stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem;
         public System.Windows.Forms.Label BodyNumberLenght;
         public System.Windows.Forms.MaskedTextBox TelefonKomurkowy;
@@ -2497,10 +2528,6 @@
         private System.Windows.Forms.ToolStripMenuItem createInvoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewAllPDFToolStripMenuItem;
-        private System.Windows.Forms.Label lngKonto;
-        public System.Windows.Forms.TextBox Konto;
-        private System.Windows.Forms.Label lngNumerBDD;
-        public System.Windows.Forms.TextBox NBDD;
         private System.Windows.Forms.ToolStripMenuItem stwórzToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem;
         private System.Windows.Forms.TabPage Invoice;
@@ -2548,6 +2575,14 @@
         public System.Windows.Forms.Button Button_Update_Invoice;
         public System.Windows.Forms.Button Button_Save_Invoice;
         public System.Windows.Forms.TextBox Search_Invoice;
+        public System.Windows.Forms.Label FakturaNrtxt;
+        public System.Windows.Forms.Label FakturaNrlng;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.RadioButton forTimeInvoice;
+        public System.Windows.Forms.RadioButton todayInvoice;
+        public System.Windows.Forms.Label PriceFinall;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn FakturaNr_Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name_Invoice;
@@ -2561,15 +2596,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KosztUslugi2_Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn KosztUslugi3_Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn KosztUslugi4_Invoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Konto_Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Bank_Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn CenaKoncowa_Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn SposobPlatnosci_Invoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn TerminZaplaty_Invoice;
-        public System.Windows.Forms.Label FakturaNr;
-        public System.Windows.Forms.Label FakturaNrlng;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.RadioButton forTimeInvoice;
-        public System.Windows.Forms.RadioButton todayInvoice;
+        private System.Windows.Forms.ToolStripMenuItem stwórzTabelkęFakturaToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataPrzyjecia_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marka_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Imie_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nazwisko_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NrTelefonu_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Zlecenie_Klienta_Column;
+        public System.Windows.Forms.MaskedTextBox FakturaNrMask;
     }
 }
 

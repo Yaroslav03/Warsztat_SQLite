@@ -17,6 +17,7 @@ namespace Warsztat
         {
             if (form.txtSearch.Text != "")
             {
+                conn.Close();//Close a some opening connection
                 conn.Open();
                 DB = new SQLiteDataAdapter("SELECT * from Dane WHERE Marka LIKE '" + form.txtSearch.Text + "%' OR Model Like '" + form.txtSearch.Text + "%' OR NumerNadwozia Like '" + form.txtSearch.Text + "%'", conn);
                 DT = new DataTable();
@@ -69,9 +70,10 @@ namespace Warsztat
         }
         public void ReadData(Form1 form, int ID)
         {
+            conn.Close();//Close a some opening connection
             conn.Open();
 
-            ID = Convert.ToInt32(form.Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
+            ID = Convert.ToInt32(form.Dane_Warsztat.CurrentRow.Cells["ID_Column_Main"].Value.ToString());
             form.DataPrzyjecia.Text = form.Dane_Warsztat.CurrentRow.Cells["DataPrzyjecia_Column_Main"].Value.ToString();
             form.DataWydania.Text = form.Dane_Warsztat.CurrentRow.Cells["DataWydania_Column_Main"].Value.ToString();
 
@@ -129,7 +131,7 @@ namespace Warsztat
                 DB.Fill(DS);
                 DT = DS.Tables[0];
                 form.Dane_Warsztat.DataSource = DT;
-                form.Dane_Warsztat.Columns["ID_Invoice"].Visible = false;
+                form.Dane_Warsztat.Columns["ID_Column_Main"].Visible = false;
                 conn.Close();
             }
             catch (Exception ex)//it`s a fix
@@ -174,7 +176,6 @@ namespace Warsztat
             cmd.ExecuteNonQuery();
             MessageBox.Show("Wszystko zostało zapisane");
             conn.Close();
-            Console.WriteLine("Sql close");
             form.Work_Place.SelectTab(form.Home);
         }
         private void Edit_AND_Save(Form1 form) // Тут містяться параметри для sql

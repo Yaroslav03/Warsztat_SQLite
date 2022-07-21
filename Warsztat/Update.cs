@@ -84,15 +84,31 @@ namespace Warsztat
                 "(ID INTEGER NOT NULL UNIQUE," +
                 " DataPrzyjecia TEXT NOT NULL," +
                 " Model TEXT NOT NULL, " +
-                "Marka TEXT NOT NULL, Imie  " +
-                "TEXT NOT NULL, " +
+                "Marka TEXT NOT NULL," +
+                " Imie TEXT NOT NULL, " +
                 "Nazwisko  TEXT NOT NULL," +
-                " Zlecenie_Klienta TEXT NOT NULL, " +
+                "Zlecenie_Klienta TEXT NOT NULL, " +
+                "NrTelefonu TEXT NOT NULL," +
                 "PRIMARY KEY(ID AUTOINCREMENT))", conn);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        
+        public void Create_Faktura()
+        {
+            conn.Open();
+            cmd = new SQLiteCommand("CREATE TABLE Faktura (ID INTEGER NOT NULL UNIQUE, " +
+                "FakturaNr TEXT NOT NULL,  Name TEXT NOT NULL, NIP TEXT NOT NULL, " +
+                "Adres TEXT NOT NULL, Usluga1 TEXT NOT NULL, Usluga2 TEXT NOT NULL, " +
+                "Usluga3 TEXT NOT NULL, Usluga4 TEXT NOT NULL, KosztUslugi1 INTEGER NOT NULL," +
+                " KosztUslugi2 INTEGER NOT NULL, KosztUslugi3 INTEGER NOT NULL, " +
+                "KosztUslugi4 INTEGER NOT NULL, SposobPlatnosci TEXT NOT NULL, " +
+                "TerminZaplaty TEXT NOT NULL, Konto TEXT NOT NULL, Bank TEXT NOT NULL, " +
+                "CenaKoncowa INTEGER NOT NULL, PRIMARY KEY(ID AUTOINCREMENT))",conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+
         public void Delete()
         {
             try

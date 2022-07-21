@@ -14,31 +14,34 @@ namespace Warsztat
         DataSet DS = new DataSet();
         DataTable DT = new DataTable();
         Interface Interface = new Interface();
+        Warsztat Warsztat = new Warsztat();
+
         int id;
+        int ID;
+
+        string pay;
 
         #region Function
         //create a Invoice Number
         public void CreateInvoiceNR(Form1 form)
         {
             int actualYear = DateTime.Now.Year;
-            conn.Open();
             string olddate = form.InvoiceDataGridView.CurrentRow.Cells["TerminZaplaty_Invoice"].Value.ToString();
-            string idStr = form.InvoiceDataGridView.CurrentRow.Cells["ID_Invoice"].Value.ToString();
-            conn.Close();
+            string idStr = form.InvoiceDataGridView.CurrentRow.Cells["FakturaNr_Invoice"].Value.ToString();
 
-            id = Convert.ToInt32(idStr);
+            id = Convert.ToInt32(idStr.Substring(0,2));
             int newYear = Convert.ToInt32(olddate.Substring(0, 4));
             if (actualYear == newYear)
             {
                 id++;
                 string InvoiceNR = id + "/" + newYear;
-                form.FakturaNr.Text = InvoiceNR;
+                form.FakturaNrtxt.Text = InvoiceNR;
             }
-            else if (actualYear > newYear)
+            else
             {
                 id = 0;
                 string InvoiceNR = id + "/" + newYear;
-                form.FakturaNr.Text = InvoiceNR;
+                form.FakturaNrtxt.Text = InvoiceNR;
             }
         }
 
@@ -50,47 +53,45 @@ namespace Warsztat
                 {
                     conn.Open();
                     cmd = conn.CreateCommand();
-                    string Load = "SELECT ID, FakturaNr, Name, NIP, Adres," +
-                        " Usluga1, Usluga2, Usluga3, Usluga4, " +
-                        "KosztUslugi1, KosztUslugi2, KosztUslugi3, KosztUslugi4, " +
-                        "CenaKoncowa, SposobPlatnosci, Bank, TerminZaplaty FROM Faktura";
+                    string Load = "SELECT ID, FakturaNr, Name, NIP, Adres, Usluga1, Usluga2, Usluga3, Usluga4, " +
+                        "KosztUslugi1, KosztUslugi2, KosztUslugi3, KosztUslugi4, CenaKoncowa, SposobPlatnosci, Konto, Bank, TerminZaplaty FROM Faktura";
                     DB = new SQLiteDataAdapter(Load, conn);
                     DS.Reset();
                     DB.Fill(DS);
                     DT = DS.Tables[0];
                     form.InvoiceDataGridView.DataSource = DT;
-
-                    //hide unnecessary data
-                    form.InvoiceDataGridView.Columns["ID_Invoice"].Visible = false;
-
-                    form.InvoiceDataGridView.Columns["Usluga1_Invoice"].Visible = false;
-                    form.InvoiceDataGridView.Columns["Usluga2_Invoice"].Visible = false;
-                    form.InvoiceDataGridView.Columns["Usluga3_Invoice"].Visible = false;
-                    form.InvoiceDataGridView.Columns["Usluga4_Invoice"].Visible = false;
-
-                    form.InvoiceDataGridView.Columns["KosztUslugi1_Invoice"].Visible = false;
-                    form.InvoiceDataGridView.Columns["KosztUslugi2_Invoice"].Visible = false;
-                    form.InvoiceDataGridView.Columns["KosztUslugi3_Invoice"].Visible = false;
-                    form.InvoiceDataGridView.Columns["KosztUslugi4_Invoice"].Visible = false;
-
-                    form.InvoiceDataGridView.Columns["Bank_Invoice"].Visible = false;
-                    conn.Close();
+                    conn.Close();                                   
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error" + ex);
-                }            
+                }
+
+            //hide unnecessary data
+            form.InvoiceDataGridView.Columns["ID_Invoice"].Visible = false;
+
+            form.InvoiceDataGridView.Columns["Usluga1_Invoice"].Visible = false;
+            form.InvoiceDataGridView.Columns["Usluga2_Invoice"].Visible = false;
+            form.InvoiceDataGridView.Columns["Usluga3_Invoice"].Visible = false;
+            form.InvoiceDataGridView.Columns["Usluga4_Invoice"].Visible = false;
+
+            form.InvoiceDataGridView.Columns["KosztUslugi1_Invoice"].Visible = false;
+            form.InvoiceDataGridView.Columns["KosztUslugi2_Invoice"].Visible = false;
+            form.InvoiceDataGridView.Columns["KosztUslugi3_Invoice"].Visible = false;
+            form.InvoiceDataGridView.Columns["KosztUslugi4_Invoice"].Visible = false;
+
+            form.InvoiceDataGridView.Columns["Konto_Invoice"].Visible = false;
+            form.InvoiceDataGridView.Columns["Bank_Invoice"].Visible = false;
         }
         //Read data from DB
-        public void Read(Form1 form, int ID)
+        public void Read(Form1 form)
         {
             var invoice = form.InvoiceDataGridView.CurrentRow.Cells;
 
-                ID = Convert.ToInt32(invoice[0].Value.ToString());
+                ID = Convert.ToInt32(invoice["ID_Invoice"].Value.ToString());
                 
                 CashCard(form);
                 VerefyDate(form);
-
 
                 form.NameORNameCompanyInvoice.Text = invoice["Name_Invoice"].Value.ToString();
                 form.NipInvoice.Text = invoice["NIP_Invoice"].Value.ToString();
@@ -106,6 +107,11 @@ namespace Warsztat
                 form.PriceService2Invoice.Text = invoice["KosztUslugi2_Invoice"].Value.ToString();
                 form.PriceService3Invoice.Text = invoice["KosztUslugi3_Invoice"].Value.ToString();
                 form.PriceService4Invoice.Text = invoice["KosztUslugi4_Invoice"].Value.ToString();
+
+                form.KontoInvoice.Text = invoice["Konto_Invoice"].Value.ToString();
+
+            form.Button_Save_Invoice.Enabled = false;
+
         }
         //Search data from DB
         public void Search(Form1 form)
@@ -129,31 +135,126 @@ namespace Warsztat
         #endregion
         #region Command DB
         //Update data from DB
-        public void Update()
+        public void Update(Form1 form)
         {
+            string Update = "UPDATE Faktura set FakturaNr = @FakturaNr, Name = @Name, NIP = @NIP, Adres = @Adres, Usluga1 = @Usluga1, Usluga2 = @Usluga2, Usluga3 = @Usluga3, Usluga4 = @Usluga4, KosztUslugi1 = @KosztUslugi1, " +
+                "KosztUslugi2 = @KosztUslugi2, KosztUslugi3 = @KosztUslugi3, KosztUslugi4 = @KosztUslugi4, SposobPlatnosci = @SposobPlatnosci,TerminZaplaty = @TerminZaplaty, Konto = @Konto, Bank = @Bank, CenaKoncowa = @CenaKoncowa WHERE ID=@ID";
+            Console.WriteLine("ID = " + ID);
+            try
+            {
+                ID.ToString();
+                conn.Open();
+                cmd.CommandText = Update;
+                cmd.Parameters.AddWithValue("@ID", ID);
+                EditAndSave(form);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Load(form);
+                MessageBox.Show("Dane zostałe odświeżone", "Baza danych");
+                
+            }
+            catch(Exception ex)
+            {
 
+                MessageBox.Show("Nie było wprowadzonego tekstu");
+                Console.WriteLine(ex);
+            }
+            form.Button_Save_Invoice.Enabled = true;
         }
         //Save data from DB
-        public void Save()
+        public void Save(Form1 form)
         {
+            string Save = "INSERT INTO Faktura( FakturaNr, Name, NIP, Adres, Usluga1, Usluga2, Usluga3, Usluga4, KosztUslugi1, KosztUslugi2, KosztUslugi3, KosztUslugi4, SposobPlatnosci,TerminZaplaty, Konto, Bank, CenaKoncowa)" +
+                "VALUES(@FakturaNr, @Name, @NIP, @Adres, @Usluga1, @Usluga2, @Usluga3, @Usluga4, @KosztUslugi1, @KosztUslugi2, @KosztUslugi3, @KosztUslugi4, @SposobPlatnosci,@TerminZaplaty, @Konto, @Bank, @CenaKoncowa)";
+            conn.Close();
+            conn.Open();
+            cmd = new SQLiteCommand(Save, conn);
+            EditAndSave(form);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Wszystko zostało zapisane");
+            conn.Close();
 
+            Load(form);
         }
         //
         private void EditAndSave (Form1 form)
         {
-            //cmd.Parameters.AddWithValue("@FakturaNr", InvoiceNR());
+            GeneratePDF pdf = new GeneratePDF();
+            cmd.Parameters.AddWithValue("@FakturaNr", form.FakturaNrtxt.Text);
+            cmd.Parameters.AddWithValue("@Name", form.NameORNameCompanyInvoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@NIP", form.NipInvoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@Adres", form.AdresInvoice.Text.Trim());
+
+            cmd.Parameters.AddWithValue("@Usluga1", form.Service1Invoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@Usluga2", form.Service2Invoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@Usluga3", form.Service3Invoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@Usluga4", form.Service4Invoice.Text.Trim());
+
+            cmd.Parameters.AddWithValue("@KosztUslugi1", form.PriceService1Invoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@KosztUslugi2", form.PriceService2Invoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@KosztUslugi3", form.PriceService3Invoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@KosztUslugi4", form.PriceService4Invoice.Text.Trim());
+
+            if (form.Card.Checked == true)
+            {
+                cmd.Parameters.AddWithValue("@SposobPlatnosci", "przelew");
+            }
+            else if (form.Cash.Checked == true)
+            {
+                cmd.Parameters.AddWithValue("@SposobPlatnosci", "gotówka");
+            }
+
+            if (form.todayInvoice.Checked == true)
+            {
+                cmd.Parameters.AddWithValue("@TerminZaplaty", form.dateTimePickerInvoice.Text);
+            }
+            else if (form.forTimeInvoice.Checked == true)
+            {
+                cmd.Parameters.AddWithValue("@TerminZaplaty", form.DateOfPayInvoice.Text);
+            }
+
+            cmd.Parameters.AddWithValue("@Konto", form.KontoInvoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@Bank", form.InBankInvoice.Text.Trim());
+            cmd.Parameters.AddWithValue("@CenaKoncowa", form.PriceFinall.Text);
         }
         //Remove data from DB
-        public void Remove()
+        public void Remove(Form1 form)
         {
+            ID = Convert.ToInt32(form.InvoiceDataGridView.CurrentRow.Cells["ID_Invoice"].Value.ToString());
 
+            conn.Open();
+            try
+            {
+                //Дані до опису Транспорту
+                if (ID != 0)
+                {
+                    cmd = new SQLiteCommand("DELETE FROM Faktura WHERE ID =@ID", conn);
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    cmd.ExecuteNonQuery();
+                    Warsztat.ClearPart(form, form.panel11.Controls);
+                    Warsztat.ClearPart(form, form.panel10.Controls);
+                    Warsztat.ClearPart(form, form.panel12.Controls);
+                    Warsztat.ClearPart(form, form.panel9.Controls);
+                }
+
+                else
+                {
+                    MessageBox.Show("Proszę wybrać kolumnę do Usunięcia");
+                }
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nie udało się usunąć dane ", "Warsztat");
+            }
+            conn.Close();
+            Load(form);
         }
         #endregion
         #region Function for this class
-        
+
         private void CashCard(Form1 form)
         {
-            string cash = "gotówka";
             string card = "przelew";
 
             var textBox = form.KontoInvoice.Enabled = form.InBankInvoice.Enabled;
@@ -192,7 +293,22 @@ namespace Warsztat
 
                 form.DateOfPayInvoice.Text = date;
             }
-            
+        }
+        
+        public void CalculatePrice (Form1 form)
+        {
+            try
+            {
+                int a = Convert.ToInt32(form.PriceService1Invoice.Text);
+                int b = Convert.ToInt32(form.PriceService2Invoice.Text);
+                int c = Convert.ToInt32(form.PriceService3Invoice.Text);
+                int d = Convert.ToInt32(form.PriceService4Invoice.Text);
+
+                int x = a + b + c + d;
+                form.PriceFinall.Text = x.ToString();
+            }
+            catch //fix when text box have a empty string
+            {}
         }
         #endregion
     }

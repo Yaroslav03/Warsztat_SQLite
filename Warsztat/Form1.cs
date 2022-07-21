@@ -30,7 +30,11 @@ namespace Warsztat
         public Form1()
         {          
             sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
-            InitializeComponent();                   
+            InitializeComponent();
+            Warsztat.Load_DB(this);
+            PlanYourCar.Load(this);
+            invoiceDB.Load(this);
+
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -102,12 +106,13 @@ namespace Warsztat
             try
             {
                 //Convert to number
-                ID = Convert.ToInt32(Dane_Warsztat.CurrentRow.Cells[0].Value.ToString());
+                ID = Convert.ToInt32(Dane_Warsztat.CurrentRow.Cells["ID_Column_Main"].Value.ToString());
+                Console.WriteLine(ID);
                 Warsztat.ReadData(this, ID);
             }
-            catch 
+            catch (Exception ex)
             {
-                MessageBox.Show("Wybrana Kolumna jest pusta");
+                MessageBox.Show("Wybrana Kolumna jest pusta" + ex);
             }
         }
         
@@ -234,12 +239,11 @@ namespace Warsztat
         {
             try
             {
-                Console.WriteLine("123");
                 Update.Create_Scheduled_Cars();
             }
             catch
             {
-                MessageBox.Show("Tabelka już dawno stworzona");
+                MessageBox.Show("Tabelka zaplanowane samochody już dawno stworzona");
             }
         }
 
@@ -257,6 +261,8 @@ namespace Warsztat
         {
             PlanYourCar.ReadData(this, ID);
             Work_Place.SelectTab(AddData);
+            Button_Save.Enabled = true;
+            Warsztat.Clear(this, ID);
         }
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -272,7 +278,7 @@ namespace Warsztat
         //Create Invoice
         private void createToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            GeneratePDF.Create_Invoice(this);
+            GeneratePDF.PreviewInvoice(this);
         }
 
         private void ustawieniaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -283,23 +289,24 @@ namespace Warsztat
 
         private void stwórzToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GeneratePDF.Create(this);
+            GeneratePDF.PreviewPDF(this);
         }
 
         private void usuńToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GeneratePDF.UpdatePDF(this);
+            GeneratePDF.DeletePDF(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             Interface.Load_Data_Localize(this);
-            Warsztat.Load_DB(this);
-            PlanYourCar.Load(this);
+
             Interface.BodyNumberVerify(this);
             Interface.Verify_Button(this);
             Interface.Zlecenie(this);
-            invoiceDB.Load(this);
+
+            todayInvoice.Checked = Card.Checked = true;
+            FakturaNrMask.Visible = false;
         }
 
         private void Card_CheckedChanged(object sender, EventArgs e)
@@ -313,14 +320,8 @@ namespace Warsztat
             KontoInvoice.Text = InBankInvoice.Text = string.Empty; 
         }
 
-        private void checkDateOfPayInvoice_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void InvoiceDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            invoiceDB.Read(this, ID);
             invoiceDB.CreateInvoiceNR(this);
         }
 
@@ -329,9 +330,51 @@ namespace Warsztat
             invoiceDB.Search(this);
         }
 
+
+        private void Button_Delete_Invoice_Click(object sender, EventArgs e)
+        {
+            invoiceDB.Remove(this);
+        }
+        private void Button_Save_Invoice_Click(object sender, EventArgs e)
+        {
+            invoiceDB.Save(this);
+        }
+
         private void todayInvoice_CheckedChanged(object sender, EventArgs e)
         {
             Interface.VerefyCheckDateOfPayInvoice(this);
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+            invoiceDB.CalculatePrice(this);
+        }
+
+        private void InvoiceDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            invoiceDB.Read(this);
+            invoiceDB.CreateInvoiceNR(this);
+        }
+
+        private void Button_Update_Invoice_Click(object sender, EventArgs e)
+        {
+            invoiceDB.Update(this);
+        }
+
+        private void stwórzTabelkęFakturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Update.Create_Faktura();
+        }
+
+        private void FakturaNrlng_MouseClick(object sender, MouseEventArgs e)
+        {
+            FakturaNrMask.Visible = true;
+        }
+
+        private void FakturaNrMask_Leave(object sender, EventArgs e)
+        {
+            FakturaNrtxt.Text = FakturaNrMask.Text;
+            FakturaNrMask.Visible = false;
         }
     }
 }
