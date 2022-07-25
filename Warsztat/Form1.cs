@@ -14,6 +14,8 @@ namespace Warsztat
         public string Dokumenty;
         public string nothing;
 
+        string jazda_;
+
         int ID = 0;
 
         Update Update = new Update();
@@ -25,7 +27,6 @@ namespace Warsztat
 
         SQLiteConnection sql_conn = new SQLiteConnection();
         SQLiteCommand sql_cmd = new SQLiteCommand();
-
 
         public Form1()
         {          
@@ -259,10 +260,10 @@ namespace Warsztat
 
         private void Scheduled_Cars_View_DoubleClick(object sender, EventArgs e)
         {
+            Warsztat.Clear(this, ID);
             PlanYourCar.ReadData(this, ID);
             Work_Place.SelectTab(AddData);
             Button_Save.Enabled = true;
-            Warsztat.Clear(this, ID);
         }
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -299,6 +300,7 @@ namespace Warsztat
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             Interface.Load_Data_Localize(this);
 
             Interface.BodyNumberVerify(this);
@@ -307,6 +309,7 @@ namespace Warsztat
 
             todayInvoice.Checked = Card.Checked = true;
             FakturaNrMask.Visible = false;
+
         }
 
         private void Card_CheckedChanged(object sender, EventArgs e)

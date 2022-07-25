@@ -7,13 +7,13 @@ namespace Warsztat
     internal class Settings
     {
         XmlTextReader reader = new XmlTextReader("Settings.xml");
-
+        
         public  void SaveXml(Setting_Form form, string lang)
         {
-             Task.Run(() =>
+            Task.Run(() =>
             {
-                //Create the XmlDocument.
                 XmlTextWriter xmlWrite = new XmlTextWriter("Settings.xml", Encoding.UTF8);
+                //Create the XmlDocument.
                 xmlWrite.Formatting = Formatting.Indented;
                 xmlWrite.WriteStartDocument();
 
@@ -26,13 +26,14 @@ namespace Warsztat
                 xmlWrite.WriteElementString("NIPCompany", form.NIP.Text.Trim());
                 xmlWrite.WriteElementString("KontoCompany", form.Konto.Text.Trim());
                 xmlWrite.WriteElementString("NumerBDOCompany", form.NumerBDO.Text.Trim());
+                xmlWrite.WriteElementString("NrTelefonu", form.NumberPhone.Text.Trim());
 
                 xmlWrite.WriteEndDocument();
                 xmlWrite.Flush();
                 xmlWrite.Close();
             });        
         }
-        public  void ReadXML(Setting_Form form)
+        public void ReadXML(Setting_Form form)
         {
             while (reader.Read())
             {
@@ -56,23 +57,28 @@ namespace Warsztat
                 {
                     form.NumerBDO.Text = reader.ReadElementContentAsString();
                 }
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "NrTelefonu")
+                {
+                    form.NumberPhone.Text = reader.ReadElementContentAsString();
+                }
 
                 if (reader.NodeType == XmlNodeType.Element && reader.Name == "Language")
                 {
+                    
                     string ukranian = "Ukranian";
                     string polish = "Polish";
                     string lang = reader.ReadElementContentAsString();
-                    
                     if (lang == ukranian)
                     {
                         form.Ukranian.Checked = true;
                     }
                     if (lang == polish)
                     {
-                        form.Ukranian.Checked = true;
+                        form.Polish.Checked = true;
                     }
-                }
+                }                
             }
+            reader.Close();
         }
     }
 }

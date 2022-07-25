@@ -30,5 +30,10 @@ namespace Warsztat
                 Settings.SaveXml(this, "Polish");
             }
         }
+
+        private void Setting_Form_Load_1(object sender, EventArgs e)
+        {
+            Settings.ReadXML(this);
+        }
     }
 }

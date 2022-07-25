@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Xml;
-using System.Drawing.Printing;
-using System;
+
+
 
 namespace Warsztat
 {
+    
+
     internal class GeneratePDF
     {
         PdfDocument pdfDocument = new PdfDocument();
@@ -24,24 +26,24 @@ namespace Warsztat
         PdfPen pen1 = new PdfPen(Color.Red, 3f);
         PdfStringFormat leftAlignment = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
         PdfBrush brush = new PdfSolidBrush(Color.DarkGray);
-
         
-        private string NameCompany;
-        private string AdresCompany;
-        private string NIP;
-        private string Konto;
-        private string NumerBDO;
+        private string NameCompany, AdresCompany, NIP, Konto, NrPhone;
 
-        string jazda_;
-        string kluczyki_;
-        string dokumenty_;
-        string pay;
+        string jazda_, kluczyki_, dokumenty_, pay, dateOfPay;
 
-        int sum;
+        #region Function GeneratePDF
 
-        // string path_Zlecenie = "pdf\\" + form.IDNadwozia.Text.Trim() + "_" + form.Marka.Text.Trim() + "_" + form.Model.Text.Trim() + "_" + ".pdf";
+        private void MessageOpenPDF(string path)
+        {
+            DialogResult result = MessageBox.Show("Pdf stworzony otwórzyć go? ", "Warsztat", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Process.Start(path);
+            }
+        }
+        #endregion
+
         #region Zlecenie
-
         public void PreviewPDF(Form1 form)
         {         
             string dir = "pdf\\" + form.IDNadwozia.Text;
@@ -107,6 +109,7 @@ namespace Warsztat
         public async void Create(Form1 form, string path)
         {
             PdfPageBase page = pdfDocument.Pages.Add();
+
             VerefyChceckBox(form);
 
             await Task.Run(() => {
@@ -149,7 +152,7 @@ namespace Warsztat
                 page.Canvas.DrawString(form.txtZakupione_Czesci.Text, polish, brush1, 0, 386);
                 //Informacje Dodatkowe
                 page.Canvas.DrawRectangle(brush, new RectangleF(new Point(0, 482), new SizeF(1300, 15)));
-                page.Canvas.DrawString("INFORMACJA DODATKOWA", polish, brush1, 0, 484);
+                page.Canvas.DrawString("INFORMACJA DODATKOWA", polish, brush1, 0, 484); 
                 if (form.lngReleaseDate.Checked == true)
                 {
                     page.Canvas.DrawString("Data Wydania: " + form.DataWydania.Text, polish, brush1, 0, 497);
@@ -168,34 +171,20 @@ namespace Warsztat
             pdfDocument.Close();
         }
 
-
         private void VerefyChceckBox(Form1 form)
         {
-            if (form.TestDrive.Checked == true)
-            {
-                jazda_ = "Tak";
-            }
-            else if (form.TestDrive.Checked == false)
-            {
-                jazda_ = "Nie";
-            }
-            if (form.LeftKey.Checked == true)
-            {
-                kluczyki_ = "Tak";
-            }
-            else if (form.LeftKey.Checked == false)
-            {
-                kluczyki_ = "Nie";
-            }
-            if (form.LeftDocumets.Checked == true)
-            {
-                dokumenty_ = "Tak";
-            }
-            else if (form.LeftDocumets.Checked == false)
-            {
-                dokumenty_ = "Nie";
-            }
+            //Ось саме тут проблема, пишу без коментару щоб було легше знайти
+
+            form.TestDrive.Checked = jazda_ == "Tak";
+            form.TestDrive.Checked = !(jazda_ == "Nie");
+            
+            form.LeftKey.Checked = kluczyki_ == "Tak";
+            form.LeftKey.Checked = !(kluczyki_ == "Nie");
+
+            form.LeftDocumets.Checked = dokumenty_ == "Tak";
+            form.LeftDocumets.Checked = !(dokumenty_ == "Nie");
         }
+
         #endregion Zlecenie
         #region Faktura
         public void PreviewInvoice(Form1 form)
@@ -207,20 +196,12 @@ namespace Warsztat
             {
                 Directory.CreateDirectory(dir);
                 Create_Invoice(form, path);
-                DialogResult result = MessageBox.Show("Pdf stworzony otwórzyć go? ", "Warsztat", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    Process.Start(path);
-                }
+                MessageOpenPDF(path);
             }
             else if(Directory.Exists(dir) && !File.Exists(path))
             {
                 Create_Invoice(form, path);
-                DialogResult result = MessageBox.Show("Pdf stworzony otwórzyć go? ", "Warsztat", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    Process.Start(path);
-                }
+                MessageOpenPDF(path);
             }
             else
             {
@@ -255,11 +236,10 @@ namespace Warsztat
             PdfSolidBrush gray = new PdfSolidBrush(Color.Gray);
             PdfSolidBrush white = new PdfSolidBrush(Color.White);
             PdfPageBase page = pdfDocument.Pages.Add();
-
-            calculate(form);
+            var today = form.todayInvoice.Checked = dateOfPay == "termin zapłaty";
+            var forTime = form.forTimeInvoice.Checked = dateOfPay == "termin zapłaty";
 
             _ = Task.Run(() => { ReadXML(); });
-            VerefyChceckBox(form);
             
             await Task.Run(() => {
                 //IMPORTANT INFORMATION
@@ -277,8 +257,9 @@ namespace Warsztat
                 //seller
                 page.Canvas.DrawString("Sprzedawca " + NameCompany.Trim(), polish, brush1, 0, 90);
                 page.Canvas.DrawString("NIP: " + NIP.Trim(), polish, brush1, 0, 100);
-                page.Canvas.DrawString("KONTO: " + Konto.Trim(), polish, brush1, 0, 110);
-                page.Canvas.DrawString("Numer BDO: " + NumerBDO.Trim(), polish, brush1, 0, 120);
+                page.Canvas.DrawString("Numer telefonu: " + NrPhone.Trim(), polish, brush1, 0, 110);
+                page.Canvas.DrawString("KONTO: " + Konto.Trim(), polish, brush1, 0, 120);
+                
                 //Buyer
                 page.Canvas.DrawLine(pen, new PointF(250, 90), new PointF(250, 130));
                 page.Canvas.DrawString("Nabywca", polish, brush1, 300, 90);
@@ -307,22 +288,16 @@ namespace Warsztat
                 table.Style.ShowHeader = true; //display the header (not displayed by default)
                 table.Draw(page, new RectangleF(0, 150, 900, 400)); //size table
                 page.Canvas.DrawLine(lineTable, new PointF(515, 150), new PointF(515, 215));
-
+                
                 //Information
                 PayRadioButton(form);
-                page.Canvas.DrawString("Sposób płatności: " + pay, polish, brush1, 0, 220);
-                if(form.todayInvoice.Checked == true)
-                {
-                    page.Canvas.DrawString("termin zapłaty: " + form.dateTimePickerInvoice.Text.Trim(), polish, brush1, 0, 230);
-                }
-                else
-                {
-                    page.Canvas.DrawString("termin zapłaty: " + form.DateOfPayInvoice.Text.Trim(), polish, brush1, 0, 230);
-                }
+                page.Canvas.DrawString("Sposób płatności: " + pay, polish, brush1, 0, 220);                              
+                page.Canvas.DrawString(today + form.dateTimePickerInvoice.Text.Trim(), polish, brush1, 0, 230);
+                page.Canvas.DrawString(forTime + form.DateOfPayInvoice.Text.Trim(), polish, brush1, 0, 230);                
                 
                 page.Canvas.DrawString("W banku: " + form.InBankInvoice.Text.Trim(), polish, brush1, 300, 230);
                 page.Canvas.DrawString("Nr Konta: " + form.KontoInvoice.Text.Trim(), polish, brush1, 0, 240);
-                page.Canvas.DrawString("Kwota należności ogółem do zapłaty: " + sum + "zł", polish, brush1, 300, 240);
+                page.Canvas.DrawString("Kwota należności ogółem do zapłaty: " + form.PriceFinall.Text + "zł", polish, brush1, 300, 240);
                 page.Canvas.DrawRectangle(pen, white, new Rectangle(new Point(350, 260), new Size(150, 50)));
                 page.Canvas.DrawString("podpis wystawcy faktury", FT, gray, 435, 310);
             });
@@ -332,25 +307,10 @@ namespace Warsztat
         }
         public void  PayRadioButton(Form1 form)
         {
-            if (form.Card.Checked == true)
-            {
-                pay = "przelew";
-             }
-            else if (form.Cash.Checked == true)
-            {
-                pay = "gotówka";
-            }
+            form.Card.Checked = pay == "przelew";
+            form.Card.Checked = !(pay == "gotówka");
         }
-        private void calculate(Form1 form)
-        {
 
-            int num1 = Convert.ToInt16(form.PriceService1Invoice.Text.ToString());
-            int num2 = Convert.ToInt16(form.PriceService2Invoice.Text.ToString());
-            int num3 = Convert.ToInt16(form.PriceService3Invoice.Text.ToString());
-            int num4 = Convert.ToInt16(form.PriceService4Invoice.Text.ToString());
-
-            sum = num1 +num2+num3+num4;
-        }
         #endregion Faktura
         #region RemoveLaterFromHere
         public void ReadXML()
@@ -375,17 +335,12 @@ namespace Warsztat
                 {
                     Konto = reader.ReadElementContentAsString();
                 }
-                if (reader.NodeType == XmlNodeType.Element && reader.Name == "NumerBDOCompany")
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "NrTelefonu")
                 {
-                    NumerBDO = reader.ReadElementContentAsString();
+                    NrPhone = reader.ReadElementContentAsString();
                 }
             }
         }
         #endregion
-        private void CreateFolder(Form1 form, string pathInvoice)
-        {
-
-
-        }
     }
 }

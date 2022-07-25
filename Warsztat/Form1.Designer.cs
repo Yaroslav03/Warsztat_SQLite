@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Work_Place = new System.Windows.Forms.TabControl();
             this.Home = new System.Windows.Forms.TabPage();
             this.Button_Delete = new System.Windows.Forms.Button();
@@ -192,6 +192,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.FakturaNrMask = new System.Windows.Forms.MaskedTextBox();
             this.FakturaNrlng = new System.Windows.Forms.Label();
             this.FakturaNrtxt = new System.Windows.Forms.Label();
             this.AdresInvoice = new System.Windows.Forms.TextBox();
@@ -241,7 +242,6 @@
             this.createInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FakturaNrMask = new System.Windows.Forms.MaskedTextBox();
             this.Work_Place.SuspendLayout();
             this.Home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dane_Warsztat)).BeginInit();
@@ -1891,6 +1891,15 @@
             this.panel11.Size = new System.Drawing.Size(360, 143);
             this.panel11.TabIndex = 9;
             // 
+            // FakturaNrMask
+            // 
+            this.FakturaNrMask.Location = new System.Drawing.Point(258, 8);
+            this.FakturaNrMask.Mask = "00\\/0000";
+            this.FakturaNrMask.Name = "FakturaNrMask";
+            this.FakturaNrMask.Size = new System.Drawing.Size(89, 23);
+            this.FakturaNrMask.TabIndex = 20;
+            this.FakturaNrMask.Leave += new System.EventHandler(this.FakturaNrMask_Leave);
+            // 
             // FakturaNrlng
             // 
             this.FakturaNrlng.AutoSize = true;
@@ -2023,9 +2032,9 @@
             this.Zlecenie_Klienta_Column});
             this.Scheduled_Cars_View.Location = new System.Drawing.Point(6, 61);
             this.Scheduled_Cars_View.Name = "Scheduled_Cars_View";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle9.NullValue = null;
-            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.NullValue = null;
+            this.Scheduled_Cars_View.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Scheduled_Cars_View.Size = new System.Drawing.Size(1193, 550);
             this.Scheduled_Cars_View.TabIndex = 0;
             this.Scheduled_Cars_View.DoubleClick += new System.EventHandler(this.Scheduled_Cars_View_DoubleClick);
@@ -2327,15 +2336,6 @@
             this.viewAllPDFToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.viewAllPDFToolStripMenuItem.Text = "Zobacz wszystkie PDF";
             this.viewAllPDFToolStripMenuItem.Click += new System.EventHandler(this.viewAllPDFToolStripMenuItem_Click);
-            // 
-            // FakturaNrMask
-            // 
-            this.FakturaNrMask.Location = new System.Drawing.Point(258, 8);
-            this.FakturaNrMask.Mask = "00\\/0000";
-            this.FakturaNrMask.Name = "FakturaNrMask";
-            this.FakturaNrMask.Size = new System.Drawing.Size(89, 23);
-            this.FakturaNrMask.TabIndex = 20;
-            this.FakturaNrMask.Leave += new System.EventHandler(this.FakturaNrMask_Leave);
             // 
             // Form1
             // 

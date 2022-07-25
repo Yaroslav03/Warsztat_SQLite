@@ -89,8 +89,6 @@ namespace Warsztat
         }
         public void ReadData(Form1 form, int ID)
         {
-            sql_conn.Close();
-            sql_conn.Open();
             ID = Convert.ToInt32(form.Scheduled_Cars_View.CurrentRow.Cells["ID_Column"].Value.ToString());
 
             form.DataPrzyjecia.Text = form.Scheduled_Cars_View.CurrentRow.Cells["DataPrzyjecia_Column"].Value.ToString();
@@ -100,8 +98,6 @@ namespace Warsztat
             form.LastName.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Nazwisko_Column"].Value.ToString();
             form.txtZlecenie_Klienta.Text = form.Scheduled_Cars_View.CurrentRow.Cells["Zlecenie_Klienta_Column"].Value.ToString();
             form.TelefonKomurkowy.Text= form.Scheduled_Cars_View.CurrentRow.Cells["NrTelefonu_Column"].Value.ToString();
-
-            sql_conn.Close();
         }
     }
 }
