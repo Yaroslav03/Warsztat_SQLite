@@ -2,16 +2,19 @@
 using System.Data.SQLite;
 using System.Windows.Forms;
 using System.Data;
+using System;
 
 namespace Warsztat
 {
     internal class Update
     {
-        private  SQLiteConnection conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
+        private SQLiteConnection conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
         SQLiteCommand cmd = new SQLiteCommand();
         SQLiteDataAdapter sqlDB = new SQLiteDataAdapter();
         DataSet sqlDS = new DataSet();
         DataTable sqlDT = new DataTable();
+
+        Interface Interface = new Interface();
 
         public void Create_New_DB()
         {
@@ -59,39 +62,42 @@ namespace Warsztat
         {
             conn.Open();
             //Delete tabele old
-            DialogResult result = MessageBox.Show( "Jeśli wy skopjowali dane to proszę kliknąć OK a jeśli nie kliknięcie Ok powoduję usunięcia danych bez możliwości przywrócenia",
+            DialogResult result = MessageBox.Show("Jeśli wy skopjowali dane to proszę kliknąć OK a jeśli nie kliknięcie Ok powoduję usunięcia danych bez możliwości przywrócenia",
                 "Warsztat", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                    cmd = new SQLiteCommand("DROP TABLE Dane;", conn);
-                    cmd.ExecuteNonQuery();
-                    //Rename a Dane_New to Dane
-                    cmd = new SQLiteCommand("ALTER TABLE Dane_New RENAME TO Dane;", conn);
-                    cmd.ExecuteNonQuery();
-                    Application.Restart();
-            }
-            else if( result == DialogResult.No)
-            {
-
+                cmd = new SQLiteCommand("DROP TABLE Dane;", conn);
+                cmd.ExecuteNonQuery();
+                //Rename a Dane_New to Dane
+                cmd = new SQLiteCommand("ALTER TABLE Dane_New RENAME TO Dane;", conn);
+                cmd.ExecuteNonQuery();
+                Application.Restart();
             }
             conn.Close();
         }
         public void Create_Scheduled_Cars()
         {
-            conn.Open();
-            //Create a new table
-            cmd = new SQLiteCommand("CREATE TABLE Zaplanowane_Samochody " +
-                "(ID INTEGER NOT NULL UNIQUE," +
-                " DataPrzyjecia TEXT NOT NULL," +
-                " Model TEXT NOT NULL, " +
-                "Marka TEXT NOT NULL," +
-                " Imie TEXT NOT NULL, " +
-                "Nazwisko  TEXT NOT NULL," +
-                "Zlecenie_Klienta TEXT NOT NULL, " +
-                "NrTelefonu TEXT NOT NULL," +
-                "PRIMARY KEY(ID AUTOINCREMENT))", conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                conn.Open();
+                //Create a new table
+                cmd = new SQLiteCommand("CREATE TABLE Zaplanowane_Samochody " +
+                    "(ID INTEGER NOT NULL UNIQUE," +
+                    " DataPrzyjecia TEXT NOT NULL," +
+                    " Model TEXT NOT NULL, " +
+                    "Marka TEXT NOT NULL," +
+                    " Imie TEXT NOT NULL, " +
+                    "Nazwisko  TEXT NOT NULL," +
+                    "Zlecenie_Klienta TEXT NOT NULL, " +
+                    "NrTelefonu TEXT NOT NULL," +
+                    "PRIMARY KEY(ID AUTOINCREMENT))", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Tabelka zaplanowane samochody już dawno stworzona");
+            }
         }
         public void Create_Faktura()
         {
@@ -103,7 +109,7 @@ namespace Warsztat
                 " KosztUslugi2 INTEGER NOT NULL, KosztUslugi3 INTEGER NOT NULL, " +
                 "KosztUslugi4 INTEGER NOT NULL, SposobPlatnosci TEXT NOT NULL, " +
                 "TerminZaplaty TEXT NOT NULL, Konto TEXT NOT NULL, Bank TEXT NOT NULL, " +
-                "CenaKoncowa INTEGER NOT NULL, PRIMARY KEY(ID AUTOINCREMENT))",conn);
+                "CenaKoncowa INTEGER NOT NULL, PRIMARY KEY(ID AUTOINCREMENT))", conn);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -125,11 +131,11 @@ namespace Warsztat
             }
         }
         public void Save_data_old(int ID)
-        {            
+        {
             conn.Open();
             try
             {//new version
-               
+
                 cmd.CommandText = "INSERT INTO Dane_New(ID, DataPrzyjecia, DataWydania, Marka, Model,  NumerRejestracji, RokProdukcji, PojemnoscSilnika, Przebieg, NumerNadwozia, IDSilnika, Imie, Nazwisko, NIP, Telefon, Adres, ZlecenieKlienta, Diagnostyka, Naprawa, Koszt_Szacunkowy, Koszt_Koncowy, TestDrive, PozostawioneKluczyki, PozostawioneDokumenty, Zakupione_Czesci)" +
                         "VALUES ((SELECT ID FROM Dane),(SELECT DataPrzyjecia From Dane), (SELECT DataWydania FROM Dane), (SELECT Marka From Dane),(SELECT Model From Dane),(SELECT NumerRejestracji From Dane),(SELECT RokProdukcji From Dane), (SELECT PojemnoscSilnika From Dane),(SELECT Przebieg From Dane),(SELECT NumerNadwozia From Dane),(SELECT IDSilnika From Dane), (SELECT Imie From Dane),(SELECT Nazwisko From Dane),(SELECT NIP From Dane),(SELECT Telefon From Dane),(SELECT Adres From Dane),(SELECT ZlecenieKlienta From Dane),(SELECT Diagnostyka From Dane),(SELECT Naprawa From Dane),(SELECT Koszt_Szacunkowy From Dane),(SELECT Koszt_Koncowy FROM Dane),(SELECT TestDrive From Dane),(SELECT PozostawioneKluczyki From Dane),(SELECT PozostawioneDokumenty From Dane), (SELECT Zakupione_Czesci FROM Dane))";
                 cmd.Parameters.AddWithValue("@ID", ID);
@@ -173,6 +179,37 @@ namespace Warsztat
             form.OLD_Table.DataSource = DT;
             form.OLD_Table.Columns[0].Visible = false;
             conn.Close();
+        }
+
+        public void deleteData(Form1 form)
+        {
+            int ID = Convert.ToInt32(form.OLD_Table.CurrentRow.Cells[0].Value.ToString());
+            conn.Close();
+            try
+           {
+                if (ID != 0)
+                {
+                    conn.Open();
+
+                    cmd = new SQLiteCommand("DELETE FROM Dane WHERE ID =@ID", conn);
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    cmd.ExecuteNonQuery();
+                
+                    conn.Close();
+                    Interface.Clear(form, ID);
+                    Load_To_Copy_Old_Tabel(form);
+
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Record to Delete");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie udało się usunąć dane", "Warsztat");
+            }
         }
     }
 }

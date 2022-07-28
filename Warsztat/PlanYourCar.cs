@@ -9,11 +9,9 @@ namespace Warsztat
     {
         private SQLiteConnection sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
         SQLiteCommand sql_cmd = new SQLiteCommand();
-        SQLiteDataAdapter DB = new SQLiteDataAdapter();
-        DataSet DS = new DataSet();
-        DataTable DT = new DataTable();
         Warsztat Warsztat = new Warsztat();
         Update Update = new Update();
+        Interface Interface = new Interface();
                 
         public void Load (Form1 form)
         {
@@ -39,7 +37,6 @@ namespace Warsztat
                 MessageBox.Show("Tabelka już stworzona", "Warsztat");
                 Update.Create_Scheduled_Cars();
             }
-            //form.Scheduled_Cars_View.Columns["ID_Column"].Visible = false;
         }
         public void Add(Form1 form, int ID)
         {
@@ -58,8 +55,8 @@ namespace Warsztat
                 sql_cmd.Parameters.AddWithValue("@DataPrzyjecia", form.DataPrzyjecia.Text.Trim());
                 sql_cmd.ExecuteNonQuery();              
 
-                MessageBox.Show("Samochód  " +form.Marka.Text.Trim()  + " " + form.Model.Text.Trim() + " jest zapłanowany na " + form.DataPrzyjecia.Text.Trim());
-                Warsztat.Clear(form, ID);
+                MessageBox.Show($"Samochód  {form.Marka.Text.Trim()} {form.Model.Text.Trim()}  jest zapłanowany na {form.DataPrzyjecia.Text.Trim()}");
+                Interface.Clear(form, ID);
             }
             catch(Exception ex)
             {

@@ -12,14 +12,16 @@ namespace Warsztat
         SQLiteDataAdapter DB = new SQLiteDataAdapter();
         DataSet DS = new DataSet();
         DataTable DT = new DataTable();
-
+        Interface Interface= new Interface();
+        
+        private string dateOfRelease, Jazda, Kluczyki, Dokumenty;
         public void Search(Form1 form)
         {
             if (form.txtSearch.Text != "")
             {
                 conn.Close();//Close a some opening connection
                 conn.Open();
-                DB = new SQLiteDataAdapter("SELECT * from Dane WHERE Marka LIKE '" + form.txtSearch.Text + "%' OR Model Like '" + form.txtSearch.Text + "%' OR NumerNadwozia Like '" + form.txtSearch.Text + "%'", conn);
+                DB = new SQLiteDataAdapter($"SELECT * from Dane WHERE Marka LIKE '{form.txtSearch.Text}%' OR Model Like '{ form.txtSearch.Text}%' OR NumerNadwozia Like '{form.txtSearch.Text}%'", conn);
                 DT = new DataTable();
                 DB.Fill(DT);
                 form.Dane_Warsztat.DataSource = DT;
@@ -32,9 +34,9 @@ namespace Warsztat
         }
         public void Update(Form1 form, int ID)
         {
+            ID = Convert.ToInt32(form.Dane_Warsztat.CurrentRow.Cells["ID_Column_Main"].Value.ToString());
             try
             {
-                ID.ToString();
                 conn.Open();
                 cmd.CommandText = "UPDATE Dane set Marka=@Marka, Model=@Model, NumerRejestracji=@NumerRejestracji, RokProdukcji=@RokProdukcji, PojemnoscSilnika=@PojemnoscSilnika, Przebieg=@Przebieg, NumerNadwozia=@NumerNadwozia, IDSilnika=@IDSilnika, Imie=@Imie, Nazwisko=@Nazwisko, NIP=@NIP, Telefon=@Telefon, Adres=@Adres, ZlecenieKlienta=@ZlecenieKlienta, Diagnostyka=@Diagnostyka, Naprawa=@Naprawa, Koszt_Koncowy=@Koszt_Koncowy, Koszt_Szacunkowy=@Koszt_Szacunkowy, DataPrzyjecia=@DataPrzyjecia, DataWydania=@DataWydania, TestDrive=@TestDrive, PozostawioneKluczyki=@PozostawioneKluczyki, PozostawioneDokumenty=@PozostawioneDokumenty, Zakupione_Czesci=@Zakupione_Czesci  WHERE ID=@ID";
                 cmd.Parameters.AddWithValue("@ID", ID);
@@ -45,7 +47,7 @@ namespace Warsztat
                 MessageBox.Show("Dane zostałe odświeżone", "Baza danych");
 
                 form.Work_Place.SelectTab(form.Home);
-                Clear(form, ID);
+                Interface.Clear(form, ID);
                 form.Button_Save.Enabled = true;
                 form.DataPrzyjecia.Text = DateTime.Now.ToString();
             }
@@ -59,7 +61,7 @@ namespace Warsztat
             try
             {
                 Save_Data(form);
-                Clear(form, ID);
+                Interface.Clear(form, ID);
             }
             catch
             {
@@ -70,10 +72,8 @@ namespace Warsztat
         }
         public void ReadData(Form1 form, int ID)
         {
-            conn.Close();//Close a some opening connection
-            conn.Open();
-
             ID = Convert.ToInt32(form.Dane_Warsztat.CurrentRow.Cells["ID_Column_Main"].Value.ToString());
+
             form.DataPrzyjecia.Text = form.Dane_Warsztat.CurrentRow.Cells["DataPrzyjecia_Column_Main"].Value.ToString();
             form.DataWydania.Text = form.Dane_Warsztat.CurrentRow.Cells["DataWydania_Column_Main"].Value.ToString();
 
@@ -114,55 +114,50 @@ namespace Warsztat
             form.LeftDocumets.Checked = !(dokumenty_ == "Nie");
 
             form.txtZakupione_Czesci.Text = form.Dane_Warsztat.CurrentRow.Cells["Zakupione_Czesci_Column_Main"].Value.ToString();
-
-            conn.Close();
+            //
             form.Button_Delete.Enabled = form.Enabled;
         }
 
         public void Load_DB(Form1 form)
         {
-            try
-            {
+                conn.Close();
                 conn.Open();
+
                 cmd = conn.CreateCommand();
-                string CommandText = "select * from Dane";
-                DB = new SQLiteDataAdapter(CommandText, conn);
+                string read = "select * from Dane";
+                DB = new SQLiteDataAdapter(read, conn);
                 DS.Reset();
                 DB.Fill(DS);
                 DT = DS.Tables[0];
                 form.Dane_Warsztat.DataSource = DT;
                 form.Dane_Warsztat.Columns["ID_Column_Main"].Visible = false;
+
                 conn.Close();
-            }
-            catch (Exception ex)//it`s a fix
-            {
-                
-            }
         }
         public void Delete(Form1 form, int ID)
         {
-            conn.Open();
+            ID = Convert.ToInt32(form.Dane_Warsztat.CurrentRow.Cells["ID_Column_Main"].Value.ToString());
             try
             {
                 //Дані до опису Транспорту
                 if (ID != 0)
                 {
+                    conn.Open();
                     cmd = new SQLiteCommand("DELETE FROM Dane WHERE ID =@ID", conn);
                     cmd.Parameters.AddWithValue("@ID", ID);
                     cmd.ExecuteNonQuery();
-                    Clear(form, ID);
+                    Interface.Clear(form, ID);
                     Load_DB(form);
+                    conn.Close();
                 }
-                else
-                {
+                else{
                     MessageBox.Show("Please Select Record to Delete");
                 }
-            }
-            catch (Exception)
+            } catch (Exception)
             {
                 MessageBox.Show("Nie udało się usunąć dane ", "Warsztat");
             }
-            conn.Close();
+            
         }
         private void Save_Data(Form1 form)
         {
@@ -174,12 +169,17 @@ namespace Warsztat
             //Запис Основної Інформації завдяки Parameters
             Edit_AND_Save(form); //Беремо звідти команди виконнання 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Wszystko zostało zapisane");
             conn.Close();
+            MessageBox.Show("Wszystko zostało zapisane");
             form.Work_Place.SelectTab(form.Home);
         }
         private void Edit_AND_Save(Form1 form) // Тут містяться параметри для sql
         {
+            Console.WriteLine(form.Model.Text + form.Marka.Text+ form.NumerRejestracji.Text+
+                form.YearOfProduction.Text+ form.PojemnoscSilnika.Text+ form.Przebieg.Text+ form.IDNadwozia.Text+ form.IDSilnika.Text+ form._Name.Text+ form.LastName.Text+ form.NIP.Text+
+                form.TelefonKomurkowy.Text + form.Adress.Text+ form.txtZlecenie_Klienta.Text+ form.txtDiagostyka.Text+ form.txtNaprawa.Text+ form.Price.Text+ form.DataPrzyjecia.Text+
+                dateOfRelease+ form.Price_Finally.Text+ form.txtZakupione_Czesci.Text+ Jazda+ Kluczyki+ Dokumenty);
+
             cmd.Parameters.AddWithValue("@Model", form.Model.Text.Trim());
             cmd.Parameters.AddWithValue("@Marka", form.Marka.Text.Trim());
             cmd.Parameters.AddWithValue("@NumerRejestracji", form.NumerRejestracji.Text.Trim());
@@ -202,83 +202,18 @@ namespace Warsztat
             cmd.Parameters.AddWithValue("@Naprawa", form.txtNaprawa.Text.Trim());
             cmd.Parameters.AddWithValue("@Koszt_Szacunkowy", form.Price.Text.Trim());
             cmd.Parameters.AddWithValue("@DataPrzyjecia", form.DataPrzyjecia.Text.Trim());
-            if (form.lngReleaseDate.Checked == true)
-            {
-                Console.WriteLine("Data Wyadania Text");
-                cmd.Parameters.AddWithValue("@DataWydania", form.DataWydania.Text.Trim());
-            }
-            else if (form.lngReleaseDate.Checked == false)
-            {
-                cmd.Parameters.AddWithValue("@DataWydania", form.nothing = "");
-            }
+
+            cmd.Parameters.AddWithValue("@DataWydania", dateOfRelease = form.lngReleaseDate.Checked ? form.DataWydania.Text.Trim() : String.Empty);
             cmd.Parameters.AddWithValue("@Koszt_Koncowy", form.Price_Finally.Text.Trim());
             cmd.Parameters.AddWithValue("@Zakupione_Czesci", form.txtZakupione_Czesci.Text.Trim());
 
             //Інформація додаткова
             //Пробний пробіг
-            if (form.TestDrive.Checked == true)
-            {
-                cmd.Parameters.AddWithValue("@TestDrive", form.Jazda = "Tak");
-            }
-            else if (form.TestDrive.Checked == false)
-            {
-                cmd.Parameters.AddWithValue("@TestDrive", form.Jazda = "Nie");
-            }
+            cmd.Parameters.AddWithValue("@TestDrive", Jazda = form.TestDrive.Checked ? "Tak" : "Nie");           
             //Залишені ключі
-            if (form.LeftKey.Checked == true)
-            {
-                cmd.Parameters.AddWithValue("@PozostawioneKluczyki", form.Kluczyki = "Tak");
-            }
-            else if (form.LeftKey.Checked == false)
-            {
-                cmd.Parameters.AddWithValue("@PozostawioneKluczyki", form.Kluczyki = "Nie");
-            }
+            cmd.Parameters.AddWithValue("@PozostawioneKluczyki", Kluczyki = form.LeftKey.Checked ? "Tak" : "Nie");
             //Залишені документи
-            if (form.LeftDocumets.Checked == true)
-            {
-                cmd.Parameters.AddWithValue("@PozostawioneDokumenty", form.Dokumenty = "Tak");
-            }
-            else if (form.LeftDocumets.Checked == false)
-            {
-                cmd.Parameters.AddWithValue("@PozostawioneDokumenty", form.Dokumenty = "Nie");
-            }
-        }
-
-        public void Clear(Form1 form, int ID)
-        {
-            //Opis pojazdu 
-            ClearPart(form, form.panel1.Controls);
-            //Dane klienta
-            ClearPart(form, form.panel3.Controls);
-            // Naprawa           Diagnostyka            Zlecenie Klienta            Zakupione Czesci
-            form.txtNaprawa.Text = form.txtDiagostyka.Text = form.txtZlecenie_Klienta.Text = form.txtZakupione_Czesci.Text = "";
-            form.YearOfProduction.Text = form.TelefonKomurkowy.Text = "";
-            //Дані додаткові 
-            form.TestDrive.Checked = form.LeftDocumets.Checked = form.LeftKey.Checked = false;
-            form.Price.Text = form.Price_Finally.Text = "";
-
-            ID = 0;
-            form.Button_Save.Text = "Zapisz";
-            form.Button_Delete.Enabled = false;
-            form.DataPrzyjecia.Text = DateTime.Now.ToString();
-            form.DataWydania.Text = DateTime.Now.ToString();
-        }
-        public void ClearPart(Form form, Control.ControlCollection controlCollection)
-        {
-            try
-            {
-                foreach (Control c in controlCollection)
-                {
-                    if (c is TextBox)
-                        ((TextBox)c).Clear();
-                    else if (c is RichTextBox)
-                        ((RichTextBox)c).Clear();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            cmd.Parameters.AddWithValue("@PozostawioneDokumenty", Dokumenty = form.LeftDocumets.Checked ? "Tak" : "Nie");
         }
     }
 }

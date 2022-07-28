@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Drawing;
-using System.IO;
 using System.Xml;
+using System.Windows.Forms;
 
 namespace Warsztat
 {
@@ -11,8 +11,32 @@ namespace Warsztat
         public string language;
         public string UA = "Ukranian";
 
+        #region Language
+        public void Load_Data_Localize(Form1 _form)
+        {
+            XmlTextReader reader = new XmlTextReader("Settings.xml");
+            try
+            {
+                while (reader.Read())
+                {
+                    if (reader.NodeType == XmlNodeType.Element && reader.Name == "Language")
+                    {
+                        language = reader.ReadElementContentAsString();
+                    }
+                }
+                if (UA == language)
+                {
+                    Localize_UA(_form);
+                }
+            }
+            catch
+            {
+                Localize_PL(_form);
+            }
+        }
+
         public void Localize_UA(Form1 _form)
-        {          
+        {
             _form.ustawieniaToolStripMenuItem.Text = "Налаштування";
             _form.Update_DB.Text = "Оновити до новішої версії базу даних";
             _form.akcjeToolStripMenuItem1.Text = "Дії";
@@ -70,8 +94,8 @@ namespace Warsztat
             _form.lngOldBD.Text = "Стара база даних";
             _form.lngNewBD.Text = "Нова база даних";
         }
-        public   void Localize_PL(Form1 _form)
-        {         
+        public void Localize_PL(Form1 _form)
+        {
             _form.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             _form.Update_DB.Text = "Odśwież do nowszej wersji Bazy Danych";
             _form.akcjeToolStripMenuItem1.Text = "Akcje";
@@ -131,6 +155,8 @@ namespace Warsztat
             _form.lngOldBD.Text = "Stara Baza Danych";
             _form.lngNewBD.Text = "Nowa Baza Danych";
         }
+        #endregion
+        #region Verefy 
         public void Verify_Button(Form1 form)
         {
             form.Marka.BackColor = String.IsNullOrEmpty(form.Marka.Text) ? Color.Red : Color.White;
@@ -172,9 +198,7 @@ namespace Warsztat
 
         public void Zlecenie(Form1 form)
         {
-            Console.WriteLine(form.txtZlecenie_Klienta.Text.Length);
-            
-            if(form.txtZlecenie_Klienta.Text.Length >= 105 && form.txtZlecenie_Klienta.Text.Length <= 109)
+            if (form.txtZlecenie_Klienta.Text.Length >= 105 && form.txtZlecenie_Klienta.Text.Length <= 109)
             {
                 form.Zlecenie_Message.Text = "We recommend pressing Enter";
             }
@@ -211,28 +235,44 @@ namespace Warsztat
                 form.Zlecenie_Message.Text = String.Empty;
             }
         }
-
-        public  void Load_Data_Localize(Form1 _form)
+        #endregion
+        #region Clear
+        public void ClearPart(Form form, Control.ControlCollection controlCollection)
         {
-            XmlTextReader reader = new XmlTextReader("Settings.xml");
-            try 
+            try
             {
-                while (reader.Read())
+                foreach (Control c in controlCollection)
                 {
-                    if (reader.NodeType == XmlNodeType.Element && reader.Name == "Language")
-                    {
-                        language = reader.ReadElementContentAsString();
-                    }
-                }
-                if (UA == language)
-                {
-                    Localize_UA(_form);
+                    if (c is TextBox)
+                        ((TextBox)c).Clear();
+                    else if (c is RichTextBox)
+                        ((RichTextBox)c).Clear();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                Localize_PL(_form);
-            }  
+                MessageBox.Show(ex.Message);
+            }
         }
+        public void Clear(Form1 form, int ID)
+        {
+            //Opis pojazdu 
+            ClearPart(form, form.panel1.Controls);
+            //Dane klienta
+            ClearPart(form, form.panel3.Controls);
+            // Naprawa           Diagnostyka            Zlecenie Klienta            Zakupione Czesci
+            form.txtNaprawa.Text = form.txtDiagostyka.Text = form.txtZlecenie_Klienta.Text = form.txtZakupione_Czesci.Text = string.Empty;
+            form.YearOfProduction.Text = form.TelefonKomurkowy.Text = string.Empty;
+            //Дані додаткові 
+            form.TestDrive.Checked = form.LeftDocumets.Checked = form.LeftKey.Checked = false;
+            form.Price.Text = form.Price_Finally.Text = string.Empty;
+
+            ID = 0;
+            form.Button_Save.Text = "Zapisz";
+            form.Button_Delete.Enabled = false;
+            form.DataPrzyjecia.Text = DateTime.Now.ToString();
+            form.DataWydania.Text = DateTime.Now.ToString();
+        }
+        #endregion
     }
 }

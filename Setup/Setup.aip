@@ -6,17 +6,16 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll" Value="..\packages\EntityFramework.6.4.4\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.dll" Value="..\packages\EntityFramework.6.4.4\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.mshtml.dll" Value="..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\PublicAssemblies"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLite.Interop.dll" Value="..\Warsztat\bin\Debug\x64"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLite.Interop.dll_1" Value="..\Warsztat\bin\Debug\x86"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLite.Interop.dll" Value="..\Warsztat\bin\Release\x64"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLite.Interop.dll_1" Value="..\Warsztat\bin\Release\x86"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Spire.License.dll" Value="..\packages\FreeSpire.PDF.8.2.0\lib\net40"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Spire.Pdf.dll" Value="..\packages\FreeSpire.PDF.8.2.0\lib\net40"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.EF6.dll" Value="..\packages\System.Data.SQLite.EF6.1.0.115.5\lib\net46"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.Linq.dll" Value="..\packages\System.Data.SQLite.Linq.1.0.115.5\lib\net46"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.dll" Value="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.db" Value="..\Warsztat\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe" Value="..\Warsztat\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe.config" Value="..\Warsztat\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.pdb" Value="..\Warsztat\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe" Value="..\Warsztat\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.exe.config" Value="..\Warsztat\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Warsztat.pdb" Value="..\Warsztat\bin\Release"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll" Value="EntityFramework.SqlServer.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll" Value="EntityFramework.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.mshtml.dll" Value="Microsoft.mshtml.dll"/>
@@ -27,7 +26,6 @@
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.EF6.dll" Value="System.Data.SQLite.EF6.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.Linq.dll" Value="System.Data.SQLite.Linq.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.dll" Value="System.Data.SQLite.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Warsztat.db" Value="Warsztat.db"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe" Value="Warsztat.exe"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe.config" Value="Warsztat.exe.config"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Warsztat.pdb" Value="Warsztat.pdb"/>
@@ -38,10 +36,10 @@
     <ROW Property="ARPNOREMOVE" Value="1"/>
     <ROW Property="ARPNOREPAIR" Value="1"/>
     <ROW Property="Manufacturer" Value="YD"/>
-    <ROW Property="ProductCode" Value="1033:{FF7772CF-C436-418C-A333-E64180BA7852} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{9332C575-50D2-4AD6-925A-A8448E740FF0} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Warsztat"/>
-    <ROW Property="ProductVersion" Value="1.3.1" Type="32"/>
+    <ROW Property="ProductVersion" Value="1.3.2" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{EC8E6FB1-2664-4379-898A-CF4D3CDAF552}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -67,7 +65,6 @@
     <ROW Component="APPDIR" ComponentId="{6E596785-DFFB-4400-A77A-CC4BF058B2DE}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="NewFolder" ComponentId="{83C145AC-381A-400F-8996-8917A10B5EFC}" Directory_="NewFolder_Dir" Attributes="0"/>
     <ROW Component="ProductInformation" ComponentId="{20F5ACBA-D7FD-4DF7-A82F-005C50596B17}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="Warsztat_ContentOutput" ComponentId="{F440D1DC-A29F-4926-8778-4DC31DAC5B3D}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Warsztat.db" Type="0"/>
     <ROW Component="Warsztat_ContentOutput_x64" ComponentId="{23831399-62DB-4BA4-92E8-BCE8B44E97FF}" Directory_="x64_Dir" Attributes="256" KeyPath="SQLite.Interop.dll"/>
     <ROW Component="Warsztat_ContentOutput_x86" ComponentId="{DDB5229A-8D3A-4485-A23E-53B99147403A}" Directory_="x86_Dir" Attributes="0" KeyPath="SQLite.Interop.dll_1"/>
     <ROW Component="Warsztat_PrimaryOutput" ComponentId="{11F94243-8202-4E64-878B-72F9CC34137A}" Directory_="Warsztat_Dir" Attributes="0" KeyPath="Warsztat.exe"/>
@@ -93,7 +90,6 @@
     <ROW File="Spire.License.dll" Component_="Warsztat_References" FileName="SPIREL~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Spire.License.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Spire.License.dll&gt;" SelfReg="false"/>
     <ROW File="Spire.Pdf.dll" Component_="Warsztat_References" FileName="SPIREP~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Spire.Pdf.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Spire.Pdf.dll&gt;" SelfReg="false"/>
     <ROW File="Microsoft.mshtml.dll" Component_="Warsztat_References" FileName="MICROS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.mshtml.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.mshtml.dll&gt;" SelfReg="false"/>
-    <ROW File="Warsztat.db" Component_="Warsztat_ContentOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.db]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Warsztat.db&gt;" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
     <ROW Name="AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Type="2" Content="0"/>
@@ -106,7 +102,6 @@
     <ROW Name="AI_APPPATH_PERBUILD_System.Data.SQLite.EF6.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.EF6.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.EF6.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_System.Data.SQLite.Linq.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.Linq.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.Linq.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_System.Data.SQLite.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SQLite.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SQLite.dll]" Type="2" Content="0"/>
-    <ROW Name="AI_APPPATH_PERBUILD_Warsztat.db" Path="[|AI_PROPPATH_DIR_PERBUILD_Warsztat.db]\[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.db]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Warsztat.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_Warsztat.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Warsztat.exe.config" Path="[|AI_PROPPATH_DIR_PERBUILD_Warsztat.exe.config]\[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.exe.config]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Warsztat.pdb" Path="[|AI_PROPPATH_DIR_PERBUILD_Warsztat.pdb]\[|AI_PROPPATH_FILENAME_PERBUILD_Warsztat.pdb]" Type="2" Content="0"/>
@@ -194,7 +189,6 @@
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
     <ROW Feature_="MainFeature" Component_="ProductInformation"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_PrimaryOutput"/>
-    <ROW Feature_="MainFeature" Component_="Warsztat_ContentOutput"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_SymbolsOutput"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_ContentOutput_x64"/>
     <ROW Feature_="MainFeature" Component_="Warsztat_ContentOutput_x86"/>
@@ -233,8 +227,8 @@
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="UninstallProductNameProductVersion" Directory_="Warsztat_Dir" Name="UNINST~1.0|Uninstall [|ProductName] [|ProductVersion]" Component_="Warsztat_ContentOutput" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1" WkDir="Warsztat_Dir"/>
-    <ROW Shortcut="Warsztat" Directory_="DesktopFolder" Name="Warsztat" Component_="Warsztat_ContentOutput" Target="[APPDIR]Warsztat\Warsztat.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Warsztat_Dir" CustomFlags="2"/>
+    <ROW Shortcut="UninstallProductNameProductVersion" Directory_="Warsztat_Dir" Name="UNINST~1.0|Uninstall [|ProductName] [|ProductVersion]" Component_="APPDIR" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1" WkDir="Warsztat_Dir"/>
+    <ROW Shortcut="Warsztat" Directory_="DesktopFolder" Name="Warsztat" Component_="APPDIR" Target="[APPDIR]Warsztat\Warsztat.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="Warsztat_Dir" CustomFlags="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="classic"/>
@@ -255,7 +249,6 @@
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Spire.License.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Spire.Pdf.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="References" OutputFile="Microsoft.mshtml.dll"/>
-    <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="ContentOutput" OutputFile="Warsztat.db"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="ContentOutput" OutputFile="SQLite.Interop.dll"/>
     <ROW ProjectId="{4c4761d7-9a32-4275-9ae4-cbb27d1f8087}" ProjectName="Warsztat" OutputGroup="ContentOutput" OutputFile="SQLite.Interop.dll_1"/>
   </COMPONENT>

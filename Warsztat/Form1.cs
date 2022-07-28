@@ -1,41 +1,24 @@
 using System;
 using System.Windows.Forms;
 using System.Data.SQLite;
-using System.Reflection;
 using System.Diagnostics;
 
 namespace Warsztat
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
-        string ConnectionString = "Data Source=Warsztat.db;Version=3;New=False;Compress=True;";
-        public string Jazda;
-        public string Kluczyki;
-        public string Dokumenty;
-        public string nothing;
-
-        string jazda_;
-
-        int ID = 0;
-
-        Update Update = new Update();
+        Update update = new Update();
         Interface Interface = new Interface();
         Warsztat Warsztat = new Warsztat();
         PlanYourCar PlanYourCar = new PlanYourCar();
         GeneratePDF GeneratePDF = new GeneratePDF();
         InvoiceDB invoiceDB = new InvoiceDB();
 
-        SQLiteConnection sql_conn = new SQLiteConnection();
-        SQLiteCommand sql_cmd = new SQLiteCommand();
+        int ID;
 
         public Form1()
         {          
-            sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
-            InitializeComponent();
-            Warsztat.Load_DB(this);
-            PlanYourCar.Load(this);
-            invoiceDB.Load(this);
-
+            InitializeComponent();  
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -61,44 +44,44 @@ namespace Warsztat
 
         private void Button_Clear_Click(object sender, EventArgs e)
         {
-            Warsztat.Clear(this, ID);
+            Interface.Clear(this, ID);
             Button_Save.Enabled = true;
         }
 
         private void Button_Clear_OP_Click(object sender, EventArgs e)
         {
-            Warsztat.ClearPart(this, panel1.Controls);
-            YearOfProduction.Text = "";
+            Interface.ClearPart(this, panel1.Controls);
+            YearOfProduction.Text = string.Empty;
         }
 
         private void Button_Clear_Zlecenie_Klienta_Click(object sender, EventArgs e)
         {
-            txtZlecenie_Klienta.Text = "";
+            txtZlecenie_Klienta.Text = string.Empty;
         }
 
         private void Button_Clear_Diagnostyka_Click(object sender, EventArgs e)
         {
-            txtDiagostyka.Text = "";
+            txtDiagostyka.Text = string.Empty;
         }
 
         private void Button_Clear_DK_Click(object sender, EventArgs e)
         {
-            Warsztat.ClearPart(this, panel3.Controls);
-            TelefonKomurkowy.Text = "";
+            Interface.ClearPart(this, panel3.Controls);
+            TelefonKomurkowy.Text = string.Empty;
         }
 
         private void Button_Clear_Naprawa_Click(object sender, EventArgs e)
         {
-            txtNaprawa.Text = "";
+            txtNaprawa.Text = string.Empty;
         }
         private void Button_Clear_Zakupione_Czesci_Click(object sender, EventArgs e)
         {
-            txtZakupione_Czesci.Text = "";
+            txtZakupione_Czesci.Text = string.Empty;
         }
 
         private void Dane_Warsztat_DoubleClick(object sender, EventArgs e)
         {
-            Warsztat.ReadData(this,ID);
+            Warsztat.ReadData(this, ID);
             Work_Place.SelectTab(AddData);
             Button_Save.Enabled = false;
         }       
@@ -106,14 +89,12 @@ namespace Warsztat
         {
             try
             {
-                //Convert to number
                 ID = Convert.ToInt32(Dane_Warsztat.CurrentRow.Cells["ID_Column_Main"].Value.ToString());
-                Console.WriteLine(ID);
-                Warsztat.ReadData(this, ID);
+                Button_Delete.Enabled = Enabled;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Wybrana Kolumna jest pusta" + ex);
+                MessageBox.Show("Wybrana Kolumna jest pusta");
             }
         }
         
@@ -139,9 +120,9 @@ namespace Warsztat
    
         private void stwórzNowąTabelkęToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Update.Load_To_Copy_Old_Tabel(this);
-            Update.Create_New_DB();
-            Update.Load_To_Copy_NEW_Tabel(this);
+            update.Load_To_Copy_Old_Tabel(this);
+            update.Create_New_DB();
+            update.Load_To_Copy_NEW_Tabel(this);
         }
 
         private void OLD_Table_MouseClick(object sender, MouseEventArgs e)
@@ -151,50 +132,22 @@ namespace Warsztat
 
         private void kopjujToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql_conn.Open();
-            Update.Save_data_old(ID);
-            
-            sql_conn.Close();
-            Update.Load_To_Copy_NEW_Tabel(this);
-            Update.Load_To_Copy_Old_Tabel(this);
-            using (var sql_con = new SQLiteConnection(ConnectionString))
-            {
-                sql_con.Open();
-                try
-                {
-                    //Дані до опису Транспорту
-                    if (ID != 0)
-                    {
-                        sql_cmd = new SQLiteCommand("DELETE FROM Dane WHERE ID =@ID", sql_con);
-                        sql_cmd.Parameters.AddWithValue("@ID", ID);
-                        sql_cmd.ExecuteNonQuery();
-                        Warsztat.Clear(this, ID);
-                        Update.Load_To_Copy_Old_Tabel(this);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please Select Record to Delete");
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Nie udało się usunąć dane", "Warsztat");
-                }
-                sql_con.Close();
-            }
+            update.Save_data_old(ID);
+            update.Load_To_Copy_NEW_Tabel(this);
+            update.Load_To_Copy_Old_Tabel(this);
+            update.deleteData(this);
         }
                         
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Update.Delete();
+            update.Delete();
         }
 
         private void zakończToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            sql_conn = new SQLiteConnection("Data Source=Warsztat.db;Version=3;New=False;Compress=True;");
             try
             {
-                Update.Finish();               
+                update.Finish();               
             }
             catch
             {
@@ -220,7 +173,7 @@ namespace Warsztat
         private void Delete_Scheduled_Car_Click(object sender, EventArgs e)
         {
             PlanYourCar.Read_ID_Scheduled_Cars(ID);
-            Warsztat.Clear(this, ID);
+            Interface.Clear(this, ID);
             Load_Scheduled_Cars();
         }
 
@@ -238,14 +191,7 @@ namespace Warsztat
 
         private void stwórzTabelkęZaplanowaneSamochodyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Update.Create_Scheduled_Cars();
-            }
-            catch
-            {
-                MessageBox.Show("Tabelka zaplanowane samochody już dawno stworzona");
-            }
+            update.Create_Scheduled_Cars();
         }
 
         private void IDNadwozia_TextChanged(object sender, EventArgs e)
@@ -260,7 +206,7 @@ namespace Warsztat
 
         private void Scheduled_Cars_View_DoubleClick(object sender, EventArgs e)
         {
-            Warsztat.Clear(this, ID);
+            Interface.Clear(this, ID);
             PlanYourCar.ReadData(this, ID);
             Work_Place.SelectTab(AddData);
             Button_Save.Enabled = true;
@@ -300,7 +246,11 @@ namespace Warsztat
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
+            Warsztat.Load_DB(this);
+            PlanYourCar.Load(this);
+            invoiceDB.Load(this);
+
             Interface.Load_Data_Localize(this);
 
             Interface.BodyNumberVerify(this);
@@ -366,7 +316,7 @@ namespace Warsztat
 
         private void stwórzTabelkęFakturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Update.Create_Faktura();
+            update.Create_Faktura();
         }
 
         private void FakturaNrlng_MouseClick(object sender, MouseEventArgs e)

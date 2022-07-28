@@ -16,10 +16,9 @@ namespace Warsztat
         Interface Interface = new Interface();
         Warsztat Warsztat = new Warsztat();
 
-        int id;
-        int ID;
+        int ID, id;
 
-        string pay;
+        string  InvoiceNR;
 
         #region Function
         //create a Invoice Number
@@ -34,13 +33,13 @@ namespace Warsztat
             if (actualYear == newYear)
             {
                 id++;
-                string InvoiceNR = id + "/" + newYear;
+                InvoiceNR = id + "/" + newYear;
                 form.FakturaNrtxt.Text = InvoiceNR;
             }
             else
             {
                 id = 0;
-                string InvoiceNR = id + "/" + newYear;
+                InvoiceNR = id + "/" + newYear;
                 form.FakturaNrtxt.Text = InvoiceNR;
             }
         }
@@ -48,24 +47,23 @@ namespace Warsztat
         //Load data from DB
         public void Load(Form1 form)
         {
-
-                try
-                {
-                    conn.Open();
-                    cmd = conn.CreateCommand();
-                    string Load = "SELECT ID, FakturaNr, Name, NIP, Adres, Usluga1, Usluga2, Usluga3, Usluga4, " +
-                        "KosztUslugi1, KosztUslugi2, KosztUslugi3, KosztUslugi4, CenaKoncowa, SposobPlatnosci, Konto, Bank, TerminZaplaty FROM Faktura";
-                    DB = new SQLiteDataAdapter(Load, conn);
-                    DS.Reset();
-                    DB.Fill(DS);
-                    DT = DS.Tables[0];
-                    form.InvoiceDataGridView.DataSource = DT;
-                    conn.Close();                                   
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error" + ex);
-                }
+            try
+            {
+                conn.Open();
+                cmd = conn.CreateCommand();
+                string Load = "SELECT ID, FakturaNr, Name, NIP, Adres, Usluga1, Usluga2, Usluga3, Usluga4, " +
+                    "KosztUslugi1, KosztUslugi2, KosztUslugi3, KosztUslugi4, CenaKoncowa, SposobPlatnosci, Konto, Bank, TerminZaplaty FROM Faktura";
+                DB = new SQLiteDataAdapter(Load, conn);
+                DS.Reset();
+                DB.Fill(DS);
+                DT = DS.Tables[0];
+                form.InvoiceDataGridView.DataSource = DT;
+                conn.Close();                                   
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex);
+            }
 
             //hide unnecessary data
             form.InvoiceDataGridView.Columns["ID_Invoice"].Visible = false;
@@ -231,12 +229,11 @@ namespace Warsztat
                     cmd = new SQLiteCommand("DELETE FROM Faktura WHERE ID =@ID", conn);
                     cmd.Parameters.AddWithValue("@ID", ID);
                     cmd.ExecuteNonQuery();
-                    Warsztat.ClearPart(form, form.panel11.Controls);
-                    Warsztat.ClearPart(form, form.panel10.Controls);
-                    Warsztat.ClearPart(form, form.panel12.Controls);
-                    Warsztat.ClearPart(form, form.panel9.Controls);
+                    Interface.ClearPart(form, form.panel11.Controls);
+                    Interface.ClearPart(form, form.panel10.Controls);
+                    Interface.ClearPart(form, form.panel12.Controls);
+                    Interface.ClearPart(form, form.panel9.Controls);
                 }
-
                 else
                 {
                     MessageBox.Show("Proszę wybrać kolumnę do Usunięcia");
